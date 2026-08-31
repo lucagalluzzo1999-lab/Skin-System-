@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il tuo quiz della pelle — Skin System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage:      #4A7C6B;
+  --sage-dark: #2E5448;
+  --sage-light:#7EB3A0;
+  --sage-faint:#EAF2EF;
+  --sand:      #C8A97E;
+  --sand-light:#E8D5B5;
+  --sand-faint:#FAF6EF;
+  --ink:       #111820;
+  --ink-2:     #1E2A36;
+  --mid:       #4A5568;
+  --muted:     #7B8794;
+  --border:    rgba(17,24,32,0.10);
+  --white:     #FFFFFF;
+  --off-white: #F9F8F5;
+  --display:   'DM Serif Display', serif;
+  --sans:      'DM Sans', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+  --radius:    8px;
+  --shadow-lg: 0 24px 64px rgba(17,24,32,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans);
+  background: linear-gradient(160deg, var(--off-white) 0%, var(--sage-faint) 100%);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.logo {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); display: inline-block; }
+.back-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.wrap { max-width: 640px; margin: 0 auto; padding: 20px 24px 60px; }
+
+.quiz-box {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 40px 36px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+@media(max-width: 640px) {
+  .quiz-box { padding: 28px 22px; border-radius: 16px; }
+  .wrap { padding: 12px 16px 40px; }
+}
+
+.quiz-progress { display: flex; gap: 6px; margin-bottom: 32px; }
+.quiz-progress .bar { height: 4px; flex: 1; background: var(--border); border-radius: 4px; overflow: hidden; }
+.quiz-progress .bar.done { background: var(--sage); }
+.quiz-progress .bar.active { background: linear-gradient(90deg, var(--sage) 60%, var(--border) 60%); }
+
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 14px;
+  display: block;
+}
+.quiz-step h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--ink-2);
+  line-height: 1.35;
+  margin-bottom: 26px;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 12px; }
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--off-white);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.quiz-option:hover { border-color: var(--sage-light); background: var(--sage-faint); }
+.quiz-option.selected { border-color: var(--sage); background: var(--sage-faint); color: var(--sage-dark); }
+
+.quiz-back {
+  margin-top: 22px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.quiz-analyzing { text-align: center; padding: 20px 0 8px; }
+.quiz-spinner {
+  width: 42px; height: 42px; border-radius: 50%; margin: 0 auto 22px;
+  border: 3px solid var(--border); border-top-color: var(--sage);
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.quiz-analyzing h2 { font-size: 1.25rem; margin-bottom: 8px; }
+.quiz-analyzing p { color: var(--muted); font-size: 14px; }
+.analyzing-line { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 16px; min-height: 18px; }
+
+.result-badge {
+  display: inline-block;
+  background: var(--sage-faint);
+  color: var(--sage-dark);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.result-guide-name {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+.diagnosis-block {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.diagnosis-block .tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sage);
+  margin-bottom: 8px;
+}
+.diagnosis-block p { font-size: 14.5px; color: var(--ink); line-height: 1.6; }
+.result-price {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  color: var(--sage-dark);
+  margin: 22px 0 18px;
+}
+.btn {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 26px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.btn-primary { background: var(--sage); color: var(--white); }
+.btn-primary:hover { background: var(--sage-dark); }
+.btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--ink); margin-top: 10px; }
+.btn-ghost:hover { border-color: var(--sage); color: var(--sage); }
+.quiz-restart { margin-top: 6px; text-align: center; }
+
+.waitlist-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.55;
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html" class="logo">Skin<span class="logo-dot"></span>System</a>
+  <a href="index.html" class="back-link">← Torna al sito</a>
+</div>
+
+<div class="wrap">
+  <div class="quiz-box">
+
+    <div class="quiz-progress">
+      <div class="bar active" data-bar="1"></div>
+      <div class="bar" data-bar="2"></div>
+      <div class="bar" data-bar="3"></div>
+      <div class="bar" data-bar="4"></div>
+      <div class="bar" data-bar="5"></div>
+      <div class="bar" data-bar="6"></div>
+    </div>
+
+    <div class="quiz-step active" data-step="1">
+      <span class="eyebrow">Domanda 1 di 6</span>
+      <h2>Un paio d'ore dopo aver lavato il viso, senza applicare nulla, come appare?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q1" data-v="a">Lucido su tutto il viso, quasi "oleoso"</button>
+        <button class="quiz-option" data-q="q1" data-v="b">Lucido solo su fronte, naso e mento</button>
+        <button class="quiz-option" data-q="q1" data-v="c">Né lucido né secco</button>
+        <button class="quiz-option" data-q="q1" data-v="d">Opaco, a volte tira già da solo</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="2">
+      <span class="eyebrow">Domanda 2 di 6</span>
+      <h2>Come sono i tuoi pori, soprattutto su naso e guance?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q2" data-v="a">Molto visibili, su tutto il viso</button>
+        <button class="quiz-option" data-q="q2" data-v="b">Visibili solo su naso e fronte</button>
+        <button class="quiz-option" data-q="q2" data-v="c">Poco visibili</button>
+      </div>
+      <button class="quiz-back" data-back="1">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="3">
+      <span class="eyebrow">Domanda 3 di 6</span>
+      <h2>Con che frequenza hai brufoli o punti neri?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q3" data-v="a">Quasi sempre, in più zone</button>
+        <button class="quiz-option" data-q="q3" data-v="b">Ogni tanto, soprattutto sotto stress</button>
+        <button class="quiz-option" data-q="q3" data-v="c">Raramente o mai</button>
+      </div>
+      <button class="quiz-back" data-back="2">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="4">
+      <span class="eyebrow">Domanda 4 di 6</span>
+      <h2>Qualche ora dopo la doccia, senza creme, come si sente la pelle?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q4" data-v="a">A suo agio, per niente tirata</button>
+        <button class="quiz-option" data-q="q4" data-v="b">Leggermente tirata</button>
+        <button class="quiz-option" data-q="q4" data-v="c">Tira parecchio, a volte si sfoglia</button>
+      </div>
+      <button class="quiz-back" data-back="3">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="5">
+      <span class="eyebrow">Domanda 5 di 6</span>
+      <h2>Come reagisce la tua pelle dopo la rasatura?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q5" data-v="a">Nessun problema particolare</button>
+        <button class="quiz-option" data-q="q5" data-v="b">Un po' di rossore che passa in fretta</button>
+        <button class="quiz-option" data-q="q5" data-v="c">Bruciore, irritazione o peli incarniti frequenti</button>
+      </div>
+      <button class="quiz-back" data-back="4">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="6">
+      <span class="eyebrow">Domanda 6 di 6</span>
+      <h2>Se potessi risolvere una sola cosa della tua pelle, quale sarebbe?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q6" data-v="acne">Brufoli e imperfezioni</button>
+        <button class="quiz-option" data-q="q6" data-v="opacita">Tono spento, pelle poco luminosa</button>
+        <button class="quiz-option" data-q="q6" data-v="rughe">Prime rughe o perdita di tono</button>
+        <button class="quiz-option" data-q="q6" data-v="rasatura">Irritazione o rossori da rasatura</button>
+        <button class="quiz-option" data-q="q6" data-v="pori">Pori dilatati e texture irregolare</button>
+      </div>
+      <button class="quiz-back" data-back="5">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="analyzing">
+      <div class="quiz-analyzing">
+        <div class="quiz-spinner"></div>
+        <h2>Stiamo analizzando le tue risposte</h2>
+        <p>Incrociamo i dati per identificare il tuo profilo pelle.</p>
+        <div class="analyzing-line" id="analyzing-line">Valutazione della produzione di sebo…</div>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="result">
+      <span class="result-badge" id="result-skintype">Pelle grassa</span>
+      <div class="result-guide-name" id="result-guide-name">La tua guida consigliata</div>
+
+      <div class="diagnosis-block">
+        <div class="tag">Il problema</div>
+        <p id="result-problem"></p>
+      </div>
+      <div class="diagnosis-block">
+        <div class="tag">La soluzione</div>
+        <p id="result-solution"></p>
+      </div>
+
+      <div class="result-price" id="result-price"></div>
+      <a href="index.html#guide" class="btn btn-primary" id="result-cta">Sblocca la tua guida</a>
+      <a href="index.html#prezzo" class="btn btn-ghost">Vedi il pacchetto completo (19,90€)</a>
+      <div class="waitlist-note" id="waitlist-note" style="display:none;"></div>
+      <div class="quiz-restart">
+        <button class="quiz-back" data-restart="1">Rifai il quiz</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const answers = {};
+  const steps = document.querySelectorAll('.quiz-step');
+  const bars = document.querySelectorAll('.quiz-progress .bar');
+  const order = ['q1','q2','q3','q4','q5','q6'];
+
+  function showStep(n){
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
+    bars.forEach(b => {
+      const i = Number(b.dataset.bar);
+      if(!i) return;
+      b.classList.remove('active','done');
+      if(typeof n === 'number' && i < n) b.classList.add('done');
+      else if(n === 'analyzing' || n === 'result') b.classList.add('done');
+      else if(i === n) b.classList.add('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = btn.dataset.q;
+      const v = btn.dataset.v;
+      answers[q] = v;
+      document.querySelectorAll('[data-q="'+q+'"]').forEach(o => o.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      setTimeout(() => {
+        const idx = order.indexOf(q);
+        if(idx < order.length - 1){
+          showStep(idx + 2);
+        } else {
+          runAnalysis();
+        }
+      }, 200);
+    });
+  });
+
+  document.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => showStep(Number(btn.dataset.back)));
+  });
+
+  document.querySelectorAll('[data-restart]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      showStep(1);
+    });
+  });
+
+  function runAnalysis(){
+    showStep('analyzing');
+    const lines = [
+      'Valutazione della produzione di sebo…',
+      'Analisi di pori e imperfezioni…',
+      'Controllo del livello di idratazione…',
+      'Identificazione del problema principale…'
+    ];
+    const el = document.getElementById('analyzing-line');
+    let i = 0;
+    const interval = setInterval(() => {
+      i = (i + 1) % lines.length;
+      el.textContent = lines[i];
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      renderResult();
+      showStep('result');
+    }, 1800);
+  }
+
+  function computeSkinTypeLabel(){
+    let oily = 0, dry = 0;
+    if(answers.q1 === 'a') oily += 2;
+    if(answers.q1 === 'b') oily += 1;
+    if(answers.q1 === 'd') dry += 2;
+    if(answers.q2 === 'a') oily += 2;
+    if(answers.q2 === 'b') oily += 1;
+    if(answers.q2 === 'c') dry += 1;
+    if(answers.q3 === 'a') oily += 2;
+    if(answers.q3 === 'b') oily += 1;
+    if(answers.q4 === 'b') dry += 1;
+    if(answers.q4 === 'c') dry += 2;
+
+    if(oily >= dry + 2) return 'Pelle grassa';
+    if(dry >= oily + 2) return 'Pelle secca';
+    if(oily > 0 && dry > 0) return 'Pelle mista';
+    return 'Pelle normale';
+  }
+
+  // Le 5 priorità della domanda 6 mappano 1 a 1 sulle 5 guide reali —
+  // nessun risultato "orfano": qualunque cosa risponda l'utente, esiste
+  // sempre una guida pronta da proporre.
+  const GUIDES = {
+    acne: {
+      name: 'Pelle grassa e acne',
+      problem: 'Sebo in eccesso e pori dilatati favoriscono la comparsa di punti neri e brufoli ricorrenti, soprattutto in zona T.',
+      solution: 'Una routine che regola il sebo senza seccare la pelle, con niacinamide e acido salicilico applicati nell\'ordine giusto — esattamente il percorso di questa guida.',
+      price: '7,90€'
+    },
+    opacita: {
+      name: 'Pelle spenta e opaca',
+      problem: 'Il tono irregolare e l\'aspetto poco luminoso dipendono spesso da un accumulo di cellule morte in superficie e da poca protezione solare.',
+      solution: 'Vitamina C, esfoliazione leggera e SPF quotidiano per ritrovare uniformità e luminosità in poche settimane.',
+      price: '7,90€'
+    },
+    rughe: {
+      name: 'Primi segni di invecchiamento',
+      problem: 'Le prime linee sottili e la perdita di tono sono legate al rallentamento del rinnovamento cellulare e all\'esposizione solare non protetta.',
+      solution: 'Retinolo introdotto gradualmente, vitamina C al mattino e SPF sempre: la sequenza corretta per rallentare i segni del tempo senza irritare la pelle.',
+      price: '7,90€'
+    },
+    rasatura: {
+      name: 'Pelle irritata da rasatura',
+      problem: 'Rossore, bruciore o peli incarniti dopo la rasatura dipendono quasi sempre da tecnica, lametta e prodotti usati, non da un problema di pelle in sé.',
+      solution: 'Routine pre e post rasatura corretta, più un trattamento mirato sui peli incarniti, per rendere la rasatura un gesto senza conseguenze.',
+      price: '7,90€'
+    },
+    pori: {
+      name: 'Pori dilatati e texture',
+      problem: 'Pori più visibili e una texture irregolare sono spesso legati a un eccesso di sebo localizzato e a un ricambio cellulare lento.',
+      solution: 'Un percorso con retinolo e BHA nell\'ordine corretto, pensato per affinare la texture nel tempo senza irritare la pelle.',
+      price: '7,90€'
+    }
+  };
+
+  function renderResult(){
+    const skinType = computeSkinTypeLabel();
+    const guide = GUIDES[answers.q6] || GUIDES.acne;
+
+    document.getElementById('result-skintype').textContent = skinType;
+    document.getElementById('result-guide-name').textContent = guide.name;
+    document.getElementById('result-problem').textContent = guide.problem;
+    document.getElementById('result-solution').textContent = guide.solution;
+    document.getElementById('result-price').textContent = guide.price;
+    document.getElementById('result-cta').textContent = 'Sblocca la tua guida — ' + guide.name;
+
+    const note = document.getElementById('waitlist-note');
+    note.style.display = 'none';
+  }
+})();
+</script>
+</body>
+</html>
