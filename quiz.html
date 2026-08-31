@@ -325,7 +325,7 @@ a { color: inherit; text-decoration: none; }
       </div>
 
       <div class="result-price" id="result-price"></div>
-      <a href="index.html#guide" class="btn btn-primary" id="result-cta">Sblocca la tua guida</a>
+      <a href="index.html#guide" class="btn btn-primary" id="result-cta" target="_blank">Sblocca la tua guida</a>
       <a href="index.html#prezzo" class="btn btn-ghost">Vedi il pacchetto completo (19,90€)</a>
       <div class="waitlist-note" id="waitlist-note" style="display:none;"></div>
       <div class="quiz-restart">
@@ -472,31 +472,36 @@ a { color: inherit; text-decoration: none; }
       name: 'Pelle grassa e acne',
       problem: 'Sebo in eccesso e pori dilatati favoriscono la comparsa di punti neri e brufoli ricorrenti, soprattutto in zona T.',
       solution: 'Una routine che regola il sebo senza seccare la pelle, con niacinamide e acido salicilico applicati nell\'ordine giusto — esattamente il percorso di questa guida.',
-      price: '7,90€'
+      price: '7,90€',
+      file: '01-pelle-grassa-e-acne.pdf'
     },
     opacita: {
       name: 'Pelle spenta e opaca',
       problem: 'Il tono irregolare e l\'aspetto poco luminoso dipendono spesso da un accumulo di cellule morte in superficie e da poca protezione solare.',
       solution: 'Vitamina C, esfoliazione leggera e SPF quotidiano per ritrovare uniformità e luminosità in poche settimane.',
-      price: '7,90€'
+      price: '7,90€',
+      file: '04-pelle-spenta.pdf'
     },
     rughe: {
       name: 'Primi segni di invecchiamento',
       problem: 'Le prime linee sottili e la perdita di tono sono legate al rallentamento del rinnovamento cellulare e all\'esposizione solare non protetta.',
       solution: 'Retinolo introdotto gradualmente, vitamina C al mattino e SPF sempre: la sequenza corretta per rallentare i segni del tempo senza irritare la pelle.',
-      price: '7,90€'
+      price: '7,90€',
+      file: '02-primi-segni-di-invecchiamento.pdf'
     },
     rasatura: {
       name: 'Pelle irritata da rasatura',
       problem: 'Rossore, bruciore o peli incarniti dopo la rasatura dipendono quasi sempre da tecnica, lametta e prodotti usati, non da un problema di pelle in sé.',
       solution: 'Routine pre e post rasatura corretta, più un trattamento mirato sui peli incarniti, per rendere la rasatura un gesto senza conseguenze.',
-      price: '7,90€'
+      price: '7,90€',
+      file: '03-pelle-irritata-da-rasatura.pdf'
     },
     pori: {
       name: 'Pori dilatati e texture',
       problem: 'Pori più visibili e una texture irregolare sono spesso legati a un eccesso di sebo localizzato e a un ricambio cellulare lento.',
       solution: 'Un percorso con retinolo e BHA nell\'ordine corretto, pensato per affinare la texture nel tempo senza irritare la pelle.',
-      price: '7,90€'
+      price: '7,90€',
+      file: '05-pori-dilatati-e-texture.pdf'
     }
   };
 
@@ -511,7 +516,10 @@ a { color: inherit; text-decoration: none; }
     document.getElementById('result-problem').textContent = guide.problem;
     document.getElementById('result-solution').textContent = guide.solution;
     document.getElementById('result-price').textContent = guide.price;
-    document.getElementById('result-cta').textContent = 'Sblocca la tua guida — ' + guide.name;
+
+    const cta = document.getElementById('result-cta');
+    cta.textContent = 'Sblocca la tua guida — ' + guide.name;
+    cta.href = guide.file;
 
     const note = document.getElementById('waitlist-note');
     note.style.display = 'none';
