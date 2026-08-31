@@ -2310,7 +2310,7 @@ analyzeBtn.addEventListener("click", async () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
+        model: "claude-sonnet-5",
         max_tokens: 1000,
         messages: [{
           role: "user",
@@ -2337,6 +2337,9 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
     });
 
     const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error?.message || `Errore ${response.status}`);
+    }
     const text = data.content?.find(b => b.type === "text")?.text || "";
     let parsed;
     try {
@@ -2374,7 +2377,7 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
   } catch (err) {
     previewOverlay.style.display = "none";
     scanResult.style.display = "block";
-    scanZones.innerHTML = `<div style="color:var(--muted);font-size:13px;">Errore durante l'analisi. Riprova.</div>`;
+    scanZones.innerHTML = `<div style="color:var(--muted);font-size:13px;">⚠ ${err.message || "Errore durante l'analisi. Riprova."}</div>`;
   }
 
   analyzeBtn.disabled = false;
@@ -2402,7 +2405,7 @@ ingredientBtn.addEventListener("click", async () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
+        model: "claude-sonnet-5",
         max_tokens: 1000,
         messages: [{
           role: "user",
@@ -2411,12 +2414,15 @@ ingredientBtn.addEventListener("click", async () => {
       })
     });
     const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.error?.message || `Errore ${res.status}`);
+    }
     const text = data.content?.find(b => b.type === "text")?.text || "Nessuna risposta.";
     ingredientResult.className = "ingredient-result";
     ingredientResult.textContent = text;
-  } catch {
+  } catch (err) {
     ingredientResult.className = "ingredient-result";
-    ingredientResult.textContent = "Errore di connessione. Riprova tra qualche istante.";
+    ingredientResult.textContent = "⚠ " + (err.message || "Errore di connessione. Riprova tra qualche istante.");
   }
 
   ingredientBtn.disabled = false;
