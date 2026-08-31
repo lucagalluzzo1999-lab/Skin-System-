@@ -408,28 +408,65 @@ a { color: inherit; text-decoration: none; }
     }, 1800);
   }
 
-  function computeSkinTypeLabel(){
-    let oily = 0, dry = 0;
+  function computeSignals(){
+    let oily = 0, dry = 0, pores = 0, breakouts = 0, shave = 0;
+
     if(answers.q1 === 'a') oily += 2;
     if(answers.q1 === 'b') oily += 1;
     if(answers.q1 === 'd') dry += 2;
-    if(answers.q2 === 'a') oily += 2;
-    if(answers.q2 === 'b') oily += 1;
+
+    if(answers.q2 === 'a') { oily += 2; pores += 2; }
+    if(answers.q2 === 'b') { oily += 1; pores += 1; }
     if(answers.q2 === 'c') dry += 1;
-    if(answers.q3 === 'a') oily += 2;
-    if(answers.q3 === 'b') oily += 1;
+
+    if(answers.q3 === 'a') { oily += 2; breakouts += 2; }
+    if(answers.q3 === 'b') { oily += 1; breakouts += 1; }
+
     if(answers.q4 === 'b') dry += 1;
     if(answers.q4 === 'c') dry += 2;
 
+    if(answers.q5 === 'b') shave += 1;
+    if(answers.q5 === 'c') shave += 3;
+
+    return { oily, dry, pores, breakouts, shave };
+  }
+
+  function computeSkinTypeLabel(signals){
+    const { oily, dry } = signals;
     if(oily >= dry + 2) return 'Pelle grassa';
     if(dry >= oily + 2) return 'Pelle secca';
     if(oily > 0 && dry > 0) return 'Pelle mista';
     return 'Pelle normale';
   }
 
-  // Le 5 priorità della domanda 6 mappano 1 a 1 sulle 5 guide reali —
-  // nessun risultato "orfano": qualunque cosa risponda l'utente, esiste
-  // sempre una guida pronta da proporre.
+  // Ogni risposta contribuisce a un punteggio per le 5 guide, non solo
+  // la domanda 6: la priorità dichiarata pesa di più (+5), ma segnali
+  // forti dalle altre risposte (sebo, brufoli, pori, rasatura) possono
+  // comunque far vincere una guida diversa da quella scelta per ultima.
+  function scoreGuides(signals){
+    const priority = answers.q6;
+    const PRIORITY_WEIGHT = 5;
+
+    const scores = {
+      acne:     signals.oily * 1.0 + signals.breakouts * 1.5,
+      pori:     signals.pores * 1.5 + signals.oily * 0.5,
+      rasatura: signals.shave * 2,
+      opacita:  signals.dry * 1.0 + 1,   // nessuna domanda dedicata: piccolo margine base
+      rughe:    0.5,                     // idem: si affida di più alla priorità dichiarata
+    };
+
+    if(priority && scores.hasOwnProperty(priority)){
+      scores[priority] += PRIORITY_WEIGHT;
+    }
+
+    let best = 'acne', bestScore = -Infinity;
+    Object.keys(scores).forEach(key => {
+      if(scores[key] > bestScore){ bestScore = scores[key]; best = key; }
+    });
+    return best;
+  }
+
+  // Le 5 guide reali disponibili.
   const GUIDES = {
     acne: {
       name: 'Pelle grassa e acne',
@@ -464,8 +501,10 @@ a { color: inherit; text-decoration: none; }
   };
 
   function renderResult(){
-    const skinType = computeSkinTypeLabel();
-    const guide = GUIDES[answers.q6] || GUIDES.acne;
+    const signals = computeSignals();
+    const skinType = computeSkinTypeLabel(signals);
+    const guideKey = scoreGuides(signals);
+    const guide = GUIDES[guideKey] || GUIDES.acne;
 
     document.getElementById('result-skintype').textContent = skinType;
     document.getElementById('result-guide-name').textContent = guide.name;
