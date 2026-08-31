@@ -1451,7 +1451,7 @@ footer {
             </button>
             <div class="nav-dropdown-menu">
               <a href="#come-funziona">Il quiz della pelle<span>2 minuti, gratis</span></a>
-              <a href="#ai-scan">Scan AI del viso<span>Analisi con intelligenza artificiale</span></a>
+              <a href="#scanCard" class="js-scan-cta">Scan AI del viso<span>Analisi con intelligenza artificiale</span></a>
               <a href="#tipi-pelle">Tipi di pelle<span>Scopri il tuo profilo</span></a>
             </div>
           </div>
@@ -1490,7 +1490,7 @@ footer {
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#come-funziona">Come funziona</a>
-  <a href="#ai-scan">Scan AI del viso</a>
+  <a href="#scanCard" class="js-scan-cta">Scan AI del viso</a>
   <a href="#guide">Le guide</a>
   <a href="#routine">Routine di esempio</a>
   <a href="#prezzo">Prezzi</a>
@@ -1515,7 +1515,7 @@ footer {
         <p class="hero-sub">Scan AI del viso, quiz clinico, ingredienti attivi spiegati bene. Non un'altra lista di prodotti — un sistema personalizzato per il tuo problema specifico.</p>
         <div class="cta-row">
           <a href="quiz.html" class="btn btn-primary btn-lg">Fai il quiz gratuito</a>
-          <a href="#ai-scan" class="btn btn-ghost btn-lg">Prova lo Scan AI</a>
+          <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Prova lo Scan AI</a>
         </div>
         <div class="trust-badges">
           <span class="trust-badge">Risultato immediato</span>
@@ -1527,7 +1527,7 @@ footer {
 
       <!-- Face Map + AI Scan Card -->
       <div>
-        <div class="ai-scan-card">
+        <div class="ai-scan-card" id="scanCard">
           <div class="ai-scan-header">
             <div class="ai-scan-title">Analizzatore pelle</div>
             <div class="ai-status">
@@ -2177,7 +2177,7 @@ footer {
       <div>
         <div class="footer-col-title">Strumenti</div>
         <ul class="footer-links-list">
-          <li><a href="#ai-scan">Scan AI del viso</a></li>
+          <li><a href="#scanCard" class="js-scan-cta">Scan AI del viso</a></li>
           <li><a href="#ingredienti">Scanner ingredienti</a></li>
           <li><a href="#tipi-pelle">Tipi di pelle</a></li>
           <li><a href="#routine">Routine di esempio</a></li>
@@ -2508,6 +2508,11 @@ document.querySelectorAll(".skin-type-card").forEach(card => {
     detail.classList.add("show");
     detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
+});
+
+// ── "Prova lo Scan AI" apre subito la scheda upload, non solo la card ──
+document.getElementById('tryScanBtn')?.addEventListener('click', () => {
+  document.querySelector('.scan-tab[data-tab="upload"]')?.click();
 });
 
 // ── Scroll reveal ──
