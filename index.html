@@ -2214,6 +2214,13 @@ footer {
 </footer>
 
 <script>
+// ── Evita che il browser riapra la pagina scrollata a metà, ricordando
+// la posizione da una visita precedente (successo dopo aver visitato
+// quiz.html o un PDF e poi tornati indietro) ──
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
 // ── Zone face map ──
 const zoneNames = {
   fronte:    "Pelle spenta — Zona fronte",
