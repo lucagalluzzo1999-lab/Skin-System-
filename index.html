@@ -656,6 +656,12 @@ h2 {
   border-radius: 12px;
   padding: 20px;
 }
+.ai-scan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
 .ingredient-input-wrap {
   display: flex;
   gap: 10px;
@@ -1405,6 +1411,7 @@ footer {
 @media(max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
   .ai-scan-card { max-width: 420px; margin: 0 auto; }
+  .ai-scan-grid { grid-template-columns: 1fr; gap: 28px; }
   .steps { grid-template-columns: 1fr; }
   .skin-type-grid { grid-template-columns: repeat(2, 1fr); }
   .before-after-grid { grid-template-columns: 1fr; }
@@ -1757,7 +1764,7 @@ footer {
       <h2>Scan AI del viso<br>in 30 secondi</h2>
       <p class="section-desc">Carica una foto in buona luce e il nostro sistema AI analizza le principali zone problematiche, suggerendo il tipo di guida più adatta al tuo caso.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+    <div class="ai-scan-grid">
       <div class="reveal">
         <div class="why-card" style="margin-bottom:16px;">
           <span class="why-mark">Senza AI</span>
@@ -2510,9 +2517,15 @@ document.querySelectorAll(".skin-type-card").forEach(card => {
   });
 });
 
-// ── "Prova lo Scan AI" apre subito la scheda upload, non solo la card ──
-document.getElementById('tryScanBtn')?.addEventListener('click', () => {
-  document.querySelector('.scan-tab[data-tab="upload"]')?.click();
+// ── "Prova lo Scan AI" (in hero, menu, menu mobile, footer) apre subito
+// la scheda upload della card in alto, invece di scorrere a una sezione diversa ──
+document.querySelectorAll('.js-scan-cta').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('scanCard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.scan-tab[data-tab="upload"]')?.click();
+    document.getElementById('mobileMenu')?.classList.remove('open');
+  });
 });
 
 // ── Scroll reveal ──
