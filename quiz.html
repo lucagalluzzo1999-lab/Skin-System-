@@ -232,10 +232,11 @@ a { color: inherit; text-decoration: none; }
       <div class="bar" data-bar="4"></div>
       <div class="bar" data-bar="5"></div>
       <div class="bar" data-bar="6"></div>
+      <div class="bar" data-bar="7"></div>
     </div>
 
     <div class="quiz-step active" data-step="1">
-      <span class="eyebrow">Domanda 1 di 6</span>
+      <span class="eyebrow">Domanda 1 di 7</span>
       <h2>Un paio d'ore dopo aver lavato il viso, senza applicare nulla, come appare?</h2>
       <div class="quiz-options">
         <button class="quiz-option" data-q="q1" data-v="a">Lucido su tutto il viso, quasi "oleoso"</button>
@@ -246,7 +247,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="quiz-step" data-step="2">
-      <span class="eyebrow">Domanda 2 di 6</span>
+      <span class="eyebrow">Domanda 2 di 7</span>
       <h2>Come sono i tuoi pori, soprattutto su naso e guance?</h2>
       <div class="quiz-options">
         <button class="quiz-option" data-q="q2" data-v="a">Molto visibili, su tutto il viso</button>
@@ -257,7 +258,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="quiz-step" data-step="3">
-      <span class="eyebrow">Domanda 3 di 6</span>
+      <span class="eyebrow">Domanda 3 di 7</span>
       <h2>Con che frequenza hai brufoli o punti neri?</h2>
       <div class="quiz-options">
         <button class="quiz-option" data-q="q3" data-v="a">Quasi sempre, in più zone</button>
@@ -268,7 +269,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="quiz-step" data-step="4">
-      <span class="eyebrow">Domanda 4 di 6</span>
+      <span class="eyebrow">Domanda 4 di 7</span>
       <h2>Qualche ora dopo la doccia, senza creme, come si sente la pelle?</h2>
       <div class="quiz-options">
         <button class="quiz-option" data-q="q4" data-v="a">A suo agio, per niente tirata</button>
@@ -279,7 +280,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="quiz-step" data-step="5">
-      <span class="eyebrow">Domanda 5 di 6</span>
+      <span class="eyebrow">Domanda 5 di 7</span>
       <h2>Come reagisce la tua pelle dopo la rasatura?</h2>
       <div class="quiz-options">
         <button class="quiz-option" data-q="q5" data-v="a">Nessun problema particolare</button>
@@ -290,16 +291,25 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="quiz-step" data-step="6">
-      <span class="eyebrow">Domanda 6 di 6</span>
-      <h2>Se potessi risolvere una sola cosa della tua pelle, quale sarebbe?</h2>
+      <span class="eyebrow">Domanda 6 di 7</span>
+      <h2>Guardandoti allo specchio la mattina, intorno agli occhi noti...</h2>
       <div class="quiz-options">
-        <button class="quiz-option" data-q="q6" data-v="acne">Brufoli e imperfezioni</button>
-        <button class="quiz-option" data-q="q6" data-v="opacita">Tono spento, pelle poco luminosa</button>
-        <button class="quiz-option" data-q="q6" data-v="rughe">Prime rughe o perdita di tono</button>
-        <button class="quiz-option" data-q="q6" data-v="rasatura">Irritazione o rossori da rasatura</button>
-        <button class="quiz-option" data-q="q6" data-v="pori">Pori dilatati e texture irregolare</button>
+        <button class="quiz-option" data-q="q6" data-v="a">Pelle soda, nessuna linea visibile</button>
+        <button class="quiz-option" data-q="q6" data-v="b">Qualche linea sottile solo quando sorridi</button>
+        <button class="quiz-option" data-q="q6" data-v="c">Linee visibili anche a riposo, o meno elasticità di qualche anno fa</button>
       </div>
       <button class="quiz-back" data-back="5">← Torna indietro</button>
+    </div>
+
+    <div class="quiz-step" data-step="7">
+      <span class="eyebrow">Domanda 7 di 7</span>
+      <h2>Il colorito generale del tuo viso, anche dopo una buona notte di sonno, è...</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" data-q="q7" data-v="a">Uniforme e luminoso</button>
+        <button class="quiz-option" data-q="q7" data-v="b">Leggermente spento o irregolare</button>
+        <button class="quiz-option" data-q="q7" data-v="c">Spesso opaco o "stanco", indipendentemente dal riposo</button>
+      </div>
+      <button class="quiz-back" data-back="6">← Torna indietro</button>
     </div>
 
     <div class="quiz-step" data-step="analyzing">
@@ -337,11 +347,15 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <script>
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
 (function(){
   const answers = {};
   const steps = document.querySelectorAll('.quiz-step');
   const bars = document.querySelectorAll('.quiz-progress .bar');
-  const order = ['q1','q2','q3','q4','q5','q6'];
+  const order = ['q1','q2','q3','q4','q5','q6','q7'];
 
   function showStep(n){
     steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
@@ -409,7 +423,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   function computeSignals(){
-    let oily = 0, dry = 0, pores = 0, breakouts = 0, shave = 0;
+    let oily = 0, dry = 0, pores = 0, breakouts = 0, shave = 0, aging = 0, dull = 0;
 
     if(answers.q1 === 'a') oily += 2;
     if(answers.q1 === 'b') oily += 1;
@@ -428,7 +442,13 @@ a { color: inherit; text-decoration: none; }
     if(answers.q5 === 'b') shave += 1;
     if(answers.q5 === 'c') shave += 3;
 
-    return { oily, dry, pores, breakouts, shave };
+    if(answers.q6 === 'b') aging += 1;
+    if(answers.q6 === 'c') aging += 3;
+
+    if(answers.q7 === 'b') dull += 1;
+    if(answers.q7 === 'c') dull += 3;
+
+    return { oily, dry, pores, breakouts, shave, aging, dull };
   }
 
   function computeSkinTypeLabel(signals){
@@ -439,34 +459,30 @@ a { color: inherit; text-decoration: none; }
     return 'Pelle normale';
   }
 
-  // Ogni risposta contribuisce a un punteggio per le 5 guide, non solo
-  // la domanda 6: la priorità dichiarata pesa di più (+5), ma segnali
-  // forti dalle altre risposte (sebo, brufoli, pori, rasatura) possono
-  // comunque far vincere una guida diversa da quella scelta per ultima.
+  // Il quiz non chiede mai "qual è il tuo problema": ogni domanda osserva
+  // un segnale semplice (lucidità, pori, brufoli, secchezza, rasatura,
+  // linee sottili, tono della pelle) e il punteggio più alto tra le 6
+  // guide determina il risultato. Se nessun segnale è abbastanza forte,
+  // il risultato è la guida di mantenimento — perché non avere un
+  // problema specifico è un esito legittimo quanto averne uno.
   function scoreGuides(signals){
-    const priority = answers.q6;
-    const PRIORITY_WEIGHT = 5;
-
     const scores = {
-      acne:     signals.oily * 1.0 + signals.breakouts * 1.5,
-      pori:     signals.pores * 1.5 + signals.oily * 0.5,
-      rasatura: signals.shave * 2,
-      opacita:  signals.dry * 1.0 + 1,   // nessuna domanda dedicata: piccolo margine base
-      rughe:    0.5,                     // idem: si affida di più alla priorità dichiarata
+      acne:          signals.oily * 1.0 + signals.breakouts * 2.0,
+      pori:          signals.pores * 1.6 + signals.oily * 0.4,
+      rasatura:      signals.shave * 2.2,
+      rughe:         signals.aging * 2.2,
+      opacita:       signals.dull * 2.0 + signals.dry * 0.3,
+      mantenimento:  1.2, // soglia di base: vince solo se nessun altro segnale è abbastanza forte
     };
 
-    if(priority && scores.hasOwnProperty(priority)){
-      scores[priority] += PRIORITY_WEIGHT;
-    }
-
-    let best = 'acne', bestScore = -Infinity;
+    let best = 'mantenimento', bestScore = -Infinity;
     Object.keys(scores).forEach(key => {
       if(scores[key] > bestScore){ bestScore = scores[key]; best = key; }
     });
     return best;
   }
 
-  // Le 5 guide reali disponibili.
+  // Le 6 guide reali disponibili.
   const GUIDES = {
     acne: {
       name: 'Pelle grassa e acne',
@@ -502,6 +518,13 @@ a { color: inherit; text-decoration: none; }
       solution: 'Un percorso con retinolo e BHA nell\'ordine corretto, pensato per affinare la texture nel tempo senza irritare la pelle.',
       price: '7,90€',
       file: '05-pori-dilatati-e-texture.pdf'
+    },
+    mantenimento: {
+      name: 'Routine di mantenimento',
+      problem: 'Nessun segnale particolare emerge dalle tue risposte: la tua pelle sembra in un equilibrio sano, senza un problema specifico da correggere.',
+      solution: 'Una routine minima ma corretta — detersione, idratazione, SPF — pensata per mantenere questo equilibrio nel tempo e prevenire i problemi più comuni prima che si presentino.',
+      price: '7,90€',
+      file: '06-routine-di-mantenimento.pdf'
     }
   };
 
