@@ -6,13 +6,13 @@
 <title>Il tuo quiz della pelle — Skin System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --sage:      #4A7C6B;
-  --sage-dark: #2E5448;
-  --sage-light:#7EB3A0;
-  --sage-faint:#EAF2EF;
+  --clay:      #B5654A;
+  --clay-dark: #7C4530;
+  --clay-light:#D99A7C;
+  --clay-faint:#F7EAE2;
   --sand:      #C8A97E;
   --sand-light:#E8D5B5;
   --sand-faint:#FAF6EF;
@@ -23,9 +23,9 @@
   --border:    rgba(17,24,32,0.10);
   --white:     #FFFFFF;
   --off-white: #F9F8F5;
-  --display:   'DM Serif Display', serif;
-  --sans:      'DM Sans', sans-serif;
-  --mono:      'JetBrains Mono', monospace;
+  --display:   'Fraunces', serif;
+  --sans:      'Inter', sans-serif;
+  --mono:      'IBM Plex Mono', monospace;
   --radius:    8px;
   --shadow-lg: 0 24px 64px rgba(17,24,32,0.18);
 }
@@ -33,7 +33,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--sans);
-  background: linear-gradient(160deg, var(--off-white) 0%, var(--sage-faint) 100%);
+  background: linear-gradient(160deg, var(--off-white) 0%, var(--clay-faint) 100%);
   color: var(--ink);
   line-height: 1.6;
   min-height: 100vh;
@@ -57,7 +57,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 6px;
 }
-.logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); display: inline-block; }
+.logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--clay); display: inline-block; }
 .back-link {
   font-family: var(--mono);
   font-size: 12px;
@@ -80,8 +80,8 @@ a { color: inherit; text-decoration: none; }
 
 .quiz-progress { display: flex; gap: 6px; margin-bottom: 32px; }
 .quiz-progress .bar { height: 4px; flex: 1; background: var(--border); border-radius: 4px; overflow: hidden; }
-.quiz-progress .bar.done { background: var(--sage); }
-.quiz-progress .bar.active { background: linear-gradient(90deg, var(--sage) 60%, var(--border) 60%); }
+.quiz-progress .bar.done { background: var(--clay); }
+.quiz-progress .bar.active { background: linear-gradient(90deg, var(--clay) 60%, var(--border) 60%); }
 
 .quiz-step { display: none; }
 .quiz-step.active { display: block; }
@@ -91,7 +91,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--clay);
   margin-bottom: 14px;
   display: block;
 }
@@ -119,8 +119,8 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   transition: all 0.15s ease;
 }
-.quiz-option:hover { border-color: var(--sage-light); background: var(--sage-faint); }
-.quiz-option.selected { border-color: var(--sage); background: var(--sage-faint); color: var(--sage-dark); }
+.quiz-option:hover { border-color: var(--clay-light); background: var(--clay-faint); }
+.quiz-option.selected { border-color: var(--clay); background: var(--clay-faint); color: var(--clay-dark); }
 
 .quiz-back {
   margin-top: 22px;
@@ -136,7 +136,7 @@ a { color: inherit; text-decoration: none; }
 .quiz-analyzing { text-align: center; padding: 20px 0 8px; }
 .quiz-spinner {
   width: 42px; height: 42px; border-radius: 50%; margin: 0 auto 22px;
-  border: 3px solid var(--border); border-top-color: var(--sage);
+  border: 3px solid var(--border); border-top-color: var(--clay);
   animation: spin 0.9s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -146,8 +146,8 @@ a { color: inherit; text-decoration: none; }
 
 .result-badge {
   display: inline-block;
-  background: var(--sage-faint);
-  color: var(--sage-dark);
+  background: var(--clay-faint);
+  color: var(--clay-dark);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -177,14 +177,14 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--sage);
+  color: var(--clay);
   margin-bottom: 8px;
 }
 .diagnosis-block p { font-size: 14.5px; color: var(--ink); line-height: 1.6; }
 .result-price {
   font-family: var(--display);
   font-size: 1.9rem;
-  color: var(--sage-dark);
+  color: var(--clay-dark);
   margin: 22px 0 18px;
 }
 .btn {
@@ -200,10 +200,10 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   transition: all 0.2s ease;
 }
-.btn-primary { background: var(--sage); color: var(--white); }
-.btn-primary:hover { background: var(--sage-dark); }
+.btn-primary { background: var(--clay); color: var(--white); }
+.btn-primary:hover { background: var(--clay-dark); }
 .btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--ink); margin-top: 10px; }
-.btn-ghost:hover { border-color: var(--sage); color: var(--sage); }
+.btn-ghost:hover { border-color: var(--clay); color: var(--clay); }
 .quiz-restart { margin-top: 6px; text-align: center; }
 
 .waitlist-note {
@@ -336,7 +336,7 @@ a { color: inherit; text-decoration: none; }
 
       <div class="result-price" id="result-price"></div>
       <a href="index.html#guide" class="btn btn-primary" id="result-cta" target="_blank">Sblocca la tua guida</a>
-      <a href="index.html#prezzo" class="btn btn-ghost">Vedi il pacchetto completo (19,90€)</a>
+      <a href="index.html#prezzo" class="btn btn-ghost">Vedi il pacchetto completo (11,90€)</a>
       <div class="waitlist-note" id="waitlist-note" style="display:none;"></div>
       <div class="quiz-restart">
         <button class="quiz-back" data-restart="1">Rifai il quiz</button>
@@ -488,42 +488,42 @@ window.scrollTo(0, 0);
       name: 'Pelle grassa e acne',
       problem: 'Sebo in eccesso e pori dilatati favoriscono la comparsa di punti neri e brufoli ricorrenti, soprattutto in zona T.',
       solution: 'Una routine che regola il sebo senza seccare la pelle, con niacinamide e acido salicilico applicati nell\'ordine giusto — esattamente il percorso di questa guida.',
-      price: '7,90€',
+      price: '3,90€',
       file: '01-pelle-grassa-e-acne.pdf'
     },
     opacita: {
       name: 'Pelle spenta e opaca',
       problem: 'Il tono irregolare e l\'aspetto poco luminoso dipendono spesso da un accumulo di cellule morte in superficie e da poca protezione solare.',
       solution: 'Vitamina C, esfoliazione leggera e SPF quotidiano per ritrovare uniformità e luminosità in poche settimane.',
-      price: '7,90€',
+      price: '3,90€',
       file: '04-pelle-spenta.pdf'
     },
     rughe: {
       name: 'Primi segni di invecchiamento',
       problem: 'Le prime linee sottili e la perdita di tono sono legate al rallentamento del rinnovamento cellulare e all\'esposizione solare non protetta.',
       solution: 'Retinolo introdotto gradualmente, vitamina C al mattino e SPF sempre: la sequenza corretta per rallentare i segni del tempo senza irritare la pelle.',
-      price: '7,90€',
+      price: '3,90€',
       file: '02-primi-segni-di-invecchiamento.pdf'
     },
     rasatura: {
       name: 'Pelle irritata da rasatura',
       problem: 'Rossore, bruciore o peli incarniti dopo la rasatura dipendono quasi sempre da tecnica, lametta e prodotti usati, non da un problema di pelle in sé.',
       solution: 'Routine pre e post rasatura corretta, più un trattamento mirato sui peli incarniti, per rendere la rasatura un gesto senza conseguenze.',
-      price: '7,90€',
+      price: '3,90€',
       file: '03-pelle-irritata-da-rasatura.pdf'
     },
     pori: {
       name: 'Pori dilatati e texture',
       problem: 'Pori più visibili e una texture irregolare sono spesso legati a un eccesso di sebo localizzato e a un ricambio cellulare lento.',
       solution: 'Un percorso con retinolo e BHA nell\'ordine corretto, pensato per affinare la texture nel tempo senza irritare la pelle.',
-      price: '7,90€',
+      price: '3,90€',
       file: '05-pori-dilatati-e-texture.pdf'
     },
     mantenimento: {
       name: 'Routine di mantenimento',
       problem: 'Nessun segnale particolare emerge dalle tue risposte: la tua pelle sembra in un equilibrio sano, senza un problema specifico da correggere.',
       solution: 'Una routine minima ma corretta — detersione, idratazione, SPF — pensata per mantenere questo equilibrio nel tempo e prevenire i problemi più comuni prima che si presentino.',
-      price: '7,90€',
+      price: '3,90€',
       file: '06-routine-di-mantenimento.pdf'
     }
   };
