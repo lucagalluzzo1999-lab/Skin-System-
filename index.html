@@ -6,13 +6,13 @@
 <title>Skin System — Analisi AI della pelle, skincare maschile personalizzata</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --sage:      #4A7C6B;
-  --sage-dark: #2E5448;
-  --sage-light:#7EB3A0;
-  --sage-faint:#EAF2EF;
+  --clay:      #B5654A;
+  --clay-dark: #7C4530;
+  --clay-light:#D99A7C;
+  --clay-faint:#F7EAE2;
   --sand:      #C8A97E;
   --sand-light:#E8D5B5;
   --sand-faint:#FAF6EF;
@@ -23,9 +23,9 @@
   --border:    rgba(17,24,32,0.10);
   --white:     #FFFFFF;
   --off-white: #F9F8F5;
-  --display:   'DM Serif Display', serif;
-  --sans:      'DM Sans', sans-serif;
-  --mono:      'JetBrains Mono', monospace;
+  --display:   'Fraunces', serif;
+  --sans:      'Inter', sans-serif;
+  --mono:      'IBM Plex Mono', monospace;
   --radius:    8px;
   --shadow-sm: 0 2px 8px rgba(17,24,32,0.07);
   --shadow-md: 0 8px 32px rgba(17,24,32,0.12);
@@ -44,7 +44,7 @@ body {
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
-:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
 
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 36px; }
 
@@ -54,7 +54,7 @@ ul { list-style: none; }
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--clay);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -64,7 +64,7 @@ ul { list-style: none; }
   content: '';
   width: 20px;
   height: 1px;
-  background: var(--sage);
+  background: var(--clay);
   flex-shrink: 0;
 }
 
@@ -82,16 +82,16 @@ ul { list-style: none; }
   letter-spacing: 0.01em;
 }
 .btn-primary {
-  background: var(--sage);
+  background: var(--clay);
   color: var(--white);
-  border-color: var(--sage);
-  box-shadow: 0 2px 12px rgba(74,124,107,0.25);
+  border-color: var(--clay);
+  box-shadow: 0 2px 12px rgba(181,101,74,0.25);
 }
 .btn-primary:hover {
-  background: var(--sage-dark);
-  border-color: var(--sage-dark);
+  background: var(--clay-dark);
+  border-color: var(--clay-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(74,124,107,0.35);
+  box-shadow: 0 8px 24px rgba(181,101,74,0.35);
 }
 .btn-ghost {
   background: transparent;
@@ -99,8 +99,8 @@ ul { list-style: none; }
   color: var(--ink);
 }
 .btn-ghost:hover {
-  border-color: var(--sage);
-  color: var(--sage);
+  border-color: var(--clay);
+  color: var(--clay);
 }
 .btn-sand {
   background: var(--sand);
@@ -146,7 +146,7 @@ header {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--sage);
+  background: var(--clay);
   display: inline-block;
 }
 .header-nav {
@@ -167,7 +167,7 @@ header {
   color: var(--mid);
   transition: color 0.15s;
 }
-.nav-links a:hover { color: var(--sage); }
+.nav-links a:hover { color: var(--clay); }
 
 /* Dropdown nav */
 .nav-dropdown {
@@ -187,7 +187,7 @@ header {
   transition: color 0.15s;
   padding: 0;
 }
-.nav-dropdown-toggle:hover { color: var(--sage); }
+.nav-dropdown-toggle:hover { color: var(--clay); }
 .nav-dropdown-toggle svg { width: 12px; height: 12px; transition: transform 0.2s; }
 .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
 .nav-dropdown-menu {
@@ -220,8 +220,8 @@ header {
   transition: background 0.12s, color 0.12s;
 }
 .nav-dropdown-menu a:hover {
-  background: var(--sage-faint);
-  color: var(--sage-dark);
+  background: var(--clay-faint);
+  color: var(--clay-dark);
 }
 .nav-dropdown-menu a span {
   display: block;
@@ -313,21 +313,21 @@ header {
   padding: 80px 36px 60px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, var(--off-white) 0%, var(--sage-faint) 100%);
+  background: linear-gradient(160deg, var(--off-white) 0%, var(--clay-faint) 100%);
 }
 .hero::before {
   content: '';
   position: absolute;
   top: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(74,124,107,0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(181,101,74,0.12) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(74,124,107,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(181,101,74,0.06) 1px, transparent 1px);
   background-size: 24px 24px;
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%);
   mask-image: linear-gradient(to bottom, black, transparent 70%);
@@ -353,8 +353,8 @@ header {
   font-size: 11px;
   padding: 5px 12px;
   border-radius: 20px;
-  background: rgba(74,124,107,0.10);
-  color: var(--sage-dark);
+  background: rgba(181,101,74,0.10);
+  color: var(--clay-dark);
   letter-spacing: 0.05em;
 }
 
@@ -368,7 +368,7 @@ h1 {
 }
 h1 em {
   font-style: italic;
-  color: var(--sage);
+  color: var(--clay);
 }
 h2 {
   font-family: var(--display);
@@ -406,7 +406,7 @@ h2 {
 }
 .trust-badge::before {
   content: '✓';
-  color: var(--sage);
+  color: var(--clay);
   font-weight: 700;
 }
 
@@ -439,12 +439,12 @@ h2 {
   gap: 6px;
   font-family: var(--mono);
   font-size: 11px;
-  color: var(--sage);
+  color: var(--clay);
 }
 .ai-status-dot {
   width: 7px;
   height: 7px;
-  background: var(--sage);
+  background: var(--clay);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -474,9 +474,9 @@ h2 {
   margin-bottom: -1px;
 }
 .scan-tab.active {
-  color: var(--sage);
-  border-bottom-color: var(--sage);
-  background: var(--sage-faint);
+  color: var(--clay);
+  border-bottom-color: var(--clay);
+  background: var(--clay-faint);
 }
 .scan-tab-panel { display: none; }
 .scan-tab-panel.active { display: block; }
@@ -513,7 +513,7 @@ h2 {
 .zone-dot:hover, .zone-dot.active { opacity: 0.85; }
 .zone-ring {
   fill: none;
-  stroke: var(--sage);
+  stroke: var(--clay);
   stroke-width: 1.4;
   opacity: 0;
   transition: opacity 0.15s;
@@ -524,7 +524,7 @@ h2 {
   70% { opacity: 0; r: 18; }
   100% { opacity: 0; r: 18; }
 }
-.zone-pulse { fill: none; stroke: var(--sage); stroke-width: 1.4; animation: softPulse 2.8s ease-out infinite; }
+.zone-pulse { fill: none; stroke: var(--clay); stroke-width: 1.4; animation: softPulse 2.8s ease-out infinite; }
 
 /* AI upload panel */
 .upload-panel {
@@ -541,8 +541,8 @@ h2 {
   position: relative;
 }
 .upload-zone:hover, .upload-zone.dragover {
-  border-color: var(--sage);
-  background: var(--sage-faint);
+  border-color: var(--clay);
+  background: var(--clay-faint);
 }
 .upload-zone input[type="file"] {
   position: absolute;
@@ -555,14 +555,14 @@ h2 {
 .upload-icon {
   width: 48px;
   height: 48px;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 14px;
 }
-.upload-icon svg { color: var(--sage); }
+.upload-icon svg { color: var(--clay); }
 .upload-title {
   font-weight: 600;
   color: var(--ink);
@@ -601,8 +601,8 @@ h2 {
 .scan-result {
   display: none;
   margin-top: 16px;
-  background: var(--sage-faint);
-  border: 1px solid rgba(74,124,107,0.2);
+  background: var(--clay-faint);
+  border: 1px solid rgba(181,101,74,0.2);
   border-radius: 10px;
   padding: 16px;
 }
@@ -611,7 +611,7 @@ h2 {
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--clay);
   margin-bottom: 10px;
 }
 .scan-result-zones {
@@ -631,8 +631,8 @@ h2 {
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 10px;
-  background: rgba(74,124,107,0.15);
-  color: var(--sage-dark);
+  background: rgba(181,101,74,0.15);
+  color: var(--clay-dark);
 }
 .scan-zone-tag.warn { background: rgba(200,169,126,0.2); color: #7a5a2a; }
 .ai-disclaimer {
@@ -680,7 +680,7 @@ h2 {
 }
 .ingredient-input:focus {
   outline: none;
-  border-color: var(--sage);
+  border-color: var(--clay);
 }
 .ingredient-btn {
   font-family: var(--sans);
@@ -689,18 +689,18 @@ h2 {
   padding: 10px 18px;
   border-radius: var(--radius);
   border: none;
-  background: var(--sage);
+  background: var(--clay);
   color: var(--white);
   cursor: pointer;
   transition: background 0.15s;
   white-space: nowrap;
 }
-.ingredient-btn:hover { background: var(--sage-dark); }
+.ingredient-btn:hover { background: var(--clay-dark); }
 .ingredient-result {
   display: none;
   margin-top: 14px;
   padding: 14px;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   border-radius: 8px;
   font-size: 14px;
   color: var(--ink);
@@ -752,7 +752,7 @@ section {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: var(--sage);
+  color: var(--clay);
   display: block;
   margin-bottom: 16px;
   text-transform: uppercase;
@@ -760,14 +760,14 @@ section {
 .step-icon {
   width: 44px;
   height: 44px;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
 }
-.step-icon svg { color: var(--sage); }
+.step-icon svg { color: var(--clay); }
 .step h3 {
   font-family: var(--display);
   font-size: 1.2rem;
@@ -779,7 +779,7 @@ section {
 
 /* ── Skin type selector ── */
 .skin-type-section {
-  background: var(--sage-faint);
+  background: var(--clay-faint);
 }
 .skin-type-grid {
   display: grid;
@@ -796,13 +796,13 @@ section {
   text-align: center;
 }
 .skin-type-card:hover {
-  border-color: var(--sage-light);
+  border-color: var(--clay-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 .skin-type-card.selected {
-  border-color: var(--sage);
-  background: var(--sage-faint);
+  border-color: var(--clay);
+  background: var(--clay-faint);
 }
 .skin-type-emoji {
   font-size: 2rem;
@@ -852,8 +852,8 @@ section {
   font-size: 10.5px;
   padding: 4px 10px;
   border-radius: 12px;
-  background: var(--sage-faint);
-  color: var(--sage-dark);
+  background: var(--clay-faint);
+  color: var(--clay-dark);
 }
 .skin-detail-ingredients h4 {
   font-weight: 600;
@@ -886,7 +886,7 @@ section {
   padding: 3px 8px;
   border-radius: 8px;
 }
-.rating-high { background: rgba(74,124,107,0.15); color: var(--sage-dark); }
+.rating-high { background: rgba(181,101,74,0.15); color: var(--clay-dark); }
 .rating-med { background: rgba(200,169,126,0.15); color: #7a5a2a; }
 
 /* ── Guide cards ── */
@@ -911,7 +911,7 @@ section {
 .guide-card.soon { opacity: 0.6; }
 .guide-img {
   height: 160px;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -922,7 +922,7 @@ section {
 .guide-img-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--sage-faint), var(--sand-faint));
+  background: linear-gradient(135deg, var(--clay-faint), var(--sand-faint));
 }
 .guide-img-icon {
   position: relative;
@@ -936,7 +936,7 @@ section {
   font-size: 10.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--clay);
 }
 .guide-card h3 {
   font-family: var(--display);
@@ -967,12 +967,12 @@ section {
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.badge-live { background: rgba(74,124,107,0.12); color: var(--sage-dark); }
+.badge-live { background: rgba(181,101,74,0.12); color: var(--clay-dark); }
 .badge-soon { background: rgba(123,135,148,0.12); color: var(--muted); }
 .guide-link {
   font-size: 13px;
   font-weight: 600;
-  color: var(--sage);
+  color: var(--clay);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -987,8 +987,8 @@ section {
   padding: 72px 36px;
   border-top: none;
 }
-.visual-proof .eyebrow { color: var(--sage-light); }
-.visual-proof .eyebrow::before { background: var(--sage-light); }
+.visual-proof .eyebrow { color: var(--clay-light); }
+.visual-proof .eyebrow::before { background: var(--clay-light); }
 .visual-proof h2 { color: var(--white); }
 .visual-proof .section-desc { color: rgba(255,255,255,0.55); }
 .before-after-grid {
@@ -1017,7 +1017,7 @@ section {
   position: relative;
 }
 .ba-after {
-  background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+  background: linear-gradient(135deg, var(--clay-dark), var(--clay));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1045,7 +1045,7 @@ section {
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--sage-light);
+  color: var(--clay-light);
   margin-bottom: 6px;
 }
 .ba-title {
@@ -1070,7 +1070,7 @@ section {
   position: absolute;
   top: 0; left: 0;
   width: 3px; height: 100%;
-  background: var(--sage);
+  background: var(--clay);
   border-radius: 12px 0 0 12px;
 }
 .why-mark {
@@ -1093,7 +1093,7 @@ section {
 
 /* ── Stats bar ── */
 .stats-bar {
-  background: var(--sage);
+  background: var(--clay);
   padding: 40px 36px;
   border-top: none;
 }
@@ -1146,7 +1146,7 @@ section {
   position: absolute;
   top: -14px;
   right: 28px;
-  background: var(--sage);
+  background: var(--clay);
   color: var(--white);
   font-family: var(--mono);
   font-size: 10px;
@@ -1161,10 +1161,10 @@ section {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--clay);
   margin-bottom: 16px;
 }
-.price-card.featured .price-card-tag { color: var(--sage-light); }
+.price-card.featured .price-card-tag { color: var(--clay-light); }
 .price-card-amount {
   font-family: var(--display);
   font-size: 2.6rem;
@@ -1196,7 +1196,7 @@ section {
 .price-feature-icon {
   width: 18px;
   height: 18px;
-  background: rgba(74,124,107,0.15);
+  background: rgba(181,101,74,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1207,12 +1207,12 @@ section {
 .price-feature-icon::after {
   content: '✓';
   font-size: 9px;
-  color: var(--sage);
+  color: var(--clay);
   font-weight: 800;
 }
 .price-feature-text { color: var(--mid); line-height: 1.5; }
 .price-card.featured .price-feature-icon {
-  background: rgba(74,124,107,0.25);
+  background: rgba(181,101,74,0.25);
 }
 .price-card.featured .price-feature-text { color: rgba(255,255,255,0.7); }
 
@@ -1240,18 +1240,18 @@ section {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   font-family: var(--mono);
-  color: var(--sage);
+  color: var(--clay);
   font-size: 18px;
   transition: background 0.15s;
 }
 .faq-item[open] .faq-toggle {
-  background: var(--sage);
+  background: var(--clay);
   color: var(--white);
 }
 .faq-item[open] .faq-toggle::after { content: '−'; }
@@ -1307,14 +1307,14 @@ section {
 .routine-step-num {
   width: 28px;
   height: 28px;
-  background: var(--sage-faint);
+  background: var(--clay-faint);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
   font-size: 11px;
-  color: var(--sage);
+  color: var(--clay);
   flex-shrink: 0;
 }
 .routine-step-info {}
@@ -1328,7 +1328,7 @@ section {
   border-radius: 8px;
   flex-shrink: 0;
 }
-.rb-essential { background: rgba(74,124,107,0.12); color: var(--sage-dark); }
+.rb-essential { background: rgba(181,101,74,0.12); color: var(--clay-dark); }
 .rb-optional { background: rgba(123,135,148,0.1); color: var(--muted); }
 
 /* ── Footer ── */
@@ -1476,12 +1476,12 @@ footer {
             <div class="nav-dropdown-menu">
               <a href="#guide">Tutte le guide<span>6 guide, un problema alla volta — o nessuno</span></a>
               <a href="#routine">Routine di esempio<span>Mattina e sera</span></a>
-              <a href="#prezzo">Prezzi<span>Da 7,90€ — senza abbonamento</span></a>
+              <a href="#prezzo">Prezzi<span>Da 3,90€ — senza abbonamento</span></a>
             </div>
           </div>
         </li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#ingredienti" style="color:var(--sage); font-weight:600;">Scanner ingredienti</a></li>
+        <li><a href="#ingredienti" style="color:var(--clay); font-weight:600;">Scanner ingredienti</a></li>
       </ul>
     </nav>
     <div class="header-actions">
@@ -1504,7 +1504,7 @@ footer {
   <a href="#routine">Routine di esempio</a>
   <a href="#prezzo">Prezzi</a>
   <a href="#faq">FAQ</a>
-  <a href="quiz.html" style="color:var(--sage); font-weight:700;">→ Fai il quiz gratuito</a>
+  <a href="quiz.html" style="color:var(--clay); font-weight:700;">→ Fai il quiz gratuito</a>
 </div>
 
 <main>
@@ -1554,49 +1554,107 @@ footer {
                 Passa il cursore sulle zone del viso per scoprire i problemi
               </p>
               <div class="facemap-svg-wrap">
-                <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <defs>
-                    <radialGradient id="faceGrad" cx="50%" cy="45%" r="50%">
-                      <stop offset="0%" stop-color="#EAF2EF"/>
-                      <stop offset="100%" stop-color="#F9F8F5"/>
+                    <radialGradient id="skinGrad" cx="42%" cy="38%" r="65%">
+                      <stop offset="0%" stop-color="#FBEFE7"/>
+                      <stop offset="60%" stop-color="#F1D3B8"/>
+                      <stop offset="100%" stop-color="#DDB08A"/>
                     </radialGradient>
+                    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#4A3428"/>
+                      <stop offset="100%" stop-color="#2E2018"/>
+                    </linearGradient>
+                    <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#D98A6B" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#D98A6B" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="neckGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#E8C4A0"/>
+                      <stop offset="100%" stop-color="#D9AC84"/>
+                    </linearGradient>
                   </defs>
-                  <!-- Face fill -->
-                  <ellipse cx="150" cy="165" rx="92" ry="128" fill="url(#faceGrad)" stroke="#4A7C6B" stroke-width="1.8"/>
+
+                  <!-- Shoulders / neck base -->
+                  <path d="M 40 340 Q 60 275 128 262 L 172 262 Q 240 275 260 340 Z" fill="#3A3F47"/>
+                  <path d="M 128 250 L 128 288 Q 150 300 172 288 L 172 250 Z" fill="url(#neckGrad)"/>
+
                   <!-- Ears -->
-                  <ellipse cx="58" cy="165" rx="9" ry="20" fill="#EAF2EF" stroke="#4A7C6B" stroke-width="1.4"/>
-                  <ellipse cx="242" cy="165" rx="9" ry="20" fill="#EAF2EF" stroke="#4A7C6B" stroke-width="1.4"/>
-                  <!-- Neck -->
-                  <line x1="128" y1="288" x2="128" y2="315" stroke="#4A7C6B" stroke-width="1.8"/>
-                  <line x1="172" y1="288" x2="172" y2="315" stroke="#4A7C6B" stroke-width="1.8"/>
+                  <path d="M 66 138 Q 54 140 55 160 Q 56 178 70 180" fill="url(#skinGrad)" stroke="#B8875F" stroke-width="1.2"/>
+                  <path d="M 234 138 Q 246 140 245 160 Q 244 178 230 180" fill="url(#skinGrad)" stroke="#B8875F" stroke-width="1.2"/>
+
+                  <!-- Head + jaw -->
+                  <path d="M 150 38
+                           C 202 38 228 82 228 138
+                           C 228 178 220 210 202 234
+                           C 188 253 170 264 150 266
+                           C 130 264 112 253 98 234
+                           C 80 210 72 178 72 138
+                           C 72 82 98 38 150 38 Z"
+                        fill="url(#skinGrad)" stroke="#B8875F" stroke-width="1.4"/>
+
+                  <!-- Cheek warmth -->
+                  <ellipse cx="103" cy="188" rx="26" ry="20" fill="url(#blushGrad)"/>
+                  <ellipse cx="197" cy="188" rx="26" ry="20" fill="url(#blushGrad)"/>
+
+                  <!-- Hair -->
+                  <path d="M 72 128
+                           C 70 76 104 34 150 34
+                           C 196 34 230 76 228 128
+                           C 220 100 206 78 190 68
+                           C 196 82 196 92 192 98
+                           C 178 78 162 70 150 70
+                           C 138 70 122 78 108 98
+                           C 104 92 104 82 110 68
+                           C 94 78 80 100 72 128 Z"
+                        fill="url(#hairGrad)"/>
+
                   <!-- Eyebrows -->
-                  <path d="M 107 140 Q 117 135 128 137" fill="none" stroke="#4A7C6B" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M 172 137 Q 183 135 193 140" fill="none" stroke="#4A7C6B" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 100 128 Q 114 118 132 122" fill="none" stroke="#3A2A20" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M 168 122 Q 186 118 200 128" fill="none" stroke="#3A2A20" stroke-width="4" stroke-linecap="round"/>
+
                   <!-- Eyes -->
-                  <path d="M 100 152 Q 117 165 134 152" fill="none" stroke="#4A7C6B" stroke-width="1.8"/>
-                  <ellipse cx="117" cy="153" rx="5" ry="3.5" fill="#2E5448" opacity="0.6"/>
-                  <path d="M 166 152 Q 183 165 200 152" fill="none" stroke="#4A7C6B" stroke-width="1.8"/>
-                  <ellipse cx="183" cy="153" rx="5" ry="3.5" fill="#2E5448" opacity="0.6"/>
+                  <path d="M 98 146 Q 116 136 136 146 Q 116 156 98 146 Z" fill="#FFFFFF" stroke="#B8875F" stroke-width="1"/>
+                  <circle cx="117" cy="146" r="6.5" fill="#5C4634"/>
+                  <circle cx="117" cy="146" r="3" fill="#241a12"/>
+                  <circle cx="119" cy="144" r="1.3" fill="#FFFFFF"/>
+                  <path d="M 98 146 Q 116 135 136 146" fill="none" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round"/>
+
+                  <path d="M 164 146 Q 184 136 202 146 Q 184 156 164 146 Z" fill="#FFFFFF" stroke="#B8875F" stroke-width="1"/>
+                  <circle cx="183" cy="146" r="6.5" fill="#5C4634"/>
+                  <circle cx="183" cy="146" r="3" fill="#241a12"/>
+                  <circle cx="185" cy="144" r="1.3" fill="#FFFFFF"/>
+                  <path d="M 164 146 Q 184 135 202 146" fill="none" stroke="#3A2A20" stroke-width="1.6" stroke-linecap="round"/>
+
                   <!-- Nose -->
-                  <path d="M 150 148 L 143 190 Q 141 196 150 196 Q 159 196 157 190 L 150 148" fill="none" stroke="#4A7C6B" stroke-width="1.5" stroke-linecap="round"/>
-                  <!-- Mouth -->
-                  <path d="M 128 232 Q 150 246 172 232" fill="none" stroke="#4A7C6B" stroke-width="1.8"/>
+                  <path d="M 150 140 C 146 160 141 176 138 186 Q 137 194 150 196 Q 163 194 162 186 C 159 176 154 160 150 140 Z"
+                        fill="none" stroke="#B8875F" stroke-width="1.6" stroke-linejoin="round"/>
+                  <ellipse cx="141" cy="190" rx="4" ry="2.6" fill="#C99872" opacity="0.6"/>
+                  <ellipse cx="159" cy="190" rx="4" ry="2.6" fill="#C99872" opacity="0.6"/>
+
+                  <!-- Lips -->
+                  <path d="M 126 220 Q 150 213 174 220 Q 150 224 126 220 Z" fill="#C4715A" stroke="#A85A46" stroke-width="1"/>
+                  <path d="M 122 222 Q 150 240 178 222 Q 150 250 122 222 Z" fill="#D98872" stroke="#A85A46" stroke-width="1"/>
+
+                  <!-- Jaw shading -->
+                  <path d="M 100 232 Q 150 262 200 232 Q 178 250 150 254 Q 122 250 100 232 Z" fill="#B8875F" opacity="0.18"/>
+
                   <!-- Zone rings + dots -->
-                  <circle class="zone-ring" id="ring-fronte" cx="150" cy="95" r="22"/>
-                  <circle class="zone-pulse" cx="150" cy="95" r="11"/>
-                  <circle class="zone-dot" data-zone="fronte" cx="150" cy="95" r="7" fill="#C8A97E" stroke="#4A7C6B" stroke-width="1.2"/>
+                  <circle class="zone-ring" id="ring-fronte" cx="150" cy="82" r="30"/>
+                  <circle class="zone-pulse" cx="150" cy="82" r="11"/>
+                  <circle class="zone-dot" data-zone="fronte" cx="150" cy="82" r="7" fill="#C8A97E" stroke="#7C4530" stroke-width="1.2"/>
 
-                  <circle class="zone-ring" id="ring-occhi" cx="117" cy="158" r="18"/>
-                  <circle class="zone-dot" data-zone="occhi" cx="117" cy="158" r="7" fill="#C8A97E" stroke="#4A7C6B" stroke-width="1.2"/>
+                  <circle class="zone-ring" id="ring-occhi" cx="150" cy="146" r="42"/>
+                  <circle class="zone-dot" data-zone="occhi" cx="150" cy="146" r="7" fill="#C8A97E" stroke="#7C4530" stroke-width="1.2"/>
 
-                  <circle class="zone-ring" id="ring-naso" cx="150" cy="183" r="16"/>
-                  <circle class="zone-dot" data-zone="naso" cx="150" cy="183" r="7" fill="#C8A97E" stroke="#4A7C6B" stroke-width="1.2"/>
+                  <circle class="zone-ring" id="ring-naso" cx="150" cy="178" r="20"/>
+                  <circle class="zone-dot" data-zone="naso" cx="150" cy="178" r="7" fill="#C8A97E" stroke="#7C4530" stroke-width="1.2"/>
 
-                  <circle class="zone-ring" id="ring-guance" cx="88" cy="207" r="18"/>
-                  <circle class="zone-dot" data-zone="guance" cx="88" cy="207" r="7" fill="#C8A97E" stroke="#4A7C6B" stroke-width="1.2"/>
+                  <circle class="zone-ring" id="ring-guance" cx="100" cy="192" r="24"/>
+                  <circle class="zone-dot" data-zone="guance" cx="100" cy="192" r="7" fill="#C8A97E" stroke="#7C4530" stroke-width="1.2"/>
 
-                  <circle class="zone-ring" id="ring-mandibola" cx="150" cy="272" r="20"/>
-                  <circle class="zone-dot" data-zone="mandibola" cx="150" cy="272" r="7" fill="#C8A97E" stroke="#4A7C6B" stroke-width="1.2"/>
+                  <circle class="zone-ring" id="ring-mandibola" cx="150" cy="248" r="26"/>
+                  <circle class="zone-dot" data-zone="mandibola" cx="150" cy="248" r="7" fill="#C8A97E" stroke="#7C4530" stroke-width="1.2"/>
                 </svg>
                 <div id="zoneLabel"></div>
               </div>
@@ -1814,7 +1872,7 @@ footer {
           <h3>Pelle grassa e acne</h3>
           <p>Come si forma un brufolo, gli attivi giusti e un piano pratico in 4 settimane per gestirla. Niacinamide, acido salicilico, BHA spiegati bene.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="01-pelle-grassa-e-acne.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -1830,7 +1888,7 @@ footer {
           <h3>Primi segni di invecchiamento</h3>
           <p>Retinolo, vitamina C e la routine per rallentare le prime linee sottili. Come usare gli attivi anti-aging senza irritazioni.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="02-primi-segni-di-invecchiamento.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -1846,7 +1904,7 @@ footer {
           <h3>Pelle irritata da rasatura</h3>
           <p>Come rasarti senza infiammare la pelle, prodotti pre e post rasatura, routine per eliminare i peli incarniti.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="03-pelle-irritata-da-rasatura.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -1862,7 +1920,7 @@ footer {
           <h3>Pelle spenta e opaca</h3>
           <p>Ritrovare luminosità e uniformità del tono con una routine minima. Vitamina C, AHA e glicolico al posto giusto.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="04-pelle-spenta.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -1878,7 +1936,7 @@ footer {
           <h3>Pori dilatati e texture</h3>
           <p>Perché i pori si dilatano e come migliorare la texture nel tempo. Retinolo, BHA e l'ordine corretto dei prodotti.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="05-pori-dilatati-e-texture.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -1894,7 +1952,7 @@ footer {
           <h3>Routine di mantenimento</h3>
           <p>Nessun problema da correggere? Bene: una routine minima e corretta per mantenere la pelle in equilibrio e prevenire i problemi prima che si presentino.</p>
           <div class="guide-foot">
-            <span class="guide-price">7,90€</span>
+            <span class="guide-price">3,90€</span>
             <span class="badge badge-live">Disponibile</span>
           </div>
           <a href="06-routine-di-mantenimento.pdf" class="guide-link" target="_blank">Vedi la guida →</a>
@@ -2085,7 +2143,7 @@ footer {
     <div class="price-cards">
       <div class="price-card reveal">
         <div class="price-card-tag">Una guida</div>
-        <div class="price-card-amount">7,90€</div>
+        <div class="price-card-amount">3,90€</div>
         <div class="price-card-sub">pagamento unico · accesso immediato</div>
         <div class="price-features">
           <div class="price-feature">
@@ -2110,8 +2168,8 @@ footer {
       <div class="price-card featured reveal">
         <div class="price-card-badge">Consigliato</div>
         <div class="price-card-tag">Tutte le guide</div>
-        <div class="price-card-amount">19,90€</div>
-        <div class="price-card-sub">invece di 47,40€ — risparmi il 58%</div>
+        <div class="price-card-amount">11,90€</div>
+        <div class="price-card-sub">invece di 23,40€ — risparmi il 49%</div>
         <div class="price-features">
           <div class="price-feature">
             <div class="price-feature-icon"></div>
@@ -2388,7 +2446,7 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
     } else {
       let html = "";
       if (parsed.tipo_pelle) {
-        html += `<div class="scan-zone-item" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(74,124,107,0.15);">
+        html += `<div class="scan-zone-item" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(181,101,74,0.15);">
           <span class="scan-zone-label">Tipo di pelle</span>
           <span class="scan-zone-tag">${parsed.tipo_pelle}</span>
         </div>`;
@@ -2402,7 +2460,7 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
         });
       }
       if (parsed.raccomandazione) {
-        html += `<div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(74,124,107,0.15);font-size:13px;color:var(--sage-dark);font-style:italic;">${parsed.raccomandazione}</div>`;
+        html += `<div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(181,101,74,0.15);font-size:13px;color:var(--clay-dark);font-style:italic;">${parsed.raccomandazione}</div>`;
       }
       scanZones.innerHTML = html;
     }
