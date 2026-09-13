@@ -13,9 +13,9 @@
   --clay-dark: #7C4530;
   --clay-light:#D99A7C;
   --clay-faint:#F7EAE2;
-  --sand:      #C8A97E;
-  --sand-light:#E8D5B5;
-  --sand-faint:#FAF6EF;
+  --sand:      #E3B23C;
+  --sand-light:#F0CE7E;
+  --sand-faint:#FBF3DD;
   --ink:       #111820;
   --ink-2:     #1E2A36;
   --mid:       #4A5568;
@@ -109,9 +109,9 @@ ul { list-style: none; }
   font-weight: 700;
 }
 .btn-sand:hover {
-  background: #b8966a;
+  background: #B8862A;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200,169,126,0.35);
+  box-shadow: 0 8px 24px rgba(227,178,60,0.35);
 }
 .btn-lg { padding: 16px 32px; font-size: 15.5px; }
 
@@ -206,11 +206,13 @@ header {
   transition: opacity 0.2s, transform 0.2s;
   transform: translateX(-50%) translateY(-6px);
 }
-.nav-dropdown:hover .nav-dropdown-menu {
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
+.nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
 .nav-dropdown-menu a {
   display: block;
   padding: 9px 14px;
@@ -650,7 +652,33 @@ h2 {
   background: rgba(181,101,74,0.15);
   color: var(--clay-dark);
 }
-.scan-zone-tag.warn { background: rgba(200,169,126,0.2); color: #7a5a2a; }
+.scan-zone-tag.warn { background: rgba(227,178,60,0.2); color: #6B4A12; }
+.scan-recommendation {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(181,101,74,0.25);
+}
+.scan-reco-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+  margin-bottom: 6px;
+}
+.scan-reco-guide {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.scan-reco-text {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
 .ai-disclaimer {
   font-size: 11.5px;
   color: var(--muted);
@@ -821,8 +849,9 @@ section {
   background: var(--clay-faint);
 }
 .skin-type-emoji {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
+  color: var(--clay);
 }
 .skin-type-name {
   font-family: var(--display);
@@ -903,7 +932,7 @@ section {
   border-radius: 8px;
 }
 .rating-high { background: rgba(181,101,74,0.15); color: var(--clay-dark); }
-.rating-med { background: rgba(200,169,126,0.15); color: #7a5a2a; }
+.rating-med { background: rgba(227,178,60,0.15); color: #6B4A12; }
 
 /* ── Guide cards ── */
 .guides-grid {
@@ -940,11 +969,22 @@ section {
   inset: 0;
   background: linear-gradient(135deg, var(--clay-faint), var(--sand-faint));
 }
+.icon-inline {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.125em;
+  display: inline-block;
+}
 .guide-img-icon {
   position: relative;
   z-index: 1;
-  font-size: 3.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  font-size: 2.6rem;
+  color: var(--clay-dark);
 }
 .guide-body { padding: 22px 22px 18px; display: flex; flex-direction: column; flex: 1; gap: 10px; }
 .guide-zone {
@@ -1029,7 +1069,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  color: rgba(255,255,255,0.75);
   position: relative;
 }
 .ba-after {
@@ -1037,7 +1078,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  color: rgba(255,255,255,0.92);
   position: relative;
 }
 .ba-label {
@@ -1283,7 +1325,7 @@ section {
 /* ── Routine builder mini ── */
 .routine-section { background: var(--sand-faint); }
 .routine-section .eyebrow::before { background: var(--sand); }
-.routine-section .eyebrow { color: #7a5a2a; }
+.routine-section .eyebrow { color: #6B4A12; }
 .routine-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1457,6 +1499,27 @@ footer {
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M5 21c9-1 14-6 14-15-9 1-14 6-14 15z"/><path d="M5 21c1-5 4-9 9-12"/></symbol>
+    <symbol id="icon-scale" viewBox="0 0 24 24"><path d="M12 3v17"/><path d="M8 20h8"/><path d="M4 7h16"/><path d="M4 7l-2 5a3 3 0 0 0 6 0l-2-5"/><path d="M20 7l-2 5a3 3 0 0 0 6 0l-2-5"/></symbol>
+    <symbol id="icon-microscope" viewBox="0 0 24 24"><path d="M6 21h9"/><path d="M10 21v-3"/><circle cx="10" cy="11" r="5"/><path d="M13.5 14.5L18 19"/><path d="M17 3l3 3-2 2-3-3z"/><path d="M14 6l2 2"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-razor" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="4" rx="1"/><path d="M8 8l1 12h6l1-12"/><path d="M11 8v3"/><path d="M13 8v3"/></symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.2 4L17 8.2 13.2 9.4 12 13.4 10.8 9.4 7 8.2 10.8 7 12 3z"/><path d="M19 15l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="icon-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="icon-mood-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/></symbol>
+    <symbol id="icon-mood-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></symbol>
+    <symbol id="icon-mood-neutral" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><line x1="8" y1="15" x2="16" y2="15"/></symbol>
+    <symbol id="icon-sunrise" viewBox="0 0 24 24"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="16 5 12 9 8 5"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  </defs>
+</svg>
 
 <!-- ══ HEADER ══ -->
 <header>
@@ -1528,25 +1591,25 @@ footer {
 <!-- ══ HERO ══ -->
 <section class="hero" style="border-top:none;">
   <div class="wrap">
-    <div class="eyebrow">Skincare maschile, analisi personalizzata</div>
+    <div class="eyebrow">Intelligenza artificiale per la cura di sé</div>
     <div class="hero-grid">
       <div>
         <div class="skin-pills">
-          <span class="skin-pill">Analisi AI</span>
-          <span class="skin-pill">Routine personalizzata</span>
-          <span class="skin-pill">Ingredienti attivi</span>
+          <span class="skin-pill">Analisi AI del viso</span>
+          <span class="skin-pill">Routine su misura</span>
+          <span class="skin-pill">Zero tempo perso</span>
         </div>
-        <h1>La skincare inizia<br>da <em>conoscere</em><br>la tua pelle.</h1>
-        <p class="hero-sub">Scan AI del viso, quiz clinico, ingredienti attivi spiegati bene. Non un'altra lista di prodotti — un sistema personalizzato per il tuo problema specifico.</p>
+        <h1>Basta rimandare.<br>La svolta per la<br>tua pelle è <em>oggi</em>.</h1>
+        <p class="hero-sub">Un'intelligenza artificiale analizza il tuo viso in 30 secondi e ti dice esattamente cosa affrontare — non l'ennesima lista di prodotti a caso. Il problema che hai ignorato per mesi ha finalmente una soluzione precisa.</p>
         <div class="cta-row">
-          <a href="quiz.html" class="btn btn-primary btn-lg">Fai il quiz gratuito</a>
+          <a href="quiz.html" class="btn btn-primary btn-lg">Scopri il tuo problema ora</a>
           <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Prova lo Scan AI</a>
         </div>
         <div class="trust-badges">
-          <span class="trust-badge">Risultato immediato</span>
+          <span class="trust-badge">Analisi AI in 30 secondi</span>
           <span class="trust-badge">Nessun abbonamento</span>
           <span class="trust-badge">IT &amp; EN</span>
-          <span class="trust-badge">AI powered</span>
+          <span class="trust-badge">Powered by AI</span>
         </div>
       </div>
 
@@ -1561,8 +1624,8 @@ footer {
             </div>
           </div>
           <div class="scan-tabs">
-            <button class="scan-tab active" data-tab="facemap">🗺 Mappa zone</button>
-            <button class="scan-tab" data-tab="upload">📷 Scan AI</button>
+            <button class="scan-tab active" data-tab="facemap"><svg class="icon-inline"><use href="#icon-map"></use></svg> Mappa zone</button>
+            <button class="scan-tab" data-tab="upload"><svg class="icon-inline"><use href="#icon-camera"></use></svg> Scan AI</button>
           </div>
           <div class="scan-tab-panel active" id="tab-facemap">
             <div class="facemap-panel">
@@ -1618,6 +1681,7 @@ footer {
               <div class="scan-result" id="scanResult">
                 <div class="scan-result-title">Risultato analisi AI</div>
                 <div class="scan-result-zones" id="scanZones"></div>
+                <div class="scan-recommendation" id="scanRecommendation" style="display:none;"></div>
                 <div class="ai-disclaimer">Analisi indicativa. Non sostituisce una consulenza dermatologica.</div>
               </div>
               <button class="btn btn-primary scan-cta-btn" id="analyzeBtn" style="display:none;">
@@ -1658,8 +1722,8 @@ footer {
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Come funziona</div>
-      <h2>Tre passaggi.<br>Niente di più.</h2>
-      <p class="section-desc">Il sistema esiste per una ragione: portarti alla routine giusta per il tuo problema specifico, senza diventare un esperto di chimica cosmetica.</p>
+      <h2>Tre passaggi.<br>Zero scuse.</h2>
+      <p class="section-desc">Ogni giorno che rimandi è un giorno in più con lo stesso problema irrisolto. L'AI ti porta dritto alla routine giusta, subito — senza bisogno di diventare un esperto di chimica cosmetica.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -1711,22 +1775,22 @@ footer {
     </div>
     <div class="skin-type-grid">
       <div class="skin-type-card reveal" data-type="grassa">
-        <div class="skin-type-emoji">💧</div>
+        <div class="skin-type-emoji"><svg class="icon-inline"><use href="#icon-droplet"></use></svg></div>
         <div class="skin-type-name">Pelle Grassa</div>
         <div class="skin-type-desc">Lucida, pori visibili, tende all'acne e ai punti neri</div>
       </div>
       <div class="skin-type-card reveal" data-type="secca">
-        <div class="skin-type-emoji">🌿</div>
+        <div class="skin-type-emoji"><svg class="icon-inline"><use href="#icon-leaf"></use></svg></div>
         <div class="skin-type-name">Pelle Secca</div>
         <div class="skin-type-desc">Tira dopo il lavaggio, tende a scagliarsi, sensibile</div>
       </div>
       <div class="skin-type-card reveal" data-type="mista">
-        <div class="skin-type-emoji">⚖️</div>
+        <div class="skin-type-emoji"><svg class="icon-inline"><use href="#icon-scale"></use></svg></div>
         <div class="skin-type-name">Pelle Mista</div>
         <div class="skin-type-desc">Zona T grassa, guance normali o secche</div>
       </div>
       <div class="skin-type-card reveal" data-type="sensibile">
-        <div class="skin-type-emoji">🔬</div>
+        <div class="skin-type-emoji"><svg class="icon-inline"><use href="#icon-microscope"></use></svg></div>
         <div class="skin-type-name">Pelle Sensibile</div>
         <div class="skin-type-desc">Arrossamenti facili, reagisce ai prodotti, irritata dopo rasatura</div>
       </div>
@@ -1752,21 +1816,21 @@ footer {
 <section id="ai-scan">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Intelligenza artificiale</div>
-      <h2>Scan AI del viso<br>in 30 secondi</h2>
-      <p class="section-desc">Carica una foto in buona luce e il nostro sistema AI analizza le principali zone problematiche, suggerendo il tipo di guida più adatta al tuo caso.</p>
+      <div class="eyebrow">Intelligenza artificiale al tuo servizio</div>
+      <h2>L'AI che conosce<br>la tua pelle meglio di te</h2>
+      <p class="section-desc">Carica una foto in buona luce: in 30 secondi l'intelligenza artificiale individua il problema reale e ti manda dritto alla guida giusta. Niente più tentativi a caso, niente più mesi persi.</p>
     </div>
     <div class="ai-scan-grid">
       <div class="reveal">
         <div class="why-card" style="margin-bottom:16px;">
-          <span class="why-mark">Senza AI</span>
+          <span class="why-mark">Ancora prodotti a caso?</span>
           <h3>Routine generica da internet</h3>
-          <p>Prodotti per tutti, efficaci per quasi nessuno. Il classico "lava, idrata, SPF" che ignora il tuo problema specifico.</p>
+          <p>Prodotti per tutti, efficaci per quasi nessuno. Il classico "lava, idrata, SPF" che ignora il tuo problema specifico — e infatti non cambia mai niente.</p>
         </div>
         <div class="why-card">
-          <span class="why-mark">Con lo Scan AI</span>
-          <h3>Analisi basata sul tuo viso</h3>
-          <p>L'AI identifica le zone problematiche, il tipo di pelle prevalente e suggerisce gli ingredienti attivi più adatti al tuo caso.</p>
+          <span class="why-mark">Con l'intelligenza artificiale</span>
+          <h3>La svolta, in 30 secondi</h3>
+          <p>L'AI identifica le zone problematiche, il tipo di pelle e ti porta dritto alla guida costruita per il tuo caso specifico. Prenditi cura di te, una volta per tutte.</p>
         </div>
       </div>
       <div class="reveal">
@@ -1790,14 +1854,14 @@ footer {
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">La libreria</div>
-      <h2>Sei guide.<br>Un problema alla volta — o nessuno.</h2>
-      <p class="section-desc">Ogni guida è autosufficiente: teoria, routine mattina e sera, piano a 4 settimane, budget e FAQ per quel problema specifico.</p>
+      <h2>Sei guide.<br>Il tuo problema ha già una soluzione.</h2>
+      <p class="section-desc">Ogni guida è autosufficiente: teoria, routine mattina e sera, piano a 4 settimane, budget e FAQ per quel problema specifico. Basta scegliere e iniziare oggi.</p>
     </div>
     <div class="guides-grid">
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">🧴</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-droplet"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Zona: guance</span>
@@ -1813,7 +1877,7 @@ footer {
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">👁</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-eye"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Zona: contorno occhi</span>
@@ -1829,7 +1893,7 @@ footer {
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">🪒</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-razor"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Zona: mandibola</span>
@@ -1845,7 +1909,7 @@ footer {
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">✨</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-sparkles"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Zona: fronte</span>
@@ -1861,7 +1925,7 @@ footer {
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">🔍</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-search"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Zona: naso</span>
@@ -1877,7 +1941,7 @@ footer {
       <div class="guide-card available reveal">
         <div class="guide-img">
           <div class="guide-img-bg"></div>
-          <div class="guide-img-icon">🌿</div>
+          <div class="guide-img-icon"><svg class="icon-inline"><use href="#icon-leaf"></use></svg></div>
         </div>
         <div class="guide-body">
           <span class="guide-zone">Per chi non ha un problema specifico</span>
@@ -1906,11 +1970,11 @@ footer {
       <div class="ba-card reveal">
         <div class="ba-visual">
           <div class="ba-before">
-            😟
+            <svg class="icon-inline"><use href="#icon-mood-sad"></use></svg>
             <div class="ba-label">Prima</div>
           </div>
           <div class="ba-after">
-            😊
+            <svg class="icon-inline"><use href="#icon-mood-smile"></use></svg>
             <div class="ba-label">4 settimane</div>
           </div>
         </div>
@@ -1922,8 +1986,8 @@ footer {
       </div>
       <div class="ba-card reveal">
         <div class="ba-visual">
-          <div class="ba-before">😶</div>
-          <div class="ba-after">✨</div>
+          <div class="ba-before"><svg class="icon-inline"><use href="#icon-mood-neutral"></use></svg></div>
+          <div class="ba-after"><svg class="icon-inline"><use href="#icon-sparkles"></use></svg></div>
         </div>
         <div class="ba-body">
           <div class="ba-problem">Pelle spenta e opaca</div>
@@ -1933,8 +1997,8 @@ footer {
       </div>
       <div class="ba-card reveal">
         <div class="ba-visual">
-          <div class="ba-before">😖</div>
-          <div class="ba-after">😌</div>
+          <div class="ba-before"><svg class="icon-inline"><use href="#icon-mood-sad"></use></svg></div>
+          <div class="ba-after"><svg class="icon-inline"><use href="#icon-mood-smile"></use></svg></div>
         </div>
         <div class="ba-body">
           <div class="ba-problem">Irritazione da rasatura</div>
@@ -1957,7 +2021,7 @@ footer {
     <div class="routine-grid reveal">
       <div class="routine-col">
         <div class="routine-col-label">
-          <span>🌅</span> Mattina
+          <span><svg class="icon-inline"><use href="#icon-sunrise"></use></svg></span> Mattina
         </div>
         <div class="routine-steps">
           <div class="routine-step">
@@ -1996,7 +2060,7 @@ footer {
       </div>
       <div class="routine-col">
         <div class="routine-col-label">
-          <span>🌙</span> Sera
+          <span><svg class="icon-inline"><use href="#icon-moon"></use></svg></span> Sera
         </div>
         <div class="routine-steps">
           <div class="routine-step">
@@ -2042,7 +2106,7 @@ footer {
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Perché funziona</div>
-      <h2>Specifico batte<br>generico, sempre.</h2>
+      <h2>Basta approssimazione.<br>Specifico batte generico, sempre.</h2>
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
@@ -2211,8 +2275,8 @@ footer {
     <div class="footer-bottom">
       <span>© 2026 Skin System — P.IVA IT01234567890</span>
       <div class="footer-badges">
-        <span class="footer-badge">🔒 Pagamento sicuro</span>
-        <span class="footer-badge">🇮🇹 Made in Italy</span>
+        <span class="footer-badge"><svg class="icon-inline"><use href="#icon-lock"></use></svg> Pagamento sicuro</span>
+        <span class="footer-badge"><svg class="icon-inline"><use href="#icon-map-pin"></use></svg> Made in Italy</span>
         <span class="footer-badge">AI powered</span>
       </div>
     </div>
@@ -2227,6 +2291,21 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
+// ── Nav dropdowns (click/tap, not just hover) ──
+const navDropdowns = document.querySelectorAll(".nav-dropdown");
+navDropdowns.forEach(dd => {
+  const toggle = dd.querySelector(".nav-dropdown-toggle");
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = dd.classList.contains("open");
+    navDropdowns.forEach(d => d.classList.remove("open"));
+    if (!isOpen) dd.classList.add("open");
+  });
+});
+document.addEventListener("click", () => {
+  navDropdowns.forEach(d => d.classList.remove("open"));
+});
+
 // ── Zone face map ──
 const zoneNames = {
   fronte:    "Pelle spenta — Zona fronte",
@@ -2279,8 +2358,19 @@ const previewOverlay = document.getElementById("previewOverlay");
 const analyzeBtn = document.getElementById("analyzeBtn");
 const scanResult = document.getElementById("scanResult");
 const scanZones = document.getElementById("scanZones");
+const scanRecommendation = document.getElementById("scanRecommendation");
 
 let imageBase64 = null;
+
+// Stessa libreria guide usata nel quiz: chiave -> nome, url, prezzo
+const AI_GUIDES = {
+  acne:         { name: "Pelle grassa e acne",              url: "https://skinsystem.gumroad.com/l/pelle-grassa-acne" },
+  opacita:      { name: "Pelle spenta e opaca",              url: "https://skinsystem.gumroad.com/l/Pellespenta" },
+  rughe:        { name: "Primi segni di invecchiamento",     url: "https://skinsystem.gumroad.com/l/Primisegnidiinvecchiamento" },
+  rasatura:     { name: "Pelle irritata da rasatura",        url: "https://skinsystem.gumroad.com/l/Pelleirritata" },
+  pori:         { name: "Pori dilatati e texture",           url: "https://skinsystem.gumroad.com/l/poridilatati" },
+  mantenimento: { name: "Routine di mantenimento",           url: "https://skinsystem.gumroad.com/l/Routinedimantenimento" },
+};
 
 faceUpload.addEventListener("change", (e) => {
   const file = e.target.files[0];
@@ -2324,6 +2414,7 @@ analyzeBtn.addEventListener("click", async () => {
   analyzeBtn.textContent = "Analisi in corso…";
   previewOverlay.style.display = "flex";
   scanResult.style.display = "none";
+  scanRecommendation.style.display = "none";
 
   try {
     // Chiamata al nostro backend-proxy (/api/analyze), non più direttamente
@@ -2349,9 +2440,10 @@ analyzeBtn.addEventListener("click", async () => {
   "zone": [
     { "zona": "nome zona", "problema": "descrizione breve problema", "priorita": "alta|media|bassa" }
   ],
-  "raccomandazione": "una frase breve sulla guida più adatta"
+  "guida_chiave": "acne|opacita|rughe|rasatura|pori|mantenimento",
+  "raccomandazione": "una frase diretta e convincente sul perché questa è la guida giusta per lui, ora"
 }
-Identifica le zone problematiche principali visibili (fronte, naso, guance, contorno occhi, mandibola). Se non è chiaramente un viso umano, rispondi con {"errore": "Immagine non valida"}.`
+Identifica le zone problematiche principali visibili (fronte, naso, guance, contorno occhi, mandibola). Scegli "guida_chiave" in base al problema dominante: acne=pelle grassa/brufoli/punti neri, opacita=tono spento/scarsa luminosità, rughe=prime linee sottili/perdita di elasticità, rasatura=irritazione/peli incarniti visibili, pori=pori dilatati/texture irregolare, mantenimento=nessun problema dominante evidente. Se non è chiaramente un viso umano, rispondi con {"errore": "Immagine non valida"}.`
             }
           ]
         }]
@@ -2391,15 +2483,23 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
           </div>`;
         });
       }
-      if (parsed.raccomandazione) {
-        html += `<div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(181,101,74,0.15);font-size:13px;color:var(--clay-dark);font-style:italic;">${parsed.raccomandazione}</div>`;
-      }
       scanZones.innerHTML = html;
+
+      const guide = AI_GUIDES[parsed.guida_chiave] || AI_GUIDES.mantenimento;
+      const recoText = parsed.raccomandazione || "Ecco la guida costruita esattamente per questo.";
+      scanRecommendation.style.display = "block";
+      scanRecommendation.innerHTML = `
+        <div class="scan-reco-label">Il tuo problema principale</div>
+        <div class="scan-reco-guide">${guide.name}</div>
+        <p class="scan-reco-text">${recoText}</p>
+        <a href="${guide.url}" target="_blank" class="btn btn-primary scan-cta-btn">Sblocca questa guida ora →</a>
+      `;
     }
   } catch (err) {
     previewOverlay.style.display = "none";
     scanResult.style.display = "block";
     scanZones.innerHTML = `<div style="color:var(--muted);font-size:13px;">⚠ ${err.message || "Errore durante l'analisi. Riprova."}</div>`;
+    scanRecommendation.style.display = "none";
   }
 
   analyzeBtn.disabled = false;
