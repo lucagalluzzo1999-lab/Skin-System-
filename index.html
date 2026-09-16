@@ -9,17 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --clay:      #B5654A;
-  --clay-dark: #7C4530;
-  --clay-light:#D99A7C;
-  --clay-faint:#F7EAE2;
-  --sand:      #E3B23C;
-  --sand-light:#F0CE7E;
-  --sand-faint:#FBF3DD;
-  --ink:       #111820;
-  --ink-2:     #1E2A36;
-  --mid:       #4A5568;
-  --muted:     #7B8794;
+  --clay:      #2C4A52;
+  --clay-dark: #1F363D;
+  --clay-light:#6E969F;
+  --clay-faint:#E8EFF0;
+  --sand:      #7FA98F;
+  --sand-light:#A9C9B7;
+  --sand-faint:#EDF4EF;
+  --ink:       #141F24;
+  --ink-2:     #1C2B31;
+  --mid:       #46595E;
+  --muted:     #7A8C90;
   --border:    rgba(17,24,32,0.10);
   --white:     #FFFFFF;
   --off-white: #F9F8F5;
@@ -85,13 +85,13 @@ ul { list-style: none; }
   background: var(--clay);
   color: var(--white);
   border-color: var(--clay);
-  box-shadow: 0 2px 12px rgba(181,101,74,0.25);
+  box-shadow: 0 2px 12px rgba(44,74,82,0.25);
 }
 .btn-primary:hover {
   background: var(--clay-dark);
   border-color: var(--clay-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(181,101,74,0.35);
+  box-shadow: 0 8px 24px rgba(44,74,82,0.35);
 }
 .btn-ghost {
   background: transparent;
@@ -111,7 +111,7 @@ ul { list-style: none; }
 .btn-sand:hover {
   background: #B8862A;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(227,178,60,0.35);
+  box-shadow: 0 8px 24px rgba(127,169,143,0.35);
 }
 .btn-lg { padding: 16px 32px; font-size: 15.5px; }
 
@@ -322,14 +322,14 @@ header {
   position: absolute;
   top: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(181,101,74,0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(44,74,82,0.12) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(181,101,74,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(44,74,82,0.06) 1px, transparent 1px);
   background-size: 24px 24px;
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%);
   mask-image: linear-gradient(to bottom, black, transparent 70%);
@@ -355,7 +355,7 @@ header {
   font-size: 11px;
   padding: 5px 12px;
   border-radius: 20px;
-  background: rgba(181,101,74,0.10);
+  background: rgba(44,74,82,0.10);
   color: var(--clay-dark);
   letter-spacing: 0.05em;
 }
@@ -620,7 +620,7 @@ h2 {
   display: none;
   margin-top: 16px;
   background: var(--clay-faint);
-  border: 1px solid rgba(181,101,74,0.2);
+  border: 1px solid rgba(44,74,82,0.2);
   border-radius: 10px;
   padding: 16px;
 }
@@ -649,14 +649,14 @@ h2 {
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 10px;
-  background: rgba(181,101,74,0.15);
+  background: rgba(44,74,82,0.15);
   color: var(--clay-dark);
 }
-.scan-zone-tag.warn { background: rgba(227,178,60,0.2); color: #6B4A12; }
+.scan-zone-tag.warn { background: rgba(127,169,143,0.2); color: #2F4A3D; }
 .scan-recommendation {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid rgba(181,101,74,0.25);
+  border-top: 1px solid rgba(44,74,82,0.25);
 }
 .scan-reco-label {
   font-family: var(--mono);
@@ -931,8 +931,8 @@ section {
   padding: 3px 8px;
   border-radius: 8px;
 }
-.rating-high { background: rgba(181,101,74,0.15); color: var(--clay-dark); }
-.rating-med { background: rgba(227,178,60,0.15); color: #6B4A12; }
+.rating-high { background: rgba(44,74,82,0.15); color: var(--clay-dark); }
+.rating-med { background: rgba(127,169,143,0.15); color: #2F4A3D; }
 
 /* ── Guide cards ── */
 .guides-grid {
@@ -1023,7 +1023,7 @@ section {
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.badge-live { background: rgba(181,101,74,0.12); color: var(--clay-dark); }
+.badge-live { background: rgba(44,74,82,0.12); color: var(--clay-dark); }
 .badge-soon { background: rgba(123,135,148,0.12); color: var(--muted); }
 .guide-link {
   font-size: 13px;
@@ -1254,7 +1254,7 @@ section {
 .price-feature-icon {
   width: 18px;
   height: 18px;
-  background: rgba(181,101,74,0.15);
+  background: rgba(44,74,82,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1270,7 +1270,7 @@ section {
 }
 .price-feature-text { color: var(--mid); line-height: 1.5; }
 .price-card.featured .price-feature-icon {
-  background: rgba(181,101,74,0.25);
+  background: rgba(44,74,82,0.25);
 }
 .price-card.featured .price-feature-text { color: rgba(255,255,255,0.7); }
 
@@ -1325,7 +1325,7 @@ section {
 /* ── Routine builder mini ── */
 .routine-section { background: var(--sand-faint); }
 .routine-section .eyebrow::before { background: var(--sand); }
-.routine-section .eyebrow { color: #6B4A12; }
+.routine-section .eyebrow { color: #2F4A3D; }
 .routine-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1386,7 +1386,7 @@ section {
   border-radius: 8px;
   flex-shrink: 0;
 }
-.rb-essential { background: rgba(181,101,74,0.12); color: var(--clay-dark); }
+.rb-essential { background: rgba(44,74,82,0.12); color: var(--clay-dark); }
 .rb-optional { background: rgba(123,135,148,0.1); color: var(--muted); }
 
 /* ── Footer ── */
@@ -1457,12 +1457,100 @@ footer {
 /* ── Reveal animations ── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(24px) scale(0.985);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--sand), var(--clay));
+  z-index: 200;
+  transition: width 0.1s ease-out;
+}
+
+/* ── Hero entrance (above-the-fold, plays on load not on scroll) ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-enter {
+  opacity: 0;
+  animation: heroIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-enter.d1 { animation-delay: 0.05s; }
+.hero-enter.d2 { animation-delay: 0.18s; }
+.hero-enter.d3 { animation-delay: 0.32s; }
+.hero-enter.d4 { animation-delay: 0.46s; }
+.hero-enter.d5 { animation-delay: 0.58s; }
+.hero-enter.d6 { animation-delay: 0.72s; }
+
+/* Animated gradient on the emphasised hero word */
+h1 em {
+  background: linear-gradient(100deg, var(--clay) 20%, var(--sand) 50%, var(--clay) 80%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientSweep 5s ease-in-out infinite;
+}
+@keyframes gradientSweep {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating hero orb */
+.hero::before { animation: floatOrb 9s ease-in-out infinite; }
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-24px, 26px) scale(1.06); }
+}
+
+/* Button shine sweep */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 130%; }
+
+/* Header shrink on scroll */
+header { transition: box-shadow 0.25s ease; }
+header.scrolled { box-shadow: 0 2px 16px rgba(17,24,32,0.08); }
+header.scrolled .header-inner { padding-top: 11px; padding-bottom: 11px; }
+.header-inner { transition: padding 0.25s ease; }
+
+/* Stat number count-up pop */
+.stat-num { transition: transform 0.3s ease; }
+.stat-item.counted .stat-num { animation: statPop 0.4s ease; }
+@keyframes statPop {
+  0%   { transform: scale(0.85); }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* AI scan card 3D tilt wrapper */
+#scanCard { transition: transform 0.15s ease-out, box-shadow 0.3s ease; will-change: transform; }
+
+@media(prefers-reduced-motion: reduce) {
+  .hero-enter { animation: none !important; opacity: 1 !important; }
+  h1 em { animation: none; }
+  .hero::before { animation: none; }
+  .btn::after { display: none; }
 }
 
 /* ── Responsive ── */
@@ -1499,6 +1587,7 @@ footer {
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="icon-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></symbol>
@@ -1591,21 +1680,21 @@ footer {
 <!-- ══ HERO ══ -->
 <section class="hero" style="border-top:none;">
   <div class="wrap">
-    <div class="eyebrow">Intelligenza artificiale per la cura di sé</div>
+    <div class="eyebrow hero-enter d1">Intelligenza artificiale per la cura di sé</div>
     <div class="hero-grid">
       <div>
-        <div class="skin-pills">
+        <div class="skin-pills hero-enter d2">
           <span class="skin-pill">Analisi AI del viso</span>
           <span class="skin-pill">Routine su misura</span>
           <span class="skin-pill">Zero tempo perso</span>
         </div>
-        <h1>Basta rimandare.<br>La svolta per la<br>tua pelle è <em>oggi</em>.</h1>
-        <p class="hero-sub">Un'intelligenza artificiale analizza il tuo viso in 30 secondi e ti dice esattamente cosa affrontare — non l'ennesima lista di prodotti a caso. Il problema che hai ignorato per mesi ha finalmente una soluzione precisa.</p>
-        <div class="cta-row">
+        <h1 class="hero-enter d2">Basta rimandare.<br>La svolta per la<br>tua pelle è <em>oggi</em>.</h1>
+        <p class="hero-sub hero-enter d3">Un'intelligenza artificiale analizza il tuo viso in 30 secondi e ti dice esattamente cosa affrontare — non l'ennesima lista di prodotti a caso. Il problema che hai ignorato per mesi ha finalmente una soluzione precisa.</p>
+        <div class="cta-row hero-enter d4">
           <a href="quiz.html" class="btn btn-primary btn-lg">Scopri il tuo problema ora</a>
           <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Prova lo Scan AI</a>
         </div>
-        <div class="trust-badges">
+        <div class="trust-badges hero-enter d5">
           <span class="trust-badge">Analisi AI in 30 secondi</span>
           <span class="trust-badge">Nessun abbonamento</span>
           <span class="trust-badge">IT &amp; EN</span>
@@ -1614,7 +1703,7 @@ footer {
       </div>
 
       <!-- Face Map + AI Scan Card -->
-      <div>
+      <div class="hero-enter d6">
         <div class="ai-scan-card" id="scanCard">
           <div class="ai-scan-header">
             <div class="ai-scan-title">Analizzatore pelle</div>
@@ -2470,7 +2559,7 @@ Identifica le zone problematiche principali visibili (fronte, naso, guance, cont
     } else {
       let html = "";
       if (parsed.tipo_pelle) {
-        html += `<div class="scan-zone-item" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(181,101,74,0.15);">
+        html += `<div class="scan-zone-item" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(44,74,82,0.15);">
           <span class="scan-zone-label">Tipo di pelle</span>
           <span class="scan-zone-tag">${parsed.tipo_pelle}</span>
         </div>`;
@@ -2667,13 +2756,67 @@ mobileMenu.querySelectorAll("a").forEach(a => {
 
 // ── Header CTA show on scroll ──
 const headerCta = document.getElementById("header-cta");
+const siteHeader = document.querySelector("header");
+const scrollProgress = document.getElementById("scrollProgress");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
     headerCta.style.display = "inline-block";
   } else {
     headerCta.style.display = "none";
   }
+  siteHeader?.classList.toggle("scrolled", window.scrollY > 12);
+
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+  if (scrollProgress) scrollProgress.style.width = pct + "%";
 }, { passive: true });
+
+// ── Stat count-up when the stats bar enters view ──
+const statItems = document.querySelectorAll(".stat-item .stat-num");
+const statParsers = Array.from(statItems).map(el => {
+  const raw = el.textContent.trim();
+  const match = raw.match(/[\d.,]+/);
+  return { el, raw, num: match ? parseFloat(match[0].replace(",", ".")) : null };
+});
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    statParsers.forEach(({ el, raw, num }) => {
+      const item = el.closest(".stat-item");
+      if (num === null) { item?.classList.add("counted"); return; }
+      const duration = 900;
+      const start = performance.now();
+      const suffix = raw.replace(/^[\d.,]+/, "");
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(num * eased * 10) / 10;
+        const display = Number.isInteger(num) ? Math.round(current) : current.toFixed(1).replace(".", ",");
+        el.textContent = display + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else { el.textContent = raw; item?.classList.add("counted"); }
+      }
+      requestAnimationFrame(tick);
+    });
+    statObserver.disconnect();
+  });
+}, { threshold: 0.4 });
+const statsBarEl = document.querySelector(".stats-bar");
+if (statsBarEl) statObserver.observe(statsBarEl);
+
+// ── Subtle 3D tilt on the AI scan card ──
+const tiltCard = document.getElementById("scanCard");
+if (tiltCard && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  tiltCard.addEventListener("mousemove", (e) => {
+    const rect = tiltCard.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltCard.style.transform = `perspective(900px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) translateZ(0)`;
+  });
+  tiltCard.addEventListener("mouseleave", () => {
+    tiltCard.style.transform = "perspective(900px) rotateY(0) rotateX(0)";
+  });
+}
 
 // ── Language toggle ──
 document.querySelectorAll(".lang-toggle button").forEach(btn => {
