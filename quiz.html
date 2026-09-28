@@ -1,552 +1,737 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Il tuo quiz della pelle — Skin System</title>
+<title>Skin Quiz — Skin System for Men</title>
+<meta name="description" content="Seven quick questions to find your skin type and the one issue to fix first. Free, two minutes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --clay:      #B5654A;
-  --clay-dark: #7C4530;
-  --clay-light:#D99A7C;
-  --clay-faint:#F7EAE2;
-  --sand:      #E3B23C;
-  --sand-light:#F0CE7E;
-  --sand-faint:#FBF3DD;
-  --ink:       #111820;
-  --ink-2:     #1E2A36;
-  --mid:       #4A5568;
-  --muted:     #7B8794;
-  --border:    rgba(17,24,32,0.10);
-  --white:     #FFFFFF;
-  --off-white: #F9F8F5;
-  --display:   'Fraunces', serif;
-  --sans:      'Inter', sans-serif;
-  --mono:      'IBM Plex Mono', monospace;
-  --radius:    8px;
-  --shadow-lg: 0 24px 64px rgba(17,24,32,0.18);
+  --clay:       #2C4A52;
+  --clay-dark:  #1F363D;
+  --clay-light: #6E969F;
+  --clay-faint: #E6EEEF;
+  --sand:       #7FA98F;
+  --sand-light: #A9C9B7;
+  --sand-faint: #EDF4EF;
+  --ink:        #121C20;
+  --ink-2:      #1A272C;
+  --mid:        #4A5B60;
+  --muted:      #7C8B8F;
+  --line:       rgba(18,28,32,0.09);
+  --white:      #FFFFFF;
+  --bg:         #FAFAF8;
+  --bg-alt:     #F1F4F3;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-md: 0 10px 40px rgba(18,28,32,0.08);
+  --shadow-lg: 0 30px 80px rgba(18,28,32,0.14);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { font-size: 16px; }
 body {
   font-family: var(--sans);
-  background: linear-gradient(160deg, var(--off-white) 0%, var(--clay-faint) 100%);
+  font-optical-sizing: auto;
+  background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 8px; }
 
+/* soft glow in the background, like the site hero */
+.bg-glow {
+  position: fixed; inset: -20% -20% auto auto; width: 80vw; height: 80vw; max-width: 900px; max-height: 900px;
+  background: radial-gradient(closest-side at 60% 45%, rgba(127,169,143,0.2), transparent),
+              radial-gradient(closest-side at 35% 70%, rgba(44,74,82,0.08), transparent);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Top bar ── */
 .top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  max-width: 640px;
-  margin: 0 auto;
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(250,250,248,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
-.logo {
-  font-family: var(--display);
-  font-size: 1.2rem;
-  color: var(--ink-2);
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.top-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  max-width: 760px; margin: 0 auto; padding: 14px 24px;
 }
-.logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--clay); display: inline-block; }
-.back-link {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.wrap { max-width: 640px; margin: 0 auto; padding: 20px 24px 60px; }
-
-.quiz-box {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 40px 36px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-}
-@media(max-width: 640px) {
-  .quiz-box { padding: 28px 22px; border-radius: 16px; }
-  .wrap { padding: 12px 16px 40px; }
+.logo { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.03em; color: var(--ink-2); display: flex; align-items: center; gap: 5px; }
+.logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sand); display: inline-block; }
+.logo-tag { margin-left: 7px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--clay); color: var(--white); }
+.back-link { font-size: 13.5px; font-weight: 500; color: var(--mid); transition: color 0.2s; }
+.back-link:hover { color: var(--ink); }
+.progress { height: 3px; background: rgba(18,28,32,0.06); }
+.progress i {
+  display: block; height: 100%; width: 100%;
+  background: linear-gradient(90deg, var(--sand), var(--clay));
+  transform-origin: 0 50%; transform: scaleX(0);
+  transition: transform 0.7s var(--ease);
 }
 
-.quiz-progress { display: flex; gap: 6px; margin-bottom: 32px; }
-.quiz-progress .bar { height: 4px; flex: 1; background: var(--border); border-radius: 4px; overflow: hidden; }
-.quiz-progress .bar.done { background: var(--clay); }
-.quiz-progress .bar.active { background: linear-gradient(90deg, var(--clay) 60%, var(--border) 60%); }
+/* ── Stage ── */
+.wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+.step { display: none; }
+.step.active { display: block; }
+.step.in       { animation: stepIn 0.7s var(--ease) both; }
+.step.in-back  { animation: stepInBack 0.7s var(--ease) both; }
+.step.out      { display: block; animation: stepOut 0.32s ease-in both; }
+.step.out-back { display: block; animation: stepOutBack 0.32s ease-in both; }
+@keyframes stepIn      { from { opacity: 0; transform: translateX(48px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes stepInBack  { from { opacity: 0; transform: translateX(-48px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes stepOut     { to { opacity: 0; transform: translateX(-36px); filter: blur(6px); } }
+@keyframes stepOutBack { to { opacity: 0; transform: translateX(36px); filter: blur(6px); } }
 
-.quiz-step { display: none; }
-.quiz-step.active { display: block; }
+.kicker { display: block; font-size: 15px; font-weight: 600; color: var(--clay); margin-bottom: 14px; letter-spacing: -0.01em; }
+.kicker .of { color: var(--muted); font-weight: 500; }
+h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
+.step h2 { font-size: clamp(1.8rem, 4.2vw, 2.7rem); line-height: 1.08; margin-bottom: 34px; max-width: 22ch; }
 
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 14px;
-  display: block;
-}
-.quiz-step h2 {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: var(--ink-2);
-  line-height: 1.35;
-  margin-bottom: 26px;
-}
-.quiz-options { display: flex; flex-direction: column; gap: 12px; }
-.quiz-option {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 16px 20px;
-  border-radius: 10px;
-  border: 1.5px solid var(--border);
-  background: var(--off-white);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-.quiz-option:hover { border-color: var(--clay-light); background: var(--clay-faint); }
-.quiz-option.selected { border-color: var(--clay); background: var(--clay-faint); color: var(--clay-dark); }
+/* ── Intro ── */
+.intro { text-align: center; padding-top: 12px; }
+.intro .disc { width: 150px; margin: 0 auto 30px; }
+.intro h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.03; margin-bottom: 18px; }
+.intro p { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--mid); max-width: 44ch; margin: 0 auto 34px; }
+.intro-meta { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 22px; font-size: 13.5px; color: var(--muted); }
+.intro-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.intro-meta svg { width: 15px; height: 15px; stroke: var(--sand); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-.quiz-back {
-  margin-top: 22px;
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-family: var(--sans);
-  font-size: 13.5px;
-  cursor: pointer;
-  text-decoration: underline;
+/* ── Options ── */
+.options { display: flex; flex-direction: column; gap: 12px; }
+.option {
+  position: relative; display: flex; align-items: center; gap: 16px; width: 100%; text-align: left;
+  padding: 18px 20px; border-radius: 18px; border: 1.5px solid var(--line); background: var(--white);
+  color: var(--ink); font-size: 16px; font-weight: 500; letter-spacing: -0.01em; cursor: pointer;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  opacity: 0; transform: translateY(14px);
+  animation: optIn 0.6s var(--ease) forwards;
 }
+.step.in-back .option { animation-duration: 0.01s; }
+.option:nth-child(1) { animation-delay: 0.12s; }
+.option:nth-child(2) { animation-delay: 0.18s; }
+.option:nth-child(3) { animation-delay: 0.24s; }
+.option:nth-child(4) { animation-delay: 0.30s; }
+@keyframes optIn { to { opacity: 1; transform: none; } }
+.option:hover { border-color: rgba(44,74,82,0.35); box-shadow: var(--shadow-md); }
+.option:active { transform: scale(0.985); }
+.option .key {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; border: 1.5px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--muted); transition: all 0.25s var(--ease);
+}
+.option .check {
+  margin-left: auto; flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--clay);
+  display: flex; align-items: center; justify-content: center; transform: scale(0); transition: transform 0.4s var(--ease);
+}
+.option .check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 3.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.option.selected { border-color: var(--clay); background: var(--clay-faint); }
+.option.selected .key { background: var(--clay); border-color: var(--clay); color: #fff; }
+.option.selected .check { transform: scale(1); }
 
-.quiz-analyzing { text-align: center; padding: 20px 0 8px; }
-.quiz-spinner {
-  width: 42px; height: 42px; border-radius: 50%; margin: 0 auto 22px;
-  border: 3px solid var(--border); border-top-color: var(--clay);
-  animation: spin 0.9s linear infinite;
+.step-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 16px; }
+.back {
+  background: none; border: none; color: var(--mid); font-size: 14.5px; font-weight: 500; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 0; transition: color 0.2s;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
-.quiz-analyzing h2 { font-size: 1.25rem; margin-bottom: 8px; }
-.quiz-analyzing p { color: var(--muted); font-size: 14px; }
-.analyzing-line { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 16px; min-height: 18px; }
+.back:hover { color: var(--ink); }
+.back svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.hint { font-size: 13px; color: var(--muted); }
+.hint kbd { font-family: inherit; font-size: 12px; font-weight: 600; padding: 1px 6px; border: 1px solid var(--line); border-radius: 5px; background: #fff; }
+@media (hover: none) { .hint { display: none; } }
 
-.result-badge {
-  display: inline-block;
-  background: var(--clay-faint);
-  color: var(--clay-dark);
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-}
-.result-guide-name {
-  font-family: var(--display);
-  font-size: 1.7rem;
-  color: var(--ink-2);
-  margin-bottom: 18px;
-  line-height: 1.25;
-}
-.diagnosis-block {
-  background: var(--off-white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 18px 20px;
-  margin-bottom: 14px;
-}
-.diagnosis-block .tag {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--clay);
-  margin-bottom: 8px;
-}
-.diagnosis-block p { font-size: 14.5px; color: var(--ink); line-height: 1.6; }
-.result-price {
-  font-family: var(--display);
-  font-size: 1.9rem;
-  color: var(--clay-dark);
-  margin: 22px 0 18px;
-}
+/* ── Buttons ── */
 .btn {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 15px;
-  padding: 14px 26px;
-  border-radius: var(--radius);
-  border: none;
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  text-align: center;
-  transition: all 0.2s ease;
+  display: inline-block; font-weight: 600; font-size: 16px; letter-spacing: -0.005em;
+  padding: 16px 30px; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer; text-align: center;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
 }
-.btn-primary { background: var(--clay); color: var(--white); }
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--clay); color: #fff; }
 .btn-primary:hover { background: var(--clay-dark); }
-.btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--ink); margin-top: 10px; }
-.btn-ghost:hover { border-color: var(--clay); color: var(--clay); }
-.quiz-restart { margin-top: 6px; text-align: center; }
+.btn-ghost { background: transparent; border-color: rgba(44,74,82,0.28); color: var(--clay); }
+.btn-ghost:hover { background: var(--clay); border-color: var(--clay); color: #fff; }
+.btn-block { display: block; width: 100%; }
 
-.waitlist-note {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 14px;
-  text-align: center;
-  line-height: 1.55;
+/* ── Analyzing ── */
+.analyzing { text-align: center; padding-top: 20px; }
+.scan { position: relative; width: 190px; height: 190px; margin: 0 auto 34px; }
+.scan .disc { position: absolute; inset: 15px; width: 160px; }
+.scan .ring { position: absolute; inset: 0; transform: rotate(-90deg); }
+.scan .ring circle { fill: none; stroke-width: 3; }
+.scan .ring .track { stroke: rgba(18,28,32,0.07); }
+.scan .ring .bar { stroke: var(--clay); stroke-linecap: round; stroke-dasharray: 578; stroke-dashoffset: 578; }
+.analyzing.run .ring .bar { transition: stroke-dashoffset 2.6s cubic-bezier(0.45, 0, 0.2, 1); stroke-dashoffset: 0; }
+.scan-line {
+  position: absolute; left: 15px; right: 15px; top: 15px; height: 160px; border-radius: 50%; overflow: hidden; pointer-events: none;
+}
+.scan-line::before {
+  content: ''; position: absolute; left: 0; right: 0; height: 36%;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.55), transparent);
+  animation: sweep 1.3s ease-in-out infinite alternate;
+}
+@keyframes sweep { from { top: -36%; } to { top: 100%; } }
+.analyzing h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin: 0 auto 10px; }
+.analyzing-line { font-size: 15px; color: var(--muted); min-height: 24px; transition: opacity 0.25s; }
+
+/* ── Result ── */
+.result { text-align: left; }
+.result-hero { display: grid; grid-template-columns: 170px 1fr; gap: 34px; align-items: center; margin-bottom: 30px; }
+.result-hero .disc { width: 170px; }
+.badge { display: inline-block; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: var(--clay-faint); color: var(--clay-dark); margin-bottom: 14px; }
+.result-label { font-size: 15px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+.result h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.04; }
+.signals { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.signals span { font-size: 13.5px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--mid); }
+.signals .lead { background: transparent; border: none; padding-left: 0; color: var(--muted); }
+.blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 26px; }
+.block { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+.block h3 { font-size: 15px; font-weight: 700; color: var(--clay); margin-bottom: 8px; letter-spacing: -0.01em; }
+.block p { font-size: 15.5px; color: var(--mid); line-height: 1.6; }
+.buy { background: var(--ink-2); color: #fff; border-radius: 28px; padding: 30px; box-shadow: var(--shadow-lg); }
+.buy-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.buy-name { font-size: 15px; font-weight: 600; color: var(--sand-light); margin-bottom: 4px; }
+.buy-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; }
+.buy-price { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.buy-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 24px; }
+.buy-list li { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; color: rgba(255,255,255,0.75); }
+.buy-list svg { width: 15px; height: 15px; stroke: var(--sand); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.buy .btn-primary { background: var(--sand); color: var(--ink); font-weight: 700; }
+.buy .btn-primary:hover { background: var(--sand-light); }
+.buy .btn-ghost { border-color: rgba(255,255,255,0.25); color: #fff; margin-top: 10px; }
+.buy .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+.fine { font-size: 13px; color: var(--muted); text-align: center; margin-top: 18px; }
+.restart { display: block; margin: 18px auto 0; background: none; border: none; color: var(--mid); font-size: 14.5px; font-weight: 500; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.restart:hover { color: var(--ink); }
+
+/* result elements reveal one after another */
+.result .r { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+.result.show .r { animation: rIn 0.9s var(--ease) forwards; animation-delay: calc(var(--d, 0) * 110ms); }
+@keyframes rIn { to { opacity: 1; transform: none; filter: none; } }
+.result .disc { transform: scale(0.7); opacity: 0; }
+.result.show .disc { animation: discIn 1.2s var(--ease) 0.05s forwards; }
+@keyframes discIn { to { transform: none; opacity: 1; } }
+
+/* ── Skin close-ups ── */
+.disc svg { width: 100%; height: auto; display: block; overflow: visible; filter: drop-shadow(0 12px 26px rgba(90,60,40,0.18)); }
+
+@media (max-width: 640px) {
+  .wrap { padding: 36px 18px 60px; }
+  .top-inner { padding: 12px 18px; }
+  .option { padding: 16px; font-size: 15.5px; border-radius: 16px; }
+  .result-hero { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+  .result-hero .disc { width: 140px; margin: 0 auto; }
+  .signals { justify-content: center; }
+  .blocks { grid-template-columns: 1fr; }
+  .buy { padding: 24px 20px; border-radius: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .option, .result .r, .result .disc { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .analyzing .ring .bar { stroke-dashoffset: 0; }
 }
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="m-tex" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 .45  0 0 0 0 .33  0 0 0 0 .26  0 0 0 -1.4 .9" result="m"/>
+      <feComposite in="m" in2="SourceGraphic" operator="in" result="t"/>
+      <feBlend in="SourceGraphic" in2="t" mode="multiply"/>
+    </filter>
+    <filter id="m-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="m-soft2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="m-flake"><feDropShadow dx=".6" dy=".8" stdDeviation=".5" flood-color="#6B4E3D" flood-opacity=".45"/></filter>
+    <radialGradient id="m-skin" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#F1DFCD"/><stop offset=".7" stop-color="#E2C6AE"/><stop offset="1" stop-color="#D2B198"/></radialGradient>
+    <radialGradient id="m-dry" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#EEE0D0"/><stop offset=".7" stop-color="#E0CBB6"/><stop offset="1" stop-color="#CFB7A0"/></radialGradient>
+    <radialGradient id="m-dull" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#D9CBBE"/><stop offset=".7" stop-color="#CBBAAB"/><stop offset="1" stop-color="#BAA898"/></radialGradient>
+    <radialGradient id="m-healthy" cx="40%" cy="35%" r="72%"><stop offset="0" stop-color="#F5E4D2"/><stop offset=".65" stop-color="#E8CDB4"/><stop offset="1" stop-color="#D8B89D"/></radialGradient>
+    <radialGradient id="m-red" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#D9726A" stop-opacity=".75"/><stop offset="1" stop-color="#D9726A" stop-opacity="0"/></radialGradient>
+    <pattern id="m-pores" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <circle cx="2" cy="3" r="1.05" fill="#8A6049" fill-opacity=".55"/><circle cx="6.5" cy="7" r=".8" fill="#8A6049" fill-opacity=".45"/>
+    </pattern>
+    <pattern id="m-pores-xl" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+      <circle cx="3" cy="3.5" r="1.9" fill="#7C543F" fill-opacity=".6"/><circle cx="3" cy="3.5" r="1.2" fill="#5E3E2E" fill-opacity=".55"/>
+      <circle cx="9" cy="9" r="1.5" fill="#7C543F" fill-opacity=".5"/>
+    </pattern>
+    <pattern id="m-stubble" width="11" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <line x1="2" y1="1.5" x2="2.6" y2="3.4" stroke="#3A2A22" stroke-width=".8" stroke-linecap="round" stroke-opacity=".55"/>
+      <line x1="7.5" y1="5.5" x2="8" y2="7.2" stroke="#3A2A22" stroke-width=".7" stroke-linecap="round" stroke-opacity=".45"/>
+      <line x1="4.5" y1="8" x2="4.9" y2="9.4" stroke="#3A2A22" stroke-width=".6" stroke-linecap="round" stroke-opacity=".35"/>
+    </pattern>
+    <pattern id="m-dull-speck" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".7" fill="#8C7A6B" fill-opacity=".35"/><circle cx="3.6" cy="3.4" r=".5" fill="#8C7A6B" fill-opacity=".3"/>
+    </pattern>
+    <clipPath id="m-disc"><circle cx="70" cy="70" r="66"/></clipPath>
+    <clipPath id="m-left"><path d="M0 0 L140 0 L0 140 Z"/></clipPath>
+    <clipPath id="m-right"><path d="M140 0 L140 140 L0 140 Z"/></clipPath>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg-glow" aria-hidden="true"></div>
+
 <div class="top">
-  <a href="index.html" class="logo">Skin<span class="logo-dot"></span>System</a>
-  <a href="index.html" class="back-link">← Torna al sito</a>
-</div>
-
-<div class="wrap">
-  <div class="quiz-box">
-
-    <div class="quiz-progress">
-      <div class="bar active" data-bar="1"></div>
-      <div class="bar" data-bar="2"></div>
-      <div class="bar" data-bar="3"></div>
-      <div class="bar" data-bar="4"></div>
-      <div class="bar" data-bar="5"></div>
-      <div class="bar" data-bar="6"></div>
-      <div class="bar" data-bar="7"></div>
-    </div>
-
-    <div class="quiz-step active" data-step="1">
-      <span class="eyebrow">Domanda 1 di 7</span>
-      <h2>Un paio d'ore dopo aver lavato il viso, senza applicare nulla, come appare?</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q1" data-v="a">Lucido su tutto il viso, quasi "oleoso"</button>
-        <button class="quiz-option" data-q="q1" data-v="b">Lucido solo su fronte, naso e mento</button>
-        <button class="quiz-option" data-q="q1" data-v="c">Né lucido né secco</button>
-        <button class="quiz-option" data-q="q1" data-v="d">Opaco, a volte tira già da solo</button>
-      </div>
-    </div>
-
-    <div class="quiz-step" data-step="2">
-      <span class="eyebrow">Domanda 2 di 7</span>
-      <h2>Come sono i tuoi pori, soprattutto su naso e guance?</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q2" data-v="a">Molto visibili, su tutto il viso</button>
-        <button class="quiz-option" data-q="q2" data-v="b">Visibili solo su naso e fronte</button>
-        <button class="quiz-option" data-q="q2" data-v="c">Poco visibili</button>
-      </div>
-      <button class="quiz-back" data-back="1">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="3">
-      <span class="eyebrow">Domanda 3 di 7</span>
-      <h2>Con che frequenza hai brufoli o punti neri?</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q3" data-v="a">Quasi sempre, in più zone</button>
-        <button class="quiz-option" data-q="q3" data-v="b">Ogni tanto, soprattutto sotto stress</button>
-        <button class="quiz-option" data-q="q3" data-v="c">Raramente o mai</button>
-      </div>
-      <button class="quiz-back" data-back="2">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="4">
-      <span class="eyebrow">Domanda 4 di 7</span>
-      <h2>Qualche ora dopo la doccia, senza creme, come si sente la pelle?</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q4" data-v="a">A suo agio, per niente tirata</button>
-        <button class="quiz-option" data-q="q4" data-v="b">Leggermente tirata</button>
-        <button class="quiz-option" data-q="q4" data-v="c">Tira parecchio, a volte si sfoglia</button>
-      </div>
-      <button class="quiz-back" data-back="3">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="5">
-      <span class="eyebrow">Domanda 5 di 7</span>
-      <h2>Come reagisce la tua pelle dopo la rasatura?</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q5" data-v="a">Nessun problema particolare</button>
-        <button class="quiz-option" data-q="q5" data-v="b">Un po' di rossore che passa in fretta</button>
-        <button class="quiz-option" data-q="q5" data-v="c">Bruciore, irritazione o peli incarniti frequenti</button>
-      </div>
-      <button class="quiz-back" data-back="4">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="6">
-      <span class="eyebrow">Domanda 6 di 7</span>
-      <h2>Guardandoti allo specchio la mattina, intorno agli occhi noti...</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q6" data-v="a">Pelle soda, nessuna linea visibile</button>
-        <button class="quiz-option" data-q="q6" data-v="b">Qualche linea sottile solo quando sorridi</button>
-        <button class="quiz-option" data-q="q6" data-v="c">Linee visibili anche a riposo, o meno elasticità di qualche anno fa</button>
-      </div>
-      <button class="quiz-back" data-back="5">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="7">
-      <span class="eyebrow">Domanda 7 di 7</span>
-      <h2>Il colorito generale del tuo viso, anche dopo una buona notte di sonno, è...</h2>
-      <div class="quiz-options">
-        <button class="quiz-option" data-q="q7" data-v="a">Uniforme e luminoso</button>
-        <button class="quiz-option" data-q="q7" data-v="b">Leggermente spento o irregolare</button>
-        <button class="quiz-option" data-q="q7" data-v="c">Spesso opaco o "stanco", indipendentemente dal riposo</button>
-      </div>
-      <button class="quiz-back" data-back="6">← Torna indietro</button>
-    </div>
-
-    <div class="quiz-step" data-step="analyzing">
-      <div class="quiz-analyzing">
-        <div class="quiz-spinner"></div>
-        <h2>Stiamo analizzando le tue risposte</h2>
-        <p>Incrociamo i dati per identificare il tuo profilo pelle.</p>
-        <div class="analyzing-line" id="analyzing-line">Valutazione della produzione di sebo…</div>
-      </div>
-    </div>
-
-    <div class="quiz-step" data-step="result">
-      <span class="result-badge" id="result-skintype">Pelle grassa</span>
-      <div class="result-guide-name" id="result-guide-name">La tua guida consigliata</div>
-
-      <div class="diagnosis-block">
-        <div class="tag">Il problema</div>
-        <p id="result-problem"></p>
-      </div>
-      <div class="diagnosis-block">
-        <div class="tag">La soluzione</div>
-        <p id="result-solution"></p>
-      </div>
-
-      <div class="result-price" id="result-price"></div>
-      <a href="index.html#guide" class="btn btn-primary gumroad-button" id="result-cta">Sblocca la tua guida</a>
-      <a href="index.html#prezzo" class="btn btn-ghost">Vedi il pacchetto completo (11,90€)</a>
-      <div class="waitlist-note" id="waitlist-note" style="display:none;"></div>
-      <div class="quiz-restart">
-        <button class="quiz-back" data-restart="1">Rifai il quiz</button>
-      </div>
-    </div>
-
+  <div class="top-inner">
+    <a href="index.html" class="logo" aria-label="Skin System for Men, back to the site">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
+    <a href="index.html" class="back-link">Back to site</a>
   </div>
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 </div>
+
+<main class="wrap" aria-live="polite">
+
+  <!-- Intro -->
+  <section class="step active in intro" data-step="intro">
+    <div class="disc" data-disc="guide:all"></div>
+    <h1>Let's figure out your skin.</h1>
+    <p>Seven quick questions about how your skin looks and feels. At the end you get your skin type and the one issue worth fixing first.</p>
+    <button class="btn btn-primary" id="startBtn">Start the quiz</button>
+    <div class="intro-meta">
+      <span><svg><use href="#i-check"/></svg>2 minutes</span>
+      <span><svg><use href="#i-check"/></svg>Free</span>
+      <span><svg><use href="#i-check"/></svg>No email needed</span>
+    </div>
+  </section>
+
+  <!-- Questions are generated from QUESTIONS below -->
+  <div id="questions"></div>
+
+  <!-- Analyzing -->
+  <section class="step analyzing" data-step="analyzing">
+    <div class="scan">
+      <svg class="ring" viewBox="0 0 190 190" aria-hidden="true"><circle class="track" cx="95" cy="95" r="92"/><circle class="bar" cx="95" cy="95" r="92"/></svg>
+      <div class="disc" data-disc="grassa"></div>
+      <div class="scan-line"></div>
+    </div>
+    <h2>Reading your answers</h2>
+    <div class="analyzing-line" id="analyzingLine">Checking oil production…</div>
+  </section>
+
+  <!-- Result -->
+  <section class="step result" data-step="result">
+    <div class="result-hero">
+      <div class="disc" id="resultDisc"></div>
+      <div>
+        <span class="badge r" style="--d:1" id="resultSkinType">Oily skin</span>
+        <div class="result-label r" style="--d:2">Your main issue</div>
+        <h1 class="r" style="--d:3" id="resultGuideName">Oily skin &amp; acne</h1>
+      </div>
+    </div>
+
+    <div class="signals r" style="--d:4" id="resultSignals"></div>
+
+    <div class="blocks">
+      <div class="block r" style="--d:5">
+        <h3>What's going on</h3>
+        <p id="resultProblem"></p>
+      </div>
+      <div class="block r" style="--d:6">
+        <h3>How to fix it</h3>
+        <p id="resultSolution"></p>
+      </div>
+    </div>
+
+    <div class="buy r" style="--d:7">
+      <div class="buy-row">
+        <div>
+          <div class="buy-name">Your guide</div>
+          <div class="buy-title" id="buyTitle">Oily skin &amp; acne</div>
+        </div>
+        <div class="buy-price">$14.90</div>
+      </div>
+      <ul class="buy-list">
+        <li><svg><use href="#i-check"/></svg>Morning and evening routine</li>
+        <li><svg><use href="#i-check"/></svg>4-week plan</li>
+        <li><svg><use href="#i-check"/></svg>PDF and ePub, instant download</li>
+        <li><svg><use href="#i-check"/></svg>One-time payment</li>
+      </ul>
+      <a href="index.html#guides" class="btn btn-primary btn-block gumroad-button" id="resultCta">Get my guide</a>
+      <a href="https://skinsystem.gumroad.com/l/lpumez" class="btn btn-ghost btn-block gumroad-button">Get all 6 guides for $44.90</a>
+    </div>
+
+    <p class="fine r" style="--d:8">For guidance only. For severe acne, rosacea or eczema, see a dermatologist.</p>
+    <button class="restart r" style="--d:8" id="restartBtn">Retake the quiz</button>
+  </section>
+
+</main>
 
 <script>
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
-(function(){
+
+// ── Skin close-ups: a round macro view of the skin, one per skin type / guide ──
+const G = (cls, inner) => `<g class="z ${cls}">${inner}</g>`;
+const SHINE_BIG = G('', '<ellipse cx="54" cy="46" rx="34" ry="16" fill="#fff" opacity=".55" filter="url(#m-soft2)" transform="rotate(-25 54 46)"/><path d="M34 58 q18 -22 44 -26" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".85" filter="url(#m-soft)"/><path d="M86 92 q12 -4 20 -14" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".7" filter="url(#m-soft)"/>');
+const CRACKS = G('', '<g stroke="#9C7A63" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".75"><path d="M8 40 L30 46 L44 38 L62 50 L80 44 L98 56 L120 50 L138 60"/><path d="M44 38 L48 20 L40 4"/><path d="M62 50 L58 74 L70 92 L66 118 L74 138"/><path d="M98 56 L102 80 L124 90 L140 86"/><path d="M58 74 L32 82 L10 78"/><path d="M70 92 L96 104 L120 128"/><path d="M32 82 L28 106 L40 130"/></g>');
+const FLAKES = G('', '<g fill="#FBF6F0" filter="url(#m-flake)"><path d="M34 50 l12 -3 l3 6 l-8 5 z"/><path d="M84 62 l10 1 l1 7 l-11 -1 z"/><path d="M60 100 l9 -4 l4 6 l-9 3 z"/><path d="M104 96 l7 -2 l2 5 l-7 2 z"/><path d="M20 94 l7 0 l1 5 l-8 0 z"/></g>');
+const spot = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#C9786C"/><circle cx="${x - r * .25}" cy="${y - r * .25}" r="${r * .3}" fill="#fff" opacity=".7"/>`;
+const bumps = (pts) => pts.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#CC6A61"/><circle cx="${x - r * .3}" cy="${y - r * .3}" r="${r * .3}" fill="#fff" opacity=".55"/>`).join('');
+
+const BASE = {
+  skin:    '<rect width="140" height="140" fill="url(#m-skin)" filter="url(#m-tex)"/>',
+  dry:     '<rect width="140" height="140" fill="url(#m-dry)" filter="url(#m-tex)"/>',
+  dull:    '<rect width="140" height="140" fill="url(#m-dull)" filter="url(#m-tex)"/>',
+  healthy: '<rect width="140" height="140" fill="url(#m-healthy)" filter="url(#m-tex)"/>',
+  pores:   '<rect width="140" height="140" fill="url(#m-pores)"/>',
+  poresXL: '<rect width="140" height="140" fill="url(#m-pores-xl)"/>',
+  stubble: '<rect width="140" height="140" fill="url(#m-stubble)"/>',
+};
+
+const MACRO = {
+  // skin types
+  grassa: BASE.skin + BASE.pores + SHINE_BIG + G('', spot(96, 58, 4.5) + spot(48, 100, 3.2)),
+  secca: BASE.dry + CRACKS + FLAKES,
+  mista:
+    `<g clip-path="url(#m-left)">${BASE.skin}${BASE.pores}` +
+      G('', '<ellipse cx="44" cy="40" rx="28" ry="12" fill="#fff" opacity=".6" filter="url(#m-soft2)" transform="rotate(-30 44 40)"/><path d="M24 56 q14 -18 36 -22" stroke="#fff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity=".85" filter="url(#m-soft)"/>') +
+    `</g><g clip-path="url(#m-right)">${BASE.dry}` +
+      G('', '<g stroke="#9C7A63" stroke-width="1" fill="none" stroke-linecap="round" opacity=".75"><path d="M70 140 L84 112 L108 104 L140 110"/><path d="M84 112 L92 84 L140 74"/><path d="M108 104 L124 130"/></g><g fill="#FBF6F0" filter="url(#m-flake)"><path d="M100 90 l9 -2 l2 5 l-9 2 z"/><path d="M84 124 l8 0 l1 5 l-8 0 z"/></g>') +
+    `</g><path d="M140 0 L0 140" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/>`,
+  sensibile: BASE.skin +
+    G('', '<circle cx="54" cy="58" r="44" fill="url(#m-red)"/><circle cx="98" cy="96" r="34" fill="url(#m-red)" opacity=".8"/>') +
+    G('', '<g stroke="#C0514A" stroke-width=".9" fill="none" stroke-linecap="round" opacity=".7"><path d="M30 50 q8 -6 14 0 q6 6 14 -2"/><path d="M40 70 q6 4 12 -2 l8 4"/><path d="M84 92 q8 -5 14 1 q5 4 12 -1"/></g>') +
+    G('', bumps([[72, 110, 2.6], [84, 118, 2.2], [62, 120, 2], [96, 124, 2.4], [108, 112, 1.8]])),
+
+  // guides
+  'guide:guance': BASE.skin + BASE.pores + SHINE_BIG +
+    G('', spot(96, 58, 5) + spot(48, 100, 4) + spot(76, 104, 3.2) + spot(40, 70, 2.6) + spot(104, 90, 2.4)),
+  'guide:occhi': BASE.skin +
+    G('', '<g stroke="#A07F69" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".6"><path d="M18 60 q30 -10 58 -2"/><path d="M14 76 q34 -12 66 -2"/><path d="M20 92 q30 -8 56 0"/><path d="M84 50 q18 -6 40 -2"/><path d="M86 70 q20 -4 44 2"/><path d="M84 90 q20 2 40 10"/></g>') +
+    G('', '<ellipse cx="96" cy="40" rx="26" ry="10" fill="#fff" opacity=".35" filter="url(#m-soft2)"/>'),
+  'guide:mandibola': BASE.skin + BASE.stubble +
+    G('', '<circle cx="62" cy="80" r="48" fill="url(#m-red)" opacity=".9"/>') +
+    G('', bumps([[44, 66, 3], [58, 84, 2.6], [70, 64, 2.2], [82, 94, 3], [52, 104, 2.4], [92, 72, 2], [38, 88, 2]])),
+  'guide:fronte': BASE.dull +
+    G('', '<rect width="140" height="140" fill="url(#m-dull-speck)"/>'),
+  'guide:naso': BASE.skin + BASE.poresXL +
+    G('', '<ellipse cx="52" cy="44" rx="26" ry="11" fill="#fff" opacity=".45" filter="url(#m-soft2)" transform="rotate(-25 52 44)"/>'),
+  'guide:all': BASE.healthy +
+    G('', '<ellipse cx="54" cy="46" rx="36" ry="18" fill="#fff" opacity=".45" filter="url(#m-soft2)" transform="rotate(-25 54 46)"/>'),
+};
+
+function faceSVG(key) {
+  return `<svg class="face" viewBox="0 0 140 140" aria-hidden="true" focusable="false"><g clip-path="url(#m-disc)">${MACRO[key] || BASE.healthy}</g><circle cx="70" cy="70" r="66" fill="none" stroke="rgba(18,28,32,.12)"/></svg>`;
+}
+
+
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CHECK = '<svg><use href="#i-check"/></svg>';
+
+  // ── Questions ──
+  const QUESTIONS = [
+    { id: 'q1', title: "A couple of hours after washing your face, with nothing on it, how does it look?", options: [
+      ['a', 'Shiny all over, almost greasy'],
+      ['b', 'Shiny only on the forehead, nose and chin'],
+      ['c', 'Neither shiny nor dry'],
+      ['d', 'Matte, sometimes tight on its own'],
+    ]},
+    { id: 'q2', title: "How do your pores look, especially on your nose and cheeks?", options: [
+      ['a', 'Very visible, all over'],
+      ['b', 'Visible only on the nose and forehead'],
+      ['c', 'Barely visible'],
+    ]},
+    { id: 'q3', title: "How often do you get breakouts or blackheads?", options: [
+      ['a', 'Almost always, in several areas'],
+      ['b', 'Now and then, especially when stressed'],
+      ['c', 'Rarely or never'],
+    ]},
+    { id: 'q4', title: "A few hours after a shower, with no lotion, how does your skin feel?", options: [
+      ['a', 'Comfortable, not tight at all'],
+      ['b', 'A little tight'],
+      ['c', 'Very tight, sometimes flaky'],
+    ]},
+    { id: 'q5', title: "How does your skin react after shaving?", options: [
+      ['a', 'No real issues'],
+      ['b', 'Some redness that fades quickly'],
+      ['c', 'Burning, irritation or frequent ingrown hairs'],
+      ['a', "I keep a beard and rarely shave"],
+    ]},
+    { id: 'q6', title: "Looking in the mirror in the morning, around your eyes you notice…", options: [
+      ['a', 'Firm skin, no visible lines'],
+      ['b', 'A few fine lines, only when you smile'],
+      ['c', 'Lines even at rest, or less firmness than a few years ago'],
+    ]},
+    { id: 'q7', title: "Even after a good night's sleep, your overall complexion is…", options: [
+      ['a', 'Even and healthy-looking'],
+      ['b', 'Slightly dull or uneven'],
+      ['c', 'Often dull or tired, no matter how much you sleep'],
+    ]},
+  ];
+  const TOTAL = QUESTIONS.length;
+  const KEYS = ['A', 'B', 'C', 'D'];
+
+  document.getElementById('questions').innerHTML = QUESTIONS.map((q, i) => `
+    <section class="step" data-step="${i + 1}">
+      <span class="kicker">Question ${i + 1} <span class="of">of ${TOTAL}</span></span>
+      <h2>${q.title}</h2>
+      <div class="options" role="radiogroup" aria-label="${q.title.replace(/"/g, '&quot;')}">
+        ${q.options.map(([v, label], k) => `
+          <button class="option" role="radio" aria-checked="false" data-q="${q.id}" data-v="${v}" data-k="${k}">
+            <span class="key">${KEYS[k]}</span><span>${label}</span><span class="check">${CHECK}</span>
+          </button>`).join('')}
+      </div>
+      <div class="step-foot">
+        <button class="back" data-back="${i}"><svg><use href="#i-back"/></svg>Back</button>
+        <span class="hint">Press <kbd>${KEYS.slice(0, q.options.length).join('</kbd> <kbd>')}</kbd></span>
+      </div>
+    </section>`).join('');
+
+  // Skin close-ups
+  document.querySelectorAll('[data-disc]').forEach(el => { el.innerHTML = faceSVG(el.dataset.disc); });
+
+  // ── Navigation with Apple-style transitions ──
   const answers = {};
-  const steps = document.querySelectorAll('.quiz-step');
-  const bars = document.querySelectorAll('.quiz-progress .bar');
-  const order = ['q1','q2','q3','q4','q5','q6','q7'];
+  const progressBar = document.getElementById('progressBar');
+  let current = 'intro';
+  let busy = false;
 
-  function showStep(n){
-    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
-    bars.forEach(b => {
-      const i = Number(b.dataset.bar);
-      if(!i) return;
-      b.classList.remove('active','done');
-      if(typeof n === 'number' && i < n) b.classList.add('done');
-      else if(n === 'analyzing' || n === 'result') b.classList.add('done');
-      else if(i === n) b.classList.add('active');
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const stepEl = (n) => document.querySelector(`.step[data-step="${n}"]`);
+
+  function setProgress(n) {
+    let p = 0;
+    if (typeof n === 'number') p = (n - 1) / TOTAL;
+    if (n === 'analyzing' || n === 'result') p = 1;
+    progressBar.style.transform = `scaleX(${p})`;
   }
 
-  document.querySelectorAll('.quiz-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const q = btn.dataset.q;
-      const v = btn.dataset.v;
-      answers[q] = v;
-      document.querySelectorAll('[data-q="'+q+'"]').forEach(o => o.classList.remove('selected'));
-      btn.classList.add('selected');
+  function go(next, dir = 'fwd') {
+    if (busy || next === current) return;
+    const from = stepEl(current);
+    const to = stepEl(next);
+    const outCls = dir === 'back' ? 'out-back' : 'out';
+    const inCls = dir === 'back' ? 'in-back' : 'in';
+    busy = true;
+    setProgress(next);
 
-      setTimeout(() => {
-        const idx = order.indexOf(q);
-        if(idx < order.length - 1){
-          showStep(idx + 2);
-        } else {
-          runAnalysis();
-        }
-      }, 200);
+    const swap = () => {
+      from.classList.remove('active', 'in', 'in-back', 'out', 'out-back');
+      to.classList.remove('in', 'in-back');
+      void to.offsetWidth;                // restart the entrance animation
+      to.classList.add('active', inCls);
+      current = next;
+      busy = false;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      const first = to.querySelector('.option.selected, .option, .btn');
+      first?.focus({ preventScroll: true });
+      if (next === 'analyzing') runAnalysis();
+      if (next === 'result') requestAnimationFrame(() => to.classList.add('show'));
+    };
+
+    if (reduceMotion) { swap(); return; }
+    from.classList.add(outCls);
+    setTimeout(swap, 300);
+  }
+
+  document.getElementById('startBtn').addEventListener('click', () => go(1));
+
+  document.getElementById('questions').addEventListener('click', (e) => {
+    const opt = e.target.closest('.option');
+    const back = e.target.closest('.back');
+    if (opt) choose(opt);
+    if (back) {
+      const n = Number(back.dataset.back);
+      go(n === 0 ? 'intro' : n, 'back');
+    }
+  });
+
+  function choose(opt) {
+    if (busy) return;
+    const q = opt.dataset.q;
+    answers[q] = opt.dataset.v;
+    opt.parentElement.querySelectorAll('.option').forEach(o => {
+      o.classList.toggle('selected', o === opt);
+      o.setAttribute('aria-checked', o === opt ? 'true' : 'false');
     });
+    const idx = QUESTIONS.findIndex(x => x.id === q);
+    setTimeout(() => go(idx < TOTAL - 1 ? idx + 2 : 'analyzing'), 380);
+  }
+
+  // Keyboard: A–D or 1–4 to answer, Backspace/← to go back
+  document.addEventListener('keydown', (e) => {
+    if (typeof current !== 'number' || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key.toUpperCase();
+    let idx = KEYS.indexOf(k);
+    if (idx < 0 && /^[1-4]$/.test(k)) idx = Number(k) - 1;
+    if (idx >= 0) {
+      const opt = stepEl(current).querySelectorAll('.option')[idx];
+      if (opt) { e.preventDefault(); choose(opt); }
+    } else if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      go(current === 1 ? 'intro' : current - 1, 'back');
+    }
   });
 
-  document.querySelectorAll('[data-back]').forEach(btn => {
-    btn.addEventListener('click', () => showStep(Number(btn.dataset.back)));
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    document.querySelectorAll('.option').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
+    stepEl('result').classList.remove('show');
+    stepEl('analyzing').classList.remove('run');
+    go(1, 'back');
   });
 
-  document.querySelectorAll('[data-restart]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-      showStep(1);
-    });
-  });
-
-  function runAnalysis(){
-    showStep('analyzing');
-    const lines = [
-      'Valutazione della produzione di sebo…',
-      'Analisi di pori e imperfezioni…',
-      'Controllo del livello di idratazione…',
-      'Identificazione del problema principale…'
-    ];
-    const el = document.getElementById('analyzing-line');
+  // ── Analyzing ──
+  function runAnalysis() {
+    const box = stepEl('analyzing');
+    const line = document.getElementById('analyzingLine');
+    const lines = ['Checking oil production…', 'Looking at pores and breakouts…', 'Measuring hydration…', 'Finding your main issue…'];
+    const discs = ['grassa', 'guide:naso', 'secca', 'guide:all'];
+    const disc = box.querySelector('.disc');
+    box.classList.remove('run');
+    void box.offsetWidth;
+    box.classList.add('run');
     let i = 0;
-    const interval = setInterval(() => {
+    line.textContent = lines[0];
+    disc.innerHTML = faceSVG(discs[0]);
+    const timer = setInterval(() => {
       i = (i + 1) % lines.length;
-      el.textContent = lines[i];
-    }, 500);
-
+      line.style.opacity = 0;
+      setTimeout(() => { line.textContent = lines[i]; disc.innerHTML = faceSVG(discs[i]); line.style.opacity = 1; }, 200);
+    }, 650);
     setTimeout(() => {
-      clearInterval(interval);
+      clearInterval(timer);
       renderResult();
-      showStep('result');
-    }, 1800);
+      go('result');
+    }, reduceMotion ? 600 : 2700);
   }
 
-  function computeSignals(){
+  // ── Scoring ──
+  // The quiz never asks "what's your problem": each question reads one simple
+  // signal (shine, pores, breakouts, dryness, shaving, fine lines, tone) and the
+  // highest score among the 6 guides wins. If no signal is strong enough, the
+  // result is the maintenance guide, because having no specific issue is a
+  // legitimate outcome too.
+  function computeSignals() {
     let oily = 0, dry = 0, pores = 0, breakouts = 0, shave = 0, aging = 0, dull = 0;
-
-    if(answers.q1 === 'a') oily += 2;
-    if(answers.q1 === 'b') oily += 1;
-    if(answers.q1 === 'd') dry += 2;
-
-    if(answers.q2 === 'a') { oily += 2; pores += 2; }
-    if(answers.q2 === 'b') { oily += 1; pores += 1; }
-    if(answers.q2 === 'c') dry += 1;
-
-    if(answers.q3 === 'a') { oily += 2; breakouts += 2; }
-    if(answers.q3 === 'b') { oily += 1; breakouts += 1; }
-
-    if(answers.q4 === 'b') dry += 1;
-    if(answers.q4 === 'c') dry += 2;
-
-    if(answers.q5 === 'b') shave += 1;
-    if(answers.q5 === 'c') shave += 3;
-
-    if(answers.q6 === 'b') aging += 1;
-    if(answers.q6 === 'c') aging += 3;
-
-    if(answers.q7 === 'b') dull += 1;
-    if(answers.q7 === 'c') dull += 3;
-
+    if (answers.q1 === 'a') oily += 2;
+    if (answers.q1 === 'b') oily += 1;
+    if (answers.q1 === 'd') dry += 2;
+    if (answers.q2 === 'a') { oily += 2; pores += 2; }
+    if (answers.q2 === 'b') { oily += 1; pores += 1; }
+    if (answers.q2 === 'c') dry += 1;
+    if (answers.q3 === 'a') { oily += 2; breakouts += 2; }
+    if (answers.q3 === 'b') { oily += 1; breakouts += 1; }
+    if (answers.q4 === 'b') dry += 1;
+    if (answers.q4 === 'c') dry += 2;
+    if (answers.q5 === 'b') shave += 1;
+    if (answers.q5 === 'c') shave += 3;
+    if (answers.q6 === 'b') aging += 1;
+    if (answers.q6 === 'c') aging += 3;
+    if (answers.q7 === 'b') dull += 1;
+    if (answers.q7 === 'c') dull += 3;
     return { oily, dry, pores, breakouts, shave, aging, dull };
   }
 
-  function computeSkinTypeLabel(signals){
-    const { oily, dry } = signals;
-    if(oily >= dry + 2) return 'Pelle grassa';
-    if(dry >= oily + 2) return 'Pelle secca';
-    if(oily > 0 && dry > 0) return 'Pelle mista';
-    return 'Pelle normale';
+  function skinType(s) {
+    if (s.oily >= s.dry + 2) return { label: 'Oily skin', disc: 'grassa' };
+    if (s.dry >= s.oily + 2) return { label: 'Dry skin', disc: 'secca' };
+    if (s.oily > 0 && s.dry > 0) return { label: 'Combination skin', disc: 'mista' };
+    return { label: 'Normal skin', disc: 'guide:all' };
   }
 
-  // Il quiz non chiede mai "qual è il tuo problema": ogni domanda osserva
-  // un segnale semplice (lucidità, pori, brufoli, secchezza, rasatura,
-  // linee sottili, tono della pelle) e il punteggio più alto tra le 6
-  // guide determina il risultato. Se nessun segnale è abbastanza forte,
-  // il risultato è la guida di mantenimento — perché non avere un
-  // problema specifico è un esito legittimo quanto averne uno.
-  function scoreGuides(signals){
+  function scoreGuides(s) {
     const scores = {
-      acne:          signals.oily * 1.0 + signals.breakouts * 2.0,
-      pori:          signals.pores * 1.6 + signals.oily * 0.4,
-      rasatura:      signals.shave * 2.2,
-      rughe:         signals.aging * 2.2,
-      opacita:       signals.dull * 2.0 + signals.dry * 0.3,
-      mantenimento:  1.2, // soglia di base: vince solo se nessun altro segnale è abbastanza forte
+      acne:        s.oily * 1.0 + s.breakouts * 2.0,
+      pores:       s.pores * 1.6 + s.oily * 0.4,
+      shaving:     s.shave * 2.2,
+      aging:       s.aging * 2.2,
+      dullness:    s.dull * 2.0 + s.dry * 0.3,
+      maintenance: 1.2, // baseline: wins only if no other signal is strong enough
     };
-
-    let best = 'mantenimento', bestScore = -Infinity;
-    Object.keys(scores).forEach(key => {
-      if(scores[key] > bestScore){ bestScore = scores[key]; best = key; }
-    });
+    let best = 'maintenance', bestScore = -Infinity;
+    Object.keys(scores).forEach(k => { if (scores[k] > bestScore) { bestScore = scores[k]; best = k; } });
     return best;
   }
 
-  // Le 6 guide reali disponibili.
   const GUIDES = {
     acne: {
-      name: 'Pelle grassa e acne',
-      problem: 'Sebo in eccesso e pori dilatati favoriscono la comparsa di punti neri e brufoli ricorrenti, soprattutto in zona T.',
-      solution: 'Una routine che regola il sebo senza seccare la pelle, con niacinamide e acido salicilico applicati nell\'ordine giusto — esattamente il percorso di questa guida.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/pelle-grassa-acne'
+      name: 'Oily skin & acne', disc: 'guide:guance',
+      problem: "Excess oil and clogged pores lead to blackheads and breakouts that keep coming back, especially on the T-zone.",
+      solution: "A routine that controls oil without drying your skin out, with niacinamide and salicylic acid applied in the right order. That's exactly what this guide walks you through.",
+      url: 'https://skinsystem.gumroad.com/l/pelle-grassa-acne'
     },
-    opacita: {
-      name: 'Pelle spenta e opaca',
-      problem: 'Il tono irregolare e l\'aspetto poco luminoso dipendono spesso da un accumulo di cellule morte in superficie e da poca protezione solare.',
-      solution: 'Vitamina C, esfoliazione leggera e SPF quotidiano per ritrovare uniformità e luminosità in poche settimane.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/Pellespenta'
+    dullness: {
+      name: 'Dull, tired-looking skin', disc: 'guide:fronte',
+      problem: "An uneven, lifeless tone usually comes from dead cells building up on the surface and too little sun protection.",
+      solution: "Vitamin C, gentle exfoliation and daily SPF to get back an even, healthy-looking tone in a few weeks.",
+      url: 'https://skinsystem.gumroad.com/l/Pellespenta'
     },
-    rughe: {
-      name: 'Primi segni di invecchiamento',
-      problem: 'Le prime linee sottili e la perdita di tono sono legate al rallentamento del rinnovamento cellulare e all\'esposizione solare non protetta.',
-      solution: 'Retinolo introdotto gradualmente, vitamina C al mattino e SPF sempre: la sequenza corretta per rallentare i segni del tempo senza irritare la pelle.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/Primisegnidiinvecchiamento'
+    aging: {
+      name: 'First signs of aging', disc: 'guide:occhi',
+      problem: "First fine lines and loss of firmness come from slower cell turnover and years of unprotected sun exposure.",
+      solution: "Retinol introduced gradually, vitamin C in the morning and SPF every day: the right sequence to slow down the signs of aging without irritating your skin.",
+      url: 'https://skinsystem.gumroad.com/l/Primisegnidiinvecchiamento'
     },
-    rasatura: {
-      name: 'Pelle irritata da rasatura',
-      problem: 'Rossore, bruciore o peli incarniti dopo la rasatura dipendono quasi sempre da tecnica, lametta e prodotti usati, non da un problema di pelle in sé.',
-      solution: 'Routine pre e post rasatura corretta, più un trattamento mirato sui peli incarniti, per rendere la rasatura un gesto senza conseguenze.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/Pelleirritata'
+    shaving: {
+      name: 'Razor burn & irritation', disc: 'guide:mandibola',
+      problem: "Redness, burning or ingrown hairs after shaving almost always come down to technique, blade and products, not to your skin itself.",
+      solution: "The right pre- and post-shave routine plus a targeted fix for ingrown hairs, so shaving stops leaving a mark.",
+      url: 'https://skinsystem.gumroad.com/l/Pelleirritata'
     },
-    pori: {
-      name: 'Pori dilatati e texture',
-      problem: 'Pori più visibili e una texture irregolare sono spesso legati a un eccesso di sebo localizzato e a un ricambio cellulare lento.',
-      solution: 'Un percorso con retinolo e BHA nell\'ordine corretto, pensato per affinare la texture nel tempo senza irritare la pelle.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/poridilatati'
+    pores: {
+      name: 'Enlarged pores & texture', disc: 'guide:naso',
+      problem: "More visible pores and uneven texture are usually tied to excess oil in specific areas and slow cell turnover.",
+      solution: "A plan with retinol and BHA in the right order, designed to refine your skin's texture over time without irritation.",
+      url: 'https://skinsystem.gumroad.com/l/poridilatati'
     },
-    mantenimento: {
-      name: 'Routine di mantenimento',
-      problem: 'Nessun segnale particolare emerge dalle tue risposte: la tua pelle sembra in un equilibrio sano, senza un problema specifico da correggere.',
-      solution: 'Una routine minima ma corretta — detersione, idratazione, SPF — pensata per mantenere questo equilibrio nel tempo e prevenire i problemi più comuni prima che si presentino.',
-      price: '3,90€',
-      file: 'https://skinsystem.gumroad.com/l/Routinedimantenimento'
+    maintenance: {
+      name: 'Maintenance routine', disc: 'guide:all',
+      problem: "Nothing stands out in your answers: your skin looks healthy and balanced, with no specific issue to fix.",
+      solution: "A minimal but correct routine (cleanse, moisturize, SPF) to keep that balance over time and head off the most common problems before they start.",
+      url: 'https://skinsystem.gumroad.com/l/Routinedimantenimento'
     }
   };
 
-  function renderResult(){
-    const signals = computeSignals();
-    const skinType = computeSkinTypeLabel(signals);
-    const guideKey = scoreGuides(signals);
-    const guide = GUIDES[guideKey] || GUIDES.acne;
-
-    document.getElementById('result-skintype').textContent = skinType;
-    document.getElementById('result-guide-name').textContent = guide.name;
-    document.getElementById('result-problem').textContent = guide.problem;
-    document.getElementById('result-solution').textContent = guide.solution;
-    document.getElementById('result-price').textContent = guide.price;
-
-    const cta = document.getElementById('result-cta');
-    cta.textContent = 'Sblocca la tua guida — ' + guide.name;
-    cta.href = guide.file;
-
-    const note = document.getElementById('waitlist-note');
-    note.style.display = 'none';
+  function signalChips(s) {
+    const chips = [];
+    if (s.oily >= 3) chips.push('Excess oil');
+    if (s.dry >= 2) chips.push('Dryness');
+    if (s.pores >= 2) chips.push('Visible pores');
+    if (s.breakouts >= 1) chips.push(s.breakouts >= 2 ? 'Frequent breakouts' : 'Occasional breakouts');
+    if (s.shave >= 1) chips.push(s.shave >= 3 ? 'Razor irritation' : 'Mild redness after shaving');
+    if (s.aging >= 1) chips.push('Fine lines');
+    if (s.dull >= 1) chips.push('Dull tone');
+    return chips;
   }
+
+  function renderResult() {
+    const s = computeSignals();
+    const type = skinType(s);
+    const key = scoreGuides(s);
+    const guide = GUIDES[key];
+
+    document.getElementById('resultDisc').innerHTML = faceSVG(guide.disc);
+    document.getElementById('resultSkinType').textContent = type.label;
+    document.getElementById('resultGuideName').textContent = key === 'maintenance' ? 'Nothing to fix. Keep it that way.' : guide.name;
+    document.querySelector('.result-label').textContent = key === 'maintenance' ? 'Good news' : 'Your main issue';
+    document.getElementById('resultProblem').textContent = guide.problem;
+    document.getElementById('resultSolution').textContent = guide.solution;
+    document.getElementById('buyTitle').textContent = guide.name;
+
+    const chips = signalChips(s);
+    document.getElementById('resultSignals').innerHTML = chips.length
+      ? '<span class="lead">What we noticed:</span>' + chips.map(c => `<span>${c}</span>`).join('')
+      : '';
+
+    const cta = document.getElementById('resultCta');
+    cta.href = guide.url;
+    cta.textContent = 'Get my guide';
+  }
+
+  setProgress('intro');
 })();
 </script>
 <script src="https://gumroad.com/js/gumroad.js"></script>
