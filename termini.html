@@ -1,263 +1,341 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Termini e Condizioni d'uso — Skin System</title>
+<title>Terms of Use — Skin System for Men</title>
+<meta name="description" content="The terms that apply when you use Skin System and buy our digital guides.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --clay:      #2C4A52;
-  --clay-dark: #1F363D;
-  --sand:      #7FA98F;
-  --sand-faint:#EDF4EF;
-  --ink:       #141F24;
-  --ink-2:     #1C2B31;
-  --mid:       #46595E;
-  --muted:     #7A8C90;
-  --border:    rgba(20,31,36,0.10);
-  --white:     #FFFFFF;
-  --off-white: #F9F8F5;
-  --display:   'Fraunces', serif;
-  --sans:      'Inter', sans-serif;
-  --mono:      'IBM Plex Mono', monospace;
+  --clay:       #2C4A52;
+  --clay-dark:  #1F363D;
+  --clay-light: #6E969F;
+  --clay-faint: #E6EEEF;
+  --sand:       #7FA98F;
+  --sand-light: #A9C9B7;
+  --sand-faint: #EDF4EF;
+  --ink:        #121C20;
+  --ink-2:      #1A272C;
+  --mid:        #4A5B60;
+  --muted:      #7C8B8F;
+  --line:       rgba(18,28,32,0.09);
+  --white:      #FFFFFF;
+  --bg:         #FAFAF8;
+  --bg-alt:     #F1F4F3;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--off-white);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;}
-a{color:var(--clay);text-decoration:none;}
-a:hover{text-decoration:underline;}
-.topbar{border-bottom:1px solid var(--border);background:rgba(249,248,245,0.95);position:sticky;top:0;backdrop-filter:blur(8px);}
-.topbar-inner{max-width:800px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:var(--display);font-size:1.15rem;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
-.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--clay);display:inline-block;}
-.back-link{font-family:var(--mono);font-size:12px;color:var(--mid);letter-spacing:0.03em;}
-main{max-width:800px;margin:0 auto;padding:56px 28px 100px;}
-.doc-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
-h1{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);color:var(--ink-2);letter-spacing:-0.02em;margin-bottom:10px;}
-.doc-updated{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:40px;}
-.toc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:48px;}
-.toc-title{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
-.toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:7px;column-count:1;}
-.toc li{counter-increment:toc;font-size:14px;}
-.toc li::before{content:counter(toc)". ";color:var(--clay);font-weight:600;margin-right:2px;}
-section{margin-bottom:38px;}
-section h2{font-family:var(--display);font-size:1.35rem;color:var(--ink-2);font-weight:500;margin-bottom:14px;scroll-margin-top:90px;}
-section h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);margin:18px 0 8px;}
-section p{font-size:15px;color:var(--mid);margin-bottom:12px;}
-section ul,section ol.plain{margin:8px 0 14px 22px;}
-section li{font-size:15px;color:var(--mid);margin-bottom:6px;}
-.placeholder{background:var(--sand-faint);color:var(--clay-dark);padding:1px 6px;border-radius:4px;font-family:var(--mono);font-size:13px;white-space:nowrap;}
-.note-box{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--clay);border-radius:8px;padding:16px 20px;margin:16px 0;}
-.note-box p{margin-bottom:0;font-size:14px;}
-table.data-table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13.5px;}
-table.data-table th,table.data-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
-table.data-table th{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);font-weight:500;}
-footer.doc-footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:var(--mono);font-size:12px;color:var(--muted);}
-@media(max-width:640px){
-  main{padding:40px 20px 80px;}
-  .topbar-inner{padding:14px 20px;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans); font-optical-sizing: auto;
+  background: var(--bg); color: var(--ink); line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--clay); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
+
+/* ── Top bar (same as the quiz) ── */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(250,250,248,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.top-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 800px; margin: 0 auto; padding: 14px 24px; }
+.logo { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.03em; color: var(--ink-2); display: flex; align-items: center; gap: 5px; }
+.logo:hover { text-decoration: none; }
+.logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sand); display: inline-block; }
+.logo-tag { margin-left: 7px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--clay); color: var(--white); }
+.back-link { font-size: 13.5px; font-weight: 500; color: var(--mid); }
+.back-link:hover { color: var(--ink); text-decoration: none; }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: linear-gradient(90deg, var(--sand), var(--clay)); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ── Document ── */
+main { max-width: 800px; margin: 0 auto; padding: 64px 24px 100px; }
+.kicker { display: block; font-size: 15px; font-weight: 600; color: var(--clay); margin-bottom: 12px; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1.03; color: var(--ink-2); margin-bottom: 14px; }
+.updated { font-size: 14.5px; color: var(--muted); margin-bottom: 18px; }
+.lead { font-size: 1.12rem; color: var(--mid); max-width: 60ch; margin-bottom: 44px; letter-spacing: -0.01em; }
+
+.toc { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 26px 28px; margin-bottom: 64px; }
+.toc-title { font-size: 15px; font-weight: 700; color: var(--ink-2); margin-bottom: 14px; }
+.toc ol { list-style: none; counter-reset: toc; columns: 2; column-gap: 32px; }
+.toc li { counter-increment: toc; font-size: 14.5px; margin-bottom: 9px; break-inside: avoid; }
+.toc li::before { content: counter(toc) "."; color: var(--muted); font-weight: 600; margin-right: 8px; font-variant-numeric: tabular-nums; }
+.toc a { color: var(--mid); }
+.toc a:hover { color: var(--clay); }
+
+section { margin-bottom: 52px; scroll-margin-top: 90px; }
+section h2 { font-size: clamp(1.45rem, 3vw, 1.8rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; color: var(--ink-2); margin-bottom: 16px; }
+section h2 .n { color: var(--clay-light); margin-right: 10px; }
+section h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin: 22px 0 8px; letter-spacing: -0.01em; }
+section p { font-size: 16px; color: var(--mid); margin-bottom: 14px; }
+section ul { margin: 8px 0 16px 20px; }
+section li { font-size: 16px; color: var(--mid); margin-bottom: 8px; padding-left: 4px; }
+section li::marker { color: var(--sand); }
+strong { color: var(--ink-2); font-weight: 600; }
+
+.card-table { background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin: 14px 0 20px; }
+.card-table table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.card-table th, .card-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.card-table tr:last-child th, .card-table tr:last-child td { border-bottom: none; }
+.card-table thead th { font-size: 13px; font-weight: 700; color: var(--muted); background: var(--bg-alt); }
+.card-table tbody th { font-weight: 600; color: var(--ink-2); width: 34%; }
+.card-table td { color: var(--mid); }
+.scroll-x { overflow-x: auto; }
+
+.callout { background: var(--sand-faint); border-radius: 18px; padding: 18px 22px; margin: 16px 0; }
+.callout p { margin-bottom: 0; color: var(--ink-2); font-size: 15.5px; }
+
+.placeholder { background: #FFF3C4; color: #6B5310; padding: 1px 7px; border-radius: 6px; font-size: 14px; font-weight: 500; }
+
+footer { border-top: 1px solid var(--line); background: var(--bg-alt); }
+.footer-inner { max-width: 800px; margin: 0 auto; padding: 28px 24px 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); }
+.footer-inner a { color: var(--mid); }
+
+/* sections ease in as you read */
+.reveal { opacity: 0; transform: translateY(24px); filter: blur(4px); transition: opacity 0.9s var(--ease), transform 1s var(--ease), filter 0.9s var(--ease); }
+.reveal.visible { opacity: 1; transform: none; filter: none; }
+
+@media (max-width: 640px) {
+  main { padding: 44px 18px 80px; }
+  .top-inner { padding: 12px 18px; }
+  .toc { padding: 22px 20px; border-radius: 20px; }
+  .toc ol { columns: 1; }
+  .card-table th, .card-table td { padding: 12px 14px; }
+  .card-table tbody th { width: 40%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="logo">Skin<span class="logo-dot"></span>System</div>
-    <a href="index.html" class="back-link">← Torna al sito</a>
+<div class="top">
+  <div class="top-inner">
+    <a href="index.html" class="logo" aria-label="Skin System for Men, back to the site">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
+    <a href="index.html" class="back-link">Back to site</a>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </div>
 
 <main>
-  <div class="doc-eyebrow">Documento legale</div>
-  <h1>Termini e Condizioni d'uso</h1>
-  <p class="doc-updated">Ultimo aggiornamento: <span class="placeholder">16/09/2026</span></p>
+  <span class="kicker">Legal</span>
+  <h1>Terms of Use</h1>
+  <p class="updated">Last updated: <span class="placeholder">September 16, 2026</span></p>
+  <p class="lead">These terms cover how you can use the Skin System site, its free tools and the guides you buy. The short version: the tools and guides are general information, not medical advice, and the guides are for your personal use only.</p>
 
-  <div class="toc">
-    <div class="toc-title">Indice</div>
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
     <ol>
-      <li><a href="#premessa">Premessa e accettazione</a></li>
-      <li><a href="#definizioni">Definizioni</a></li>
-      <li><a href="#servizio">Descrizione del servizio</a></li>
-      <li><a href="#natura-ai">Natura indicativa dei contenuti generati dall'AI</a></li>
-      <li><a href="#requisiti">Requisiti d'uso e obblighi dell'utente</a></li>
-      <li><a href="#acquisti">Acquisti, prezzi e pagamento</a></li>
-      <li><a href="#consegna">Consegna dei contenuti digitali</a></li>
-      <li><a href="#recesso">Diritto di recesso</a></li>
-      <li><a href="#licenza">Licenza d'uso e proprietà intellettuale</a></li>
-      <li><a href="#responsabilita">Limitazione di responsabilità</a></li>
-      <li><a href="#disponibilita">Disponibilità e modifiche del servizio</a></li>
-      <li><a href="#terzi">Servizi e link di terze parti</a></li>
-      <li><a href="#modifiche-termini">Modifiche ai presenti Termini</a></li>
-      <li><a href="#legge">Legge applicabile e foro competente</a></li>
-      <li><a href="#salvaguardia">Clausola di salvaguardia</a></li>
-      <li><a href="#contatti">Contatti</a></li>
+      <li><a href="#intro">Introduction and acceptance</a></li>
+      <li><a href="#definitions">Definitions</a></li>
+      <li><a href="#service">What the Site offers</a></li>
+      <li><a href="#ai-content">AI results are general information only</a></li>
+      <li><a href="#your-obligations">Your responsibilities</a></li>
+      <li><a href="#purchases">Purchases, prices and payment</a></li>
+      <li><a href="#delivery">Delivery of digital content</a></li>
+      <li><a href="#refunds">Refunds and right of withdrawal</a></li>
+      <li><a href="#license">License and intellectual property</a></li>
+      <li><a href="#liability">Limitation of liability</a></li>
+      <li><a href="#availability">Availability and changes to the service</a></li>
+      <li><a href="#third-parties">Third-party services and links</a></li>
+      <li><a href="#changes">Changes to these Terms</a></li>
+      <li><a href="#law">Governing law and jurisdiction</a></li>
+      <li><a href="#severability">Severability</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ol>
-  </div>
+  </nav>
 
-  <section id="premessa">
-    <h2>1. Premessa e accettazione</h2>
-    <p>I presenti Termini e Condizioni d'uso (di seguito, i "Termini") disciplinano l'accesso e l'utilizzo del sito Skin System (di seguito, il "Sito"), incluse tutte le funzionalità gratuite (quiz della pelle, Scan AI, Scanner Ingredienti) e i contenuti digitali a pagamento (le "Guide") offerti tramite il Sito.</p>
-    <p>Il Sito è gestito da:</p>
-    <table class="data-table">
-      <tr><th>Titolare</th><td class="placeholder">Luca Galluzzo</td></tr>
-      <tr><th>Indirizzo</th><td class="placeholder">Bergamo (BG), Italia</td></tr>
-      <tr><th>Email di contatto</th><td class="placeholder">luca.galluzzo.1999@gmail.com</td></tr>
-    </table>
-    <p>Accedendo al Sito, utilizzando le sue funzionalità o procedendo all'acquisto di una Guida, l'utente dichiara di aver letto, compreso e accettato integralmente i presenti Termini. Qualora l'utente non concordi con una o più disposizioni, è invitato a non utilizzare il Sito.</p>
-    <div class="note-box">
-      <p>Questo documento è un modello di termini e condizioni pensato per un sito che vende guide digitali (PDF/ePub) tramite una piattaforma di pagamento di terze parti e utilizza strumenti di intelligenza artificiale per generare analisi indicative. Prima della pubblicazione, sostituisci i campi tra parentesi quadre con i tuoi dati reali e fai verificare il testo da un professionista legale, soprattutto per quanto riguarda le clausole di responsabilità e il diritto di recesso applicabili alla tua situazione specifica.</p>
+  <section id="intro" class="reveal">
+    <h2><span class="n">1</span>Introduction and acceptance</h2>
+    <p>These Terms of Use (the "Terms") govern your access to and use of the Skin System website (the "Site"), including all free features (the skin quiz, the AI face scan and the ingredient scanner) and the paid digital content (the "Guides") offered through the Site.</p>
+    <p>The Site is run by:</p>
+    <div class="card-table">
+      <table>
+        <tbody>
+          <tr><th>Owner</th><td>Luca Galluzzo</td></tr>
+          <tr><th>Location</th><td>Bergamo (BG), Italy</td></tr>
+          <tr><th>Contact email</th><td><a href="mailto:luca.galluzzo.1999@gmail.com">luca.galluzzo.1999@gmail.com</a></td></tr>
+        </tbody>
+      </table>
     </div>
+    <p>By accessing the Site, using its features or buying a Guide, you confirm that you have read, understood and fully accept these Terms. If you don't agree with any part of them, please don't use the Site.</p>
   </section>
 
-  <section id="definizioni">
-    <h2>2. Definizioni</h2>
+  <section id="definitions" class="reveal">
+    <h2><span class="n">2</span>Definitions</h2>
     <ul>
-      <li><strong>"Sito":</strong> il sito web Skin System, comprensivo di tutte le sue pagine, strumenti e funzionalità.</li>
-      <li><strong>"Utente":</strong> qualsiasi persona che acceda o utilizzi il Sito.</li>
-      <li><strong>"Guida" o "Guide":</strong> i contenuti digitali (file PDF ed ePub) offerti in vendita tramite il Sito.</li>
-      <li><strong>"Scan AI":</strong> lo strumento che analizza, tramite intelligenza artificiale, una fotografia del viso caricata volontariamente dall'Utente.</li>
-      <li><strong>"Scanner Ingredienti":</strong> lo strumento che genera, tramite intelligenza artificiale, una spiegazione testuale relativa a un ingrediente cosmetico indicato dall'Utente.</li>
-      <li><strong>"Piattaforma di pagamento":</strong> il fornitore terzo (Gumroad) tramite cui vengono elaborati gli acquisti e consegnate le Guide.</li>
+      <li><strong>"Site":</strong> the Skin System website, including all of its pages, tools and features.</li>
+      <li><strong>"User" or "you":</strong> anyone who accesses or uses the Site.</li>
+      <li><strong>"Guide" or "Guides":</strong> the digital content (PDF files) sold through the Site.</li>
+      <li><strong>"AI face scan":</strong> the tool that uses artificial intelligence to analyze a photo of your face that you choose to upload.</li>
+      <li><strong>"Ingredient scanner":</strong> the tool that uses artificial intelligence to generate a written explanation of a cosmetic ingredient you enter.</li>
+      <li><strong>"Payment platform":</strong> the third-party provider (Gumroad) that processes purchases and delivers the Guides.</li>
     </ul>
   </section>
 
-  <section id="servizio">
-    <h2>3. Descrizione del servizio</h2>
-    <p>Il Sito offre le seguenti funzionalità:</p>
+  <section id="service" class="reveal">
+    <h2><span class="n">3</span>What the Site offers</h2>
     <ul>
-      <li><strong>Quiz della pelle:</strong> questionario gratuito che genera un profilo pelle indicativo e una raccomandazione tra le Guide disponibili.</li>
-      <li><strong>Scan AI:</strong> analisi facoltativa e gratuita di una fotografia del viso, con generazione di osservazioni indicative per zona del viso.</li>
-      <li><strong>Scanner Ingredienti:</strong> strumento gratuito che fornisce una spiegazione generale su un ingrediente cosmetico indicato dall'Utente.</li>
-      <li><strong>Vendita di Guide digitali:</strong> contenuti a pagamento in formato PDF/ePub, relativi a specifiche problematiche della pelle, acquistabili singolarmente o in pacchetto, tramite la Piattaforma di pagamento.</li>
+      <li><strong>Skin quiz:</strong> a free questionnaire that creates a general skin profile and recommends one of the available Guides.</li>
+      <li><strong>AI face scan:</strong> an optional, free analysis of a photo of your face, with general observations for each zone of the face.</li>
+      <li><strong>Ingredient scanner:</strong> a free tool that gives a general explanation of a cosmetic ingredient you enter.</li>
+      <li><strong>Digital Guides:</strong> paid content in PDF format about specific skin concerns, sold individually or as a bundle through the Payment platform.</li>
     </ul>
-    <p>Il Sito non vende prodotti fisici, cosmetici o dispositivi medici di alcun tipo: l'oggetto della vendita è esclusivamente il contenuto informativo ed editoriale delle Guide.</p>
+    <p>The Site does not sell physical products, cosmetics or medical devices of any kind. What you buy is only the informational and editorial content of the Guides.</p>
   </section>
 
-  <section id="natura-ai">
-    <h2>4. Natura indicativa dei contenuti generati dall'intelligenza artificiale</h2>
-    <div class="note-box">
-      <p>Questa sezione è la più importante ai fini della tutela legale del Titolare e merita particolare attenzione.</p>
-    </div>
-    <p>Lo Scan AI, lo Scanner Ingredienti e ogni altro contenuto generato tramite intelligenza artificiale sul Sito:</p>
+  <section id="ai-content" class="reveal">
+    <h2><span class="n">4</span>AI results are general information only</h2>
+    <div class="callout"><p>Please read this section carefully. Nothing on this Site is medical advice.</p></div>
+    <p>The AI face scan, the ingredient scanner and any other AI-generated content on the Site:</p>
     <ul>
-      <li>hanno natura <strong>puramente informativa e indicativa</strong>;</li>
-      <li><strong>non costituiscono in alcun modo una diagnosi medica, dermatologica o di altra natura sanitaria</strong>;</li>
-      <li><strong>non sostituiscono il parere di un medico, dermatologo o altro professionista sanitario qualificato</strong>;</li>
-      <li>sono generati automaticamente da un modello di intelligenza artificiale di terze parti, che può produrre risultati imprecisi, incompleti o non pertinenti al caso specifico dell'Utente;</li>
-      <li>non tengono conto della storia clinica, di eventuali patologie, allergie o condizioni particolari dell'Utente, salvo quanto esplicitamente dichiarato da quest'ultimo nel quiz.</li>
+      <li>are <strong>for general information and guidance only</strong>;</li>
+      <li><strong>are not a medical, dermatological or other health diagnosis of any kind</strong>;</li>
+      <li><strong>do not replace the advice of a doctor, dermatologist or other qualified health professional</strong>;</li>
+      <li>are generated automatically by a third-party AI model, which can produce results that are inaccurate, incomplete or not relevant to your specific situation;</li>
+      <li>do not take into account your medical history, conditions, allergies or other personal circumstances, except for what you state in the quiz.</li>
     </ul>
-    <p>L'Utente riconosce ed accetta che qualsiasi decisione relativa alla propria routine di cura della pelle, all'uso di prodotti cosmetici o principi attivi, rimane sotto la sua esclusiva responsabilità. In presenza di problematiche dermatologiche persistenti, gravi o che destano preoccupazione (tra cui, a titolo esemplificativo, acne severa, rosacea, eczema, lesioni sospette), l'Utente è invitato a consultare tempestivamente un dermatologo o altro professionista sanitario qualificato, indipendentemente da quanto indicato dal Sito.</p>
+    <p>You acknowledge and agree that any decision about your skincare routine, or about using cosmetic products or active ingredients, is your sole responsibility. If you have a skin problem that is persistent, severe or worrying (for example severe acne, rosacea, eczema or a suspicious lesion), please see a dermatologist or other qualified health professional promptly, regardless of what the Site suggests.</p>
   </section>
 
-  <section id="requisiti">
-    <h2>5. Requisiti d'uso e obblighi dell'Utente</h2>
-    <p>Utilizzando il Sito, l'Utente dichiara e garantisce di:</p>
+  <section id="your-obligations" class="reveal">
+    <h2><span class="n">5</span>Your responsibilities</h2>
+    <p>By using the Site, you confirm and agree that you:</p>
     <ul>
-      <li>essere maggiorenne secondo la legge applicabile nel proprio paese di residenza, oppure di utilizzare il Sito sotto la supervisione di un genitore o tutore legale;</li>
-      <li>fornire dati veritieri, accurati e aggiornati nell'ambito del quiz e delle altre funzionalità del Sito;</li>
-      <li>caricare, nello Scan AI, esclusivamente fotografie del proprio viso o comunque immagini di cui abbia il pieno diritto di utilizzo e la necessaria autorizzazione, escludendo immagini di terze persone senza il loro consenso, minori, o contenuti impropri, offensivi o non pertinenti allo scopo del servizio;</li>
-      <li>non utilizzare il Sito per scopi illeciti, fraudolenti o contrari ai presenti Termini;</li>
-      <li>non tentare di violare, aggirare o compromettere la sicurezza tecnica del Sito o dei sistemi ad esso collegati;</li>
-      <li>non utilizzare strumenti automatizzati (bot, scraper) per accedere al Sito o alle sue funzionalità in modo massivo o non autorizzato.</li>
+      <li>are at least 18 years old, or the age of majority where you live, or are using the Site under the supervision of a parent or legal guardian;</li>
+      <li>will give truthful, accurate and up-to-date answers in the quiz and the other features of the Site;</li>
+      <li>will upload to the AI face scan only photos of your own face, or images you have full rights and permission to use. No photos of other people without their consent, no photos of minors, and no inappropriate, offensive or off-topic content;</li>
+      <li>will not use the Site for any unlawful or fraudulent purpose, or in any way that breaks these Terms;</li>
+      <li>will not try to breach, get around or compromise the technical security of the Site or of any connected system;</li>
+      <li>will not use automated tools (bots, scrapers) to access the Site or its features in bulk or without authorization.</li>
     </ul>
-    <p>Il Titolare si riserva il diritto di sospendere o impedire l'accesso al Sito, in tutto o in parte, a Utenti che violino i presenti obblighi.</p>
+    <p>We may suspend or block access to all or part of the Site for anyone who breaks these rules.</p>
   </section>
 
-  <section id="acquisti">
-    <h2>6. Acquisti, prezzi e pagamento</h2>
-    <p>Le Guide sono acquistabili tramite la Piattaforma di pagamento, alle condizioni e ai prezzi indicati sul Sito al momento dell'acquisto. I prezzi sono espressi in Euro e si intendono comprensivi di ogni imposta applicabile, salvo diversa indicazione.</p>
-    <p>Il pagamento viene elaborato interamente dalla Piattaforma di pagamento, secondo le condizioni contrattuali e le misure di sicurezza di quest'ultima. Il Titolare non entra mai in possesso dei dati completi della carta di pagamento dell'Utente.</p>
-    <p>Il Titolare si riserva il diritto di modificare in qualsiasi momento i prezzi delle Guide, fermo restando che il prezzo applicato a un acquisto già concluso non potrà essere modificato retroattivamente.</p>
+  <section id="purchases" class="reveal">
+    <h2><span class="n">6</span>Purchases, prices and payment</h2>
+    <p>Guides are sold through the Payment platform, on the terms and at the prices shown on the Site at the time of purchase. Prices are shown in U.S. dollars. Any applicable sales tax, VAT or similar tax is calculated and collected by the Payment platform at checkout.</p>
+    <p>Payment is processed entirely by the Payment platform, under its own terms and security measures. We never receive your full card details.</p>
+    <p>We may change the price of the Guides at any time. A price change never affects a purchase you have already completed.</p>
   </section>
 
-  <section id="consegna">
-    <h2>7. Consegna dei contenuti digitali</h2>
-    <p>A seguito del completamento del pagamento, l'Utente riceve accesso immediato al download della Guida acquistata, in formato PDF ed ePub, secondo le modalità previste dalla Piattaforma di pagamento (tipicamente tramite link di download diretto e/o invio all'indirizzo email fornito in fase di acquisto).</p>
-    <p>È responsabilità dell'Utente fornire un indirizzo email corretto e verificare la ricezione della Guida. In caso di mancata ricezione, l'Utente è invitato a contattare il Titolare ai recapiti indicati alla Sezione 16.</p>
+  <section id="delivery" class="reveal">
+    <h2><span class="n">7</span>Delivery of digital content</h2>
+    <p>Once your payment goes through, you get immediate access to download the Guide you bought, in PDF format, as provided by the Payment platform (usually through a direct download link and/or an email to the address you entered at checkout).</p>
+    <p>Please make sure the email address you enter is correct and check that you received your Guide. If it doesn't arrive, contact us using the details in Section 16.</p>
   </section>
 
-  <section id="recesso">
-    <h2>8. Diritto di recesso</h2>
-    <p>Ai sensi dell'art. 59, comma 1, lettera o) del Codice del Consumo (D.Lgs. 206/2005), il diritto di recesso di 14 giorni previsto per i contratti a distanza <strong>non si applica</strong> alla fornitura di contenuti digitali non forniti su supporto materiale, quando l'esecuzione è già iniziata con l'accordo espresso del consumatore, il quale ha altresì dichiarato di essere consapevole della conseguente perdita del diritto di recesso.</p>
-    <p>Procedendo all'acquisto di una Guida e ottenendo l'accesso immediato al download, l'Utente:</p>
+  <section id="refunds" class="reveal">
+    <h2><span class="n">8</span>Refunds and right of withdrawal</h2>
+    <p>Because the Guides are digital content delivered immediately, <strong>all sales are final</strong> once you have accessed or started downloading a Guide.</p>
+    <p><strong>For consumers in the European Union:</strong> under Article 59(1)(o) of the Italian Consumer Code (Legislative Decree 206/2005), the 14-day right of withdrawal for distance contracts <strong>does not apply</strong> to digital content not supplied on a physical medium, once delivery has started with your express consent and your acknowledgment that you lose the right of withdrawal. By buying a Guide and getting immediate access to the download, you:</p>
     <ul>
-      <li>acconsente espressamente all'esecuzione immediata della fornitura del contenuto digitale prima della scadenza del termine di recesso di 14 giorni;</li>
-      <li>prende atto e accetta che, una volta iniziato il download o l'accesso al contenuto, perde il diritto di recesso previsto dalla normativa sui contratti a distanza.</li>
+      <li>expressly agree that delivery of the digital content starts immediately, before the 14-day withdrawal period ends;</li>
+      <li>acknowledge and accept that, once you start downloading or accessing the content, you lose the right of withdrawal under distance-selling rules.</li>
     </ul>
-    <p>Resta salva la possibilità per l'Utente di contattare il Titolare per segnalare eventuali problemi tecnici relativi all'acquisto (ad esempio, un file corrotto o un acquisto duplicato per errore), che saranno valutati caso per caso.</p>
+    <p>If something goes wrong technically with your purchase (for example a corrupted file, or a duplicate purchase made by mistake), contact us and we will look at it case by case. This section does not limit any refund rights you may have under the Payment platform's own policies or under mandatory consumer protection laws where you live.</p>
   </section>
 
-  <section id="licenza">
-    <h2>9. Licenza d'uso e proprietà intellettuale</h2>
-    <p>Tutti i contenuti del Sito e delle Guide — inclusi testi, grafiche, struttura, marchi e loghi — sono di proprietà del Titolare o dei rispettivi licenzianti e sono protetti dalla normativa applicabile in materia di diritto d'autore e proprietà intellettuale.</p>
-    <p>Con l'acquisto di una Guida, l'Utente ottiene una <strong>licenza d'uso personale, non esclusiva, non trasferibile e limitata</strong>, che consente esclusivamente di:</p>
+  <section id="license" class="reveal">
+    <h2><span class="n">9</span>License and intellectual property</h2>
+    <p>All content on the Site and in the Guides, including text, graphics, structure, trademarks and logos, belongs to us or to our licensors and is protected by copyright and intellectual property laws.</p>
+    <p>When you buy a Guide, you get a <strong>personal, non-exclusive, non-transferable, limited license</strong> that only allows you to:</p>
     <ul>
-      <li>scaricare e consultare la Guida per uso strettamente personale;</li>
-      <li>stampare copie della Guida per uso personale.</li>
+      <li>download and read the Guide for your strictly personal use;</li>
+      <li>print copies of the Guide for your personal use.</li>
     </ul>
-    <p>È espressamente vietato, salvo previo consenso scritto del Titolare:</p>
+    <p>Unless we give you written permission first, you may not:</p>
     <ul>
-      <li>riprodurre, distribuire, rivendere, noleggiare, concedere in prestito o condividere pubblicamente la Guida, in tutto o in parte;</li>
-      <li>caricare la Guida su piattaforme di condivisione file, gruppi social, canali di messaggistica o altri canali pubblici o semi-pubblici;</li>
-      <li>modificare, tradurre o creare opere derivate dalla Guida;</li>
-      <li>utilizzare i contenuti della Guida per scopi commerciali, formativi o editoriali senza autorizzazione.</li>
+      <li>copy, distribute, resell, rent, lend or publicly share the Guide, in whole or in part;</li>
+      <li>upload the Guide to file-sharing sites, social media groups, messaging channels or any other public or semi-public channel;</li>
+      <li>modify, translate or create derivative works from the Guide;</li>
+      <li>use the content of the Guide for commercial, training or publishing purposes.</li>
     </ul>
-    <p>La violazione di questa sezione potrà comportare la revoca della licenza d'uso concessa e l'adozione di ogni azione legale ritenuta opportuna a tutela dei diritti del Titolare.</p>
+    <p>If you break this section, we may revoke your license and take any legal action needed to protect our rights.</p>
   </section>
 
-  <section id="responsabilita">
-    <h2>10. Limitazione di responsabilità</h2>
-    <p>Nei limiti massimi consentiti dalla legge applicabile:</p>
+  <section id="liability" class="reveal">
+    <h2><span class="n">10</span>Limitation of liability</h2>
+    <p>To the fullest extent permitted by applicable law:</p>
     <ul>
-      <li>il Sito, il quiz, lo Scan AI, lo Scanner Ingredienti e le Guide sono forniti "così come sono" ("as is"), senza garanzie di alcun tipo, esplicite o implicite, circa la loro accuratezza, completezza, idoneità a uno scopo particolare o assenza di errori;</li>
-      <li>il Titolare non garantisce alcun risultato specifico derivante dall'applicazione delle routine, dei consigli o delle informazioni contenute nelle Guide o generate dallo Scan AI, in quanto i risultati dipendono da numerosi fattori individuali non controllabili dal Titolare;</li>
-      <li>il Titolare non è responsabile per eventuali reazioni allergiche, irritazioni cutanee o altri effetti indesiderati derivanti dall'applicazione di prodotti o routine di cura della pelle, anche qualora ispirati dai contenuti del Sito. Si raccomanda sempre di eseguire un test cutaneo (patch test) prima dell'uso di qualsiasi nuovo prodotto cosmetico e di interrompere l'uso in caso di reazione avversa;</li>
-      <li>salvo il caso di dolo o colpa grave, la responsabilità complessiva del Titolare nei confronti dell'Utente, per qualsiasi causa connessa all'utilizzo del Sito o delle Guide, non potrà in ogni caso eccedere l'importo effettivamente pagato dall'Utente per la Guida oggetto di contestazione;</li>
-      <li>il Titolare non è in alcun caso responsabile per danni indiretti, consequenziali, perdita di dati o di profitti derivanti dall'uso o dall'impossibilità di uso del Sito.</li>
+      <li>the Site, the quiz, the AI face scan, the ingredient scanner and the Guides are provided <strong>"as is"</strong>, without warranties of any kind, express or implied, as to their accuracy, completeness, fitness for a particular purpose or freedom from errors;</li>
+      <li>we do not guarantee any specific result from following the routines, tips or information in the Guides or generated by the AI face scan, because results depend on many individual factors outside our control;</li>
+      <li>we are not responsible for allergic reactions, skin irritation or other unwanted effects from using skincare products or routines, even if they were inspired by content on the Site. Always do a patch test before using any new cosmetic product, and stop using it if you have a bad reaction;</li>
+      <li>except in cases of willful misconduct or gross negligence, our total liability to you for any claim related to the Site or the Guides will never exceed the amount you actually paid for the Guide the claim is about;</li>
+      <li>we are never liable for indirect or consequential damages, or for loss of data or profits, arising from the use of, or inability to use, the Site.</li>
     </ul>
-    <p>Nulla nei presenti Termini intende escludere o limitare la responsabilità del Titolare nei casi in cui tale esclusione o limitazione non sia consentita dalla legge applicabile, inclusi i diritti inderogabili riconosciuti al consumatore.</p>
+    <p>Nothing in these Terms excludes or limits our liability where the law does not allow it, including any consumer rights that cannot be waived.</p>
   </section>
 
-  <section id="disponibilita">
-    <h2>11. Disponibilità e modifiche del servizio</h2>
-    <p>Il Titolare si adopera per garantire la disponibilità e il corretto funzionamento del Sito, ma non garantisce che esso sia sempre accessibile, ininterrotto o privo di errori. Il Titolare si riserva il diritto di modificare, sospendere o interrompere, temporaneamente o permanentemente, in tutto o in parte, il Sito o singole funzionalità (incluse quelle basate su intelligenza artificiale), anche senza preavviso, per ragioni tecniche, di manutenzione o di natura commerciale.</p>
-    <p>Tali modifiche non incideranno sul diritto di accesso alle Guide già acquistate dall'Utente, salvo cause di forza maggiore.</p>
+  <section id="availability" class="reveal">
+    <h2><span class="n">11</span>Availability and changes to the service</h2>
+    <p>We work to keep the Site available and running properly, but we don't guarantee it will always be accessible, uninterrupted or error-free. We may change, suspend or discontinue all or part of the Site or individual features (including AI-based ones), temporarily or permanently, even without notice, for technical, maintenance or business reasons.</p>
+    <p>These changes won't affect your access to Guides you have already bought, except in cases of force majeure.</p>
   </section>
 
-  <section id="terzi">
-    <h2>12. Servizi e link di terze parti</h2>
-    <p>Il Sito si avvale di servizi forniti da terze parti (tra cui, a titolo esemplificativo, la Piattaforma di pagamento e il fornitore del servizio di intelligenza artificiale) e può contenere link a siti web di terzi. Il Titolare non ha alcun controllo su tali servizi o siti esterni e non è responsabile dei relativi contenuti, termini di servizio o pratiche in materia di privacy. Si invita l'Utente a consultare le condizioni d'uso e le informative privacy di ciascun servizio terzo utilizzato.</p>
+  <section id="third-parties" class="reveal">
+    <h2><span class="n">12</span>Third-party services and links</h2>
+    <p>The Site relies on services from third parties (including the Payment platform and the AI service provider) and may contain links to other websites. We have no control over these services or external sites and are not responsible for their content, terms of service or privacy practices. Please read the terms and privacy policies of each third-party service you use.</p>
   </section>
 
-  <section id="modifiche-termini">
-    <h2>13. Modifiche ai presenti Termini</h2>
-    <p>Il Titolare si riserva il diritto di modificare i presenti Termini in qualsiasi momento, dandone comunicazione mediante pubblicazione della versione aggiornata su questa pagina, con indicazione della data di ultimo aggiornamento. L'utilizzo continuato del Sito successivamente alla pubblicazione delle modifiche costituisce accettazione delle stesse. Per gli acquisti già conclusi, si applicano i Termini in vigore al momento dell'acquisto.</p>
+  <section id="changes" class="reveal">
+    <h2><span class="n">13</span>Changes to these Terms</h2>
+    <p>We may update these Terms at any time by posting the new version on this page with a new "Last updated" date. If you keep using the Site after changes are posted, you accept the updated Terms. Purchases you have already made stay governed by the Terms in force at the time of purchase.</p>
   </section>
 
-  <section id="legge">
-    <h2>14. Legge applicabile e foro competente</h2>
-    <p>I presenti Termini sono regolati dalla legge <span class="placeholder">italiana</span>. Per qualsiasi controversia relativa all'interpretazione, validità o esecuzione dei presenti Termini, ove l'Utente rivesta la qualifica di consumatore ai sensi del Codice del Consumo, sarà competente in via esclusiva il foro del luogo di residenza o domicilio dell'Utente stesso, se ubicato nel territorio dello Stato italiano. Per gli Utenti che agiscono in qualità di professionisti o imprese, sarà competente in via esclusiva il foro di <span class="placeholder">Bergamo</span>.</p>
+  <section id="law" class="reveal">
+    <h2><span class="n">14</span>Governing law and jurisdiction</h2>
+    <p>These Terms are governed by the laws of <span class="placeholder">Italy</span>. This choice of law does not deprive you of the protection of any mandatory consumer laws of the country or state where you live.</p>
+    <p>If you are a consumer, any dispute may be brought before the courts where you live, as far as the law of your place of residence allows it. If you are acting as a business or professional, the courts of <span class="placeholder">Bergamo, Italy</span> have exclusive jurisdiction.</p>
   </section>
 
-  <section id="salvaguardia">
-    <h2>15. Clausola di salvaguardia</h2>
-    <p>Qualora una o più disposizioni dei presenti Termini fossero ritenute nulle, invalide o inefficaci da un'autorità giudiziaria competente, tale nullità, invalidità o inefficacia non inciderà sulla validità delle restanti disposizioni, che continueranno a produrre pieno effetto. Le parti si impegnano a sostituire la clausola invalida con una disposizione valida che ne rispecchi, per quanto possibile, l'intento originario.</p>
+  <section id="severability" class="reveal">
+    <h2><span class="n">15</span>Severability</h2>
+    <p>If any provision of these Terms is found to be void, invalid or unenforceable by a competent court, the rest of the Terms will stay in full effect. The invalid provision will be replaced with a valid one that reflects its original intent as closely as possible.</p>
   </section>
 
-  <section id="contatti">
-    <h2>16. Contatti</h2>
-    <p>Per qualsiasi domanda relativa ai presenti Termini, è possibile contattare il Titolare all'indirizzo email: <span class="placeholder">luca.galluzzo.1999@gmail.com</span>.</p>
+  <section id="contact" class="reveal">
+    <h2><span class="n">16</span>Contact</h2>
+    <p>For any question about these Terms, email us at <a href="mailto:luca.galluzzo.1999@gmail.com">luca.galluzzo.1999@gmail.com</a>.</p>
   </section>
-
 </main>
 
-<footer class="doc-footer">
-  Skin System — Questo documento ha valore informativo generale e non sostituisce una consulenza legale personalizzata.
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Skin System</span>
+    <span><a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a></span>
+  </div>
 </footer>
 
+<script>
+// Sections ease in as you read, and a thin bar tracks reading progress
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => reduce ? el.classList.add('visible') : io.observe(el));
+
+const bar = document.getElementById('progress');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+    ticking = false;
+  });
+}, { passive: true });
+</script>
 </body>
 </html>
