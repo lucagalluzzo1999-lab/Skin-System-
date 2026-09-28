@@ -1,235 +1,331 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Skin System</title>
+<title>Privacy Policy — Skin System for Men</title>
+<meta name="description" content="How Skin System collects, uses and protects your personal information.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --clay:      #2C4A52;
-  --clay-dark: #1F363D;
-  --sand:      #7FA98F;
-  --sand-faint:#EDF4EF;
-  --ink:       #141F24;
-  --ink-2:     #1C2B31;
-  --mid:       #46595E;
-  --muted:     #7A8C90;
-  --border:    rgba(20,31,36,0.10);
-  --white:     #FFFFFF;
-  --off-white: #F9F8F5;
-  --display:   'Fraunces', serif;
-  --sans:      'Inter', sans-serif;
-  --mono:      'IBM Plex Mono', monospace;
+  --clay:       #2C4A52;
+  --clay-dark:  #1F363D;
+  --clay-light: #6E969F;
+  --clay-faint: #E6EEEF;
+  --sand:       #7FA98F;
+  --sand-light: #A9C9B7;
+  --sand-faint: #EDF4EF;
+  --ink:        #121C20;
+  --ink-2:      #1A272C;
+  --mid:        #4A5B60;
+  --muted:      #7C8B8F;
+  --line:       rgba(18,28,32,0.09);
+  --white:      #FFFFFF;
+  --bg:         #FAFAF8;
+  --bg-alt:     #F1F4F3;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--off-white);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;}
-a{color:var(--clay);text-decoration:none;}
-a:hover{text-decoration:underline;}
-.topbar{border-bottom:1px solid var(--border);background:rgba(249,248,245,0.95);position:sticky;top:0;backdrop-filter:blur(8px);}
-.topbar-inner{max-width:800px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:var(--display);font-size:1.15rem;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
-.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--clay);display:inline-block;}
-.back-link{font-family:var(--mono);font-size:12px;color:var(--mid);letter-spacing:0.03em;}
-main{max-width:800px;margin:0 auto;padding:56px 28px 100px;}
-.doc-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
-h1{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);color:var(--ink-2);letter-spacing:-0.02em;margin-bottom:10px;}
-.doc-updated{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:40px;}
-.toc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:48px;}
-.toc-title{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
-.toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:7px;}
-.toc li{counter-increment:toc;font-size:14px;}
-.toc li::before{content:counter(toc)". ";color:var(--clay);font-weight:600;margin-right:2px;}
-section{margin-bottom:38px;}
-section h2{font-family:var(--display);font-size:1.35rem;color:var(--ink-2);font-weight:500;margin-bottom:14px;scroll-margin-top:90px;}
-section h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);margin:18px 0 8px;}
-section p{font-size:15px;color:var(--mid);margin-bottom:12px;}
-section ul,section ol.plain{margin:8px 0 14px 22px;}
-section li{font-size:15px;color:var(--mid);margin-bottom:6px;}
-.placeholder{background:var(--sand-faint);color:var(--clay-dark);padding:1px 6px;border-radius:4px;font-family:var(--mono);font-size:13px;white-space:nowrap;}
-.note-box{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--clay);border-radius:8px;padding:16px 20px;margin:16px 0;}
-.note-box p{margin-bottom:0;font-size:14px;}
-table.data-table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13.5px;}
-table.data-table th,table.data-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
-table.data-table th{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);font-weight:500;}
-footer.doc-footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:var(--mono);font-size:12px;color:var(--muted);}
-@media(max-width:640px){
-  main{padding:40px 20px 80px;}
-  .topbar-inner{padding:14px 20px;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans); font-optical-sizing: auto;
+  background: var(--bg); color: var(--ink); line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--clay); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
+
+/* ── Top bar (same as the quiz) ── */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(250,250,248,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.top-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 800px; margin: 0 auto; padding: 14px 24px; }
+.logo { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.03em; color: var(--ink-2); display: flex; align-items: center; gap: 5px; }
+.logo:hover { text-decoration: none; }
+.logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sand); display: inline-block; }
+.logo-tag { margin-left: 7px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--clay); color: var(--white); }
+.back-link { font-size: 13.5px; font-weight: 500; color: var(--mid); }
+.back-link:hover { color: var(--ink); text-decoration: none; }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: linear-gradient(90deg, var(--sand), var(--clay)); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ── Document ── */
+main { max-width: 800px; margin: 0 auto; padding: 64px 24px 100px; }
+.kicker { display: block; font-size: 15px; font-weight: 600; color: var(--clay); margin-bottom: 12px; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1.03; color: var(--ink-2); margin-bottom: 14px; }
+.updated { font-size: 14.5px; color: var(--muted); margin-bottom: 18px; }
+.lead { font-size: 1.12rem; color: var(--mid); max-width: 60ch; margin-bottom: 44px; letter-spacing: -0.01em; }
+
+.toc { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 26px 28px; margin-bottom: 64px; }
+.toc-title { font-size: 15px; font-weight: 700; color: var(--ink-2); margin-bottom: 14px; }
+.toc ol { list-style: none; counter-reset: toc; columns: 2; column-gap: 32px; }
+.toc li { counter-increment: toc; font-size: 14.5px; margin-bottom: 9px; break-inside: avoid; }
+.toc li::before { content: counter(toc) "."; color: var(--muted); font-weight: 600; margin-right: 8px; font-variant-numeric: tabular-nums; }
+.toc a { color: var(--mid); }
+.toc a:hover { color: var(--clay); }
+
+section { margin-bottom: 52px; scroll-margin-top: 90px; }
+section h2 { font-size: clamp(1.45rem, 3vw, 1.8rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; color: var(--ink-2); margin-bottom: 16px; }
+section h2 .n { color: var(--clay-light); margin-right: 10px; }
+section h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin: 22px 0 8px; letter-spacing: -0.01em; }
+section p { font-size: 16px; color: var(--mid); margin-bottom: 14px; }
+section ul { margin: 8px 0 16px 20px; }
+section li { font-size: 16px; color: var(--mid); margin-bottom: 8px; padding-left: 4px; }
+section li::marker { color: var(--sand); }
+strong { color: var(--ink-2); font-weight: 600; }
+
+.card-table { background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin: 14px 0 20px; }
+.card-table table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.card-table th, .card-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.card-table tr:last-child th, .card-table tr:last-child td { border-bottom: none; }
+.card-table thead th { font-size: 13px; font-weight: 700; color: var(--muted); background: var(--bg-alt); }
+.card-table tbody th { font-weight: 600; color: var(--ink-2); width: 34%; }
+.card-table td { color: var(--mid); }
+.scroll-x { overflow-x: auto; }
+
+.callout { background: var(--sand-faint); border-radius: 18px; padding: 18px 22px; margin: 16px 0; }
+.callout p { margin-bottom: 0; color: var(--ink-2); font-size: 15.5px; }
+
+.placeholder { background: #FFF3C4; color: #6B5310; padding: 1px 7px; border-radius: 6px; font-size: 14px; font-weight: 500; }
+
+footer { border-top: 1px solid var(--line); background: var(--bg-alt); }
+.footer-inner { max-width: 800px; margin: 0 auto; padding: 28px 24px 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); }
+.footer-inner a { color: var(--mid); }
+
+/* sections ease in as you read */
+.reveal { opacity: 0; transform: translateY(24px); filter: blur(4px); transition: opacity 0.9s var(--ease), transform 1s var(--ease), filter 0.9s var(--ease); }
+.reveal.visible { opacity: 1; transform: none; filter: none; }
+
+@media (max-width: 640px) {
+  main { padding: 44px 18px 80px; }
+  .top-inner { padding: 12px 18px; }
+  .toc { padding: 22px 20px; border-radius: 20px; }
+  .toc ol { columns: 1; }
+  .card-table th, .card-table td { padding: 12px 14px; }
+  .card-table tbody th { width: 40%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="logo">Skin<span class="logo-dot"></span>System</div>
-    <a href="index.html" class="back-link">← Torna al sito</a>
+<div class="top">
+  <div class="top-inner">
+    <a href="index.html" class="logo" aria-label="Skin System for Men, back to the site">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
+    <a href="index.html" class="back-link">Back to site</a>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </div>
 
 <main>
-  <div class="doc-eyebrow">Documento legale</div>
+  <span class="kicker">Legal</span>
   <h1>Privacy Policy</h1>
-  <p class="doc-updated">Ultimo aggiornamento: <span class="placeholder">16/09/2026</span></p>
+  <p class="updated">Last updated: <span class="placeholder">September 16, 2026</span></p>
+  <p class="lead">This policy explains what personal information Skin System collects when you use the site, the quiz, the AI face scan and the ingredient scanner, why we collect it, and the choices you have.</p>
 
-  <div class="toc">
-    <div class="toc-title">Indice</div>
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
     <ol>
-      <li><a href="#titolare">Titolare del trattamento</a></li>
-      <li><a href="#dati-raccolti">Dati raccolti e finalità</a></li>
-      <li><a href="#base-giuridica">Base giuridica del trattamento</a></li>
-      <li><a href="#scan-ai">Scan AI, foto del viso e scanner ingredienti</a></li>
-      <li><a href="#terzi">Comunicazione dei dati a terzi</a></li>
-      <li><a href="#extra-ue">Trasferimento dei dati fuori dall'UE</a></li>
-      <li><a href="#conservazione">Periodo di conservazione</a></li>
-      <li><a href="#diritti">Diritti dell'interessato</a></li>
-      <li><a href="#sicurezza">Sicurezza dei dati</a></li>
-      <li><a href="#minori">Minori</a></li>
-      <li><a href="#cookie">Cookie policy</a></li>
-      <li><a href="#modifiche">Modifiche alla presente informativa</a></li>
-      <li><a href="#contatti">Contatti</a></li>
+      <li><a href="#controller">Who we are</a></li>
+      <li><a href="#data-collected">What we collect and why</a></li>
+      <li><a href="#legal-basis">Legal basis for processing</a></li>
+      <li><a href="#ai-scan">AI face scan and ingredient scanner</a></li>
+      <li><a href="#third-parties">Sharing with third parties</a></li>
+      <li><a href="#transfers">International data transfers</a></li>
+      <li><a href="#retention">How long we keep data</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#us-residents">Notice for U.S. residents</a></li>
+      <li><a href="#security">Data security</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ol>
-  </div>
+  </nav>
 
-  <section id="titolare">
-    <h2>1. Titolare del trattamento</h2>
-    <p>Il Titolare del trattamento dei dati personali raccolti tramite il sito Skin System (di seguito, il "Sito") è:</p>
-    <table class="data-table">
-      <tr><th>Titolare</th><td class="placeholder">Luca Galluzzo</td></tr>
-      <tr><th>Indirizzo</th><td class="placeholder">Bergamo (BG), Italia</td></tr>
-      <tr><th>P.IVA / C.F.</th><td class="placeholder">[Se presente]</td></tr>
-      <tr><th>Email di contatto</th><td class="placeholder">luca.galluzzo.1999@gmail.com</td></tr>
-    </table>
-    <div class="note-box">
-      <p>Questo documento è un modello di informativa privacy pensato per un sito che vende contenuti digitali e utilizza strumenti di intelligenza artificiale per l'analisi di foto e testo. Prima della pubblicazione, sostituisci tutti i campi tra parentesi quadre con i tuoi dati reali. Se operi come persona fisica senza partita IVA, indica comunque nome, cognome e un recapito email valido: è un requisito minimo per essere identificabile come titolare del trattamento ai sensi del GDPR.</p>
+  <section id="controller" class="reveal">
+    <h2><span class="n">1</span>Who we are</h2>
+    <p>The data controller for personal information collected through the Skin System website (the "Site") is:</p>
+    <div class="card-table">
+      <table>
+        <tbody>
+          <tr><th>Controller</th><td>Luca Galluzzo</td></tr>
+          <tr><th>Location</th><td>Bergamo (BG), Italy</td></tr>
+          <tr><th>Contact email</th><td><a href="mailto:luca.galluzzo.1999@gmail.com">luca.galluzzo.1999@gmail.com</a></td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <section id="dati-raccolti">
-    <h2>2. Dati raccolti e finalità</h2>
-    <p>Utilizzando il Sito, possono essere raccolte le seguenti categorie di dati personali:</p>
-    <table class="data-table">
-      <tr><th>Categoria di dati</th><th>Quando vengono raccolti</th><th>Finalità</th></tr>
-      <tr><td>Risposte al quiz della pelle</td><td>Compilazione del quiz gratuito</td><td>Generare il profilo pelle personalizzato e la raccomandazione della guida</td></tr>
-      <tr><td>Fotografia del viso</td><td>Utilizzo facoltativo dello Scan AI</td><td>Analisi automatizzata delle zone del viso tramite intelligenza artificiale, a scopo puramente indicativo</td></tr>
-      <tr><td>Testo inserito nello Scanner Ingredienti</td><td>Utilizzo facoltativo dello strumento</td><td>Generare una spiegazione testuale sull'ingrediente cosmetico richiesto</td></tr>
-      <tr><td>Indirizzo email</td><td>Eventuale acquisto o contatto</td><td>Invio della guida acquistata, comunicazioni relative all'ordine</td></tr>
-      <tr><td>Dati di pagamento</td><td>Acquisto di una guida</td><td>Elaborazione del pagamento (gestita interamente dal fornitore di pagamento terzo, vedi Sezione 5)</td></tr>
-      <tr><td>Dati di navigazione</td><td>Navigazione sul Sito</td><td>Funzionamento tecnico del Sito, statistiche aggregate e anonime</td></tr>
-    </table>
-    <p>Il Sito non richiede la creazione di un account utente. I dati forniti tramite il quiz e lo Scan AI sono trattati per erogare la funzionalità richiesta e non vengono utilizzati per finalità ulteriori senza un separato ed esplicito consenso.</p>
-  </section>
-
-  <section id="base-giuridica">
-    <h2>3. Base giuridica del trattamento</h2>
-    <p>Il trattamento dei dati personali si fonda, a seconda dei casi, sulle seguenti basi giuridiche previste dall'art. 6 del Regolamento (UE) 2016/679 ("GDPR"):</p>
-    <ul>
-      <li><strong>Esecuzione di un contratto o di misure precontrattuali</strong> (art. 6.1.b): per l'elaborazione del quiz, la vendita e la consegna delle guide digitali.</li>
-      <li><strong>Consenso dell'interessato</strong> (art. 6.1.a): per il caricamento volontario di una fotografia del viso nello Scan AI e per l'utilizzo dello Scanner Ingredienti.</li>
-      <li><strong>Legittimo interesse del Titolare</strong> (art. 6.1.f): per garantire la sicurezza del Sito, prevenire abusi e per finalità statistiche in forma aggregata.</li>
-      <li><strong>Obbligo legale</strong> (art. 6.1.c): per gli adempimenti fiscali e contabili connessi alla vendita di contenuti digitali.</li>
-    </ul>
-  </section>
-
-  <section id="scan-ai">
-    <h2>4. Scan AI, foto del viso e scanner ingredienti</h2>
-    <p>Lo Scan AI e lo Scanner Ingredienti sono funzionalità facoltative che elaborano i contenuti caricati dall'utente (una fotografia del viso o un testo) tramite un modello di intelligenza artificiale di terze parti, per generare un'analisi indicativa.</p>
-    <h3>Natura del trattamento</h3>
-    <ul>
-      <li>Il caricamento di una fotografia è sempre una scelta volontaria dell'utente: le altre funzionalità del Sito restano pienamente accessibili senza fornire alcuna immagine.</li>
-      <li>La fotografia viene trasmessa, tramite un server intermedio gestito dal Titolare, al fornitore del servizio di intelligenza artificiale utilizzato per generare l'analisi, esclusivamente al fine di produrre il risultato richiesto.</li>
-      <li><span class="placeholder">[Specificare se e per quanto tempo le foto vengono conservate sui server del Titolare o del fornitore AI: ad es. "la fotografia non viene salvata in modo permanente e viene eliminata al termine dell'elaborazione" oppure indicare i tempi di conservazione effettivi]</span>.</li>
-      <li>L'analisi generata ha natura puramente indicativa e non costituisce in alcun modo una diagnosi medica o dermatologica.</li>
-    </ul>
-    <div class="note-box">
-      <p>Poiché un'immagine del viso può rientrare, in alcuni casi, tra i dati biometrici o comunque tra i dati che richiedono particolare cautela, si raccomanda di raccogliere un consenso esplicito e specifico prima del caricamento (ad esempio tramite una casella di spunta non pre-selezionata) e di evitare qualunque trattamento automatizzato di riconoscimento facciale univoco: lo Scan AI deve limitarsi a un'analisi descrittiva delle zone del viso, senza identificare la persona.</p>
+  <section id="data-collected" class="reveal">
+    <h2><span class="n">2</span>What we collect and why</h2>
+    <p>When you use the Site, we may collect the following categories of personal information:</p>
+    <div class="card-table scroll-x">
+      <table>
+        <thead><tr><th>Type of data</th><th>When we collect it</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Skin quiz answers</strong></td><td>When you take the free quiz</td><td>To create your skin profile and recommend a guide</td></tr>
+          <tr><td><strong>Photo of your face</strong></td><td>Only if you choose to use the AI face scan</td><td>Automated AI analysis of the zones of your face, for general guidance only</td></tr>
+          <tr><td><strong>Text you enter in the ingredient scanner</strong></td><td>Only if you choose to use the tool</td><td>To generate a written explanation of the cosmetic ingredient you asked about</td></tr>
+          <tr><td><strong>Email address</strong></td><td>When you buy a guide or contact us</td><td>To deliver the guide you bought and send order-related messages</td></tr>
+          <tr><td><strong>Payment information</strong></td><td>When you buy a guide</td><td>To process your payment (handled entirely by our third-party payment provider, see Section 5)</td></tr>
+          <tr><td><strong>Browsing data</strong></td><td>When you browse the Site</td><td>To keep the Site running and to produce anonymous, aggregate statistics</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p>You don't need to create an account to use the Site. Data you provide through the quiz and the AI face scan is used only to deliver the feature you requested, and is never used for any other purpose without your separate, explicit consent.</p>
   </section>
 
-  <section id="terzi">
-    <h2>5. Comunicazione dei dati a terzi</h2>
-    <p>Per erogare i propri servizi, il Sito si avvale di fornitori terzi, che agiscono in qualità di autonomi titolari o responsabili del trattamento nei limiti delle rispettive funzioni:</p>
-    <table class="data-table">
-      <tr><th>Fornitore</th><th>Funzione</th><th>Dati coinvolti</th></tr>
-      <tr><td>Gumroad Inc.</td><td>Elaborazione dei pagamenti e consegna delle guide digitali acquistate</td><td>Email, dati di pagamento, cronologia degli acquisti</td></tr>
-      <tr><td>Fornitore del servizio di intelligenza artificiale</td><td>Elaborazione dello Scan AI e dello Scanner Ingredienti</td><td>Fotografia del viso (se caricata), testo inserito</td></tr>
-      <tr><td>Google Fonts</td><td>Caricamento dei caratteri tipografici del Sito</td><td>Indirizzo IP del dispositivo, in forma tecnica</td></tr>
-      <tr><td>Fornitore di hosting</td><td>Ospitalità tecnica del Sito</td><td>Dati di navigazione e log di accesso</td></tr>
-    </table>
-    <p>Ciascun fornitore tratta i dati secondo la propria informativa privacy, che si raccomanda di consultare. Il Titolare seleziona i propri fornitori garantendo adeguati livelli di protezione dei dati personali.</p>
-  </section>
-
-  <section id="extra-ue">
-    <h2>6. Trasferimento dei dati fuori dall'Unione Europea</h2>
-    <p>Alcuni dei fornitori indicati alla Sezione 5 hanno sede negli Stati Uniti o in altri paesi extra-UE. In tali casi, il trasferimento dei dati personali avviene sulla base di una delle garanzie previste dal Capo V del GDPR, quali le Clausole Contrattuali Standard approvate dalla Commissione Europea, o su altra base giuridica adeguata prevista dal fornitore stesso. L'interessato può richiedere maggiori informazioni sulle garanzie applicate contattando il Titolare ai recapiti indicati alla Sezione 13.</p>
-  </section>
-
-  <section id="conservazione">
-    <h2>7. Periodo di conservazione</h2>
+  <section id="legal-basis" class="reveal">
+    <h2><span class="n">3</span>Legal basis for processing</h2>
+    <p>Because Skin System is run from the European Union, we process personal information under the EU General Data Protection Regulation (Regulation (EU) 2016/679, "GDPR"). Depending on the situation, we rely on the following legal bases under Article 6 GDPR:</p>
     <ul>
-      <li><strong>Dati del quiz e del profilo pelle:</strong> conservati per il tempo necessario a fornire il risultato, salvo diversa indicazione fornita dall'utente.</li>
-      <li><strong>Fotografie caricate nello Scan AI:</strong> <span class="placeholder">[indicare tempistica reale, es. "non conservate oltre la sessione di analisi"]</span>.</li>
-      <li><strong>Dati relativi agli acquisti:</strong> conservati per il periodo previsto dalla normativa fiscale e contabile applicabile, generalmente 10 anni.</li>
-      <li><strong>Dati di navigazione e log tecnici:</strong> conservati per un periodo massimo di 12 mesi, salvo necessità di accertamento di reati.</li>
+      <li><strong>Performance of a contract or pre-contractual steps</strong> (Art. 6(1)(b)): to process the quiz and to sell and deliver the digital guides.</li>
+      <li><strong>Your consent</strong> (Art. 6(1)(a)): when you choose to upload a photo of your face to the AI face scan and when you use the ingredient scanner.</li>
+      <li><strong>Our legitimate interests</strong> (Art. 6(1)(f)): to keep the Site secure, prevent abuse and produce aggregate statistics.</li>
+      <li><strong>Legal obligations</strong> (Art. 6(1)(c)): to meet tax and accounting requirements related to the sale of digital content.</li>
     </ul>
   </section>
 
-  <section id="diritti">
-    <h2>8. Diritti dell'interessato</h2>
-    <p>In qualità di interessato, in qualunque momento è possibile esercitare i diritti previsti dagli articoli 15-22 del GDPR, tra cui:</p>
+  <section id="ai-scan" class="reveal">
+    <h2><span class="n">4</span>AI face scan and ingredient scanner</h2>
+    <p>The AI face scan and the ingredient scanner are optional features. They send what you upload (a photo of your face or a piece of text) to a third-party artificial intelligence model to generate a general, informational analysis.</p>
+    <h3>How it works</h3>
     <ul>
-      <li><strong>Accesso:</strong> ottenere conferma dell'esistenza di un trattamento e accedere ai dati personali trattati.</li>
-      <li><strong>Rettifica:</strong> ottenere la correzione di dati inesatti o l'integrazione di dati incompleti.</li>
-      <li><strong>Cancellazione ("diritto all'oblio"):</strong> ottenere la cancellazione dei dati, nei casi previsti dalla legge.</li>
-      <li><strong>Limitazione del trattamento:</strong> ottenere la limitazione del trattamento in specifiche circostanze.</li>
-      <li><strong>Portabilità:</strong> ricevere i dati forniti in un formato strutturato e leggibile da dispositivo automatico.</li>
-      <li><strong>Opposizione:</strong> opporsi in qualsiasi momento al trattamento basato sul legittimo interesse.</li>
-      <li><strong>Revoca del consenso:</strong> revocare in ogni momento il consenso prestato, senza pregiudicare la liceità del trattamento svolto prima della revoca.</li>
-      <li><strong>Reclamo:</strong> proporre reclamo all'Autorità Garante per la protezione dei dati personali (www.garanteprivacy.it), qualora si ritenga che il trattamento violi la normativa vigente.</li>
+      <li>Uploading a photo is always your choice. Every other feature of the Site works fully without providing any image.</li>
+      <li>Your photo is sent through an intermediate server run by us to the AI provider, only to generate the result you asked for.</li>
+      <li><span class="placeholder">[State whether and for how long photos are kept on our server or by the AI provider, e.g. "Your photo is not stored permanently and is deleted once the analysis is complete."]</span></li>
+      <li>We do not use your photo to identify you or to recognize your face. The scan only describes visible skin characteristics in each zone of the face.</li>
+      <li>The analysis is for general guidance only. It is not a medical or dermatological diagnosis.</li>
     </ul>
-    <p>Per esercitare i propri diritti è sufficiente contattare il Titolare ai recapiti indicati alla Sezione 13.</p>
   </section>
 
-  <section id="sicurezza">
-    <h2>9. Sicurezza dei dati</h2>
-    <p>Il Titolare adotta misure tecniche e organizzative adeguate a garantire un livello di sicurezza adeguato al rischio, tra cui la trasmissione cifrata dei dati (HTTPS/TLS), l'accesso limitato ai dati da parte di personale autorizzato e la selezione di fornitori che garantiscano adeguati standard di sicurezza. Nonostante le misure adottate, nessun sistema di trasmissione o conservazione dei dati è mai completamente sicuro: l'utente è invitato a segnalare tempestivamente qualsiasi utilizzo indebito del Sito o dei propri dati.</p>
+  <section id="third-parties" class="reveal">
+    <h2><span class="n">5</span>Sharing with third parties</h2>
+    <p>To provide our services, we work with the third-party providers listed below. Each one acts as an independent controller or as a processor on our behalf, within the limits of its role:</p>
+    <div class="card-table scroll-x">
+      <table>
+        <thead><tr><th>Provider</th><th>Role</th><th>Data involved</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Gumroad, Inc.</strong></td><td>Payment processing and delivery of the digital guides you buy</td><td>Email, payment information, purchase history</td></tr>
+          <tr><td><strong>AI service provider</strong></td><td>Processing for the AI face scan and the ingredient scanner</td><td>Photo of your face (if uploaded), text you enter</td></tr>
+          <tr><td><strong>Google Fonts</strong></td><td>Loading the Site's typefaces</td><td>Your device's IP address, for technical purposes</td></tr>
+          <tr><td><strong>Hosting provider</strong></td><td>Technical hosting of the Site</td><td>Browsing data and access logs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Each provider handles data according to its own privacy policy, which we encourage you to read. We choose providers that offer an adequate level of protection for personal information.</p>
   </section>
 
-  <section id="minori">
-    <h2>10. Minori</h2>
-    <p>Il Sito e i suoi contenuti sono rivolti a un pubblico adulto. I servizi di acquisto sono riservati a soggetti maggiorenni o comunque capaci di prestare validamente il proprio consenso secondo la legge applicabile. Il Titolare non raccoglie consapevolmente dati personali di minori senza il consenso di chi ne esercita la responsabilità genitoriale. Qualora si venga a conoscenza di aver raccolto dati di un minore senza le dovute autorizzazioni, tali dati saranno cancellati tempestivamente.</p>
+  <section id="transfers" class="reveal">
+    <h2><span class="n">6</span>International data transfers</h2>
+    <p>Some of the providers listed in Section 5 are based in the United States or other countries outside the European Union. Where that is the case, personal information is transferred on the basis of one of the safeguards set out in Chapter V of the GDPR, such as the Standard Contractual Clauses approved by the European Commission, or another adequate legal basis offered by the provider. You can ask for more details about these safeguards by contacting us (see Section 14).</p>
   </section>
 
-  <section id="cookie">
-    <h2>11. Cookie policy</h2>
-    <p>Il Sito utilizza esclusivamente:</p>
+  <section id="retention" class="reveal">
+    <h2><span class="n">7</span>How long we keep data</h2>
     <ul>
-      <li><strong>Cookie tecnici essenziali</strong>, necessari al corretto funzionamento del Sito, per i quali non è richiesto il consenso.</li>
-      <li><strong>Font di Google (Google Fonts)</strong>, caricati da server esterni per la visualizzazione tipografica del Sito.</li>
-      <li><strong>Cookie di terze parti impostati dal fornitore di pagamento</strong> (Gumroad) al momento dell'acquisto, necessari a completare la transazione.</li>
+      <li><strong>Quiz answers and skin profile:</strong> kept only as long as needed to show you your result, unless you tell us otherwise.</li>
+      <li><strong>Photos uploaded to the AI face scan:</strong> <span class="placeholder">[state the actual retention, e.g. "not kept beyond the analysis session"]</span>.</li>
+      <li><strong>Purchase records:</strong> kept for the period required by applicable tax and accounting law, generally 10 years.</li>
+      <li><strong>Browsing data and technical logs:</strong> kept for up to 12 months, unless needed to investigate unlawful activity.</li>
     </ul>
-    <p>Il Sito, nella sua configurazione attuale, non utilizza cookie di profilazione o strumenti di analisi statistica di terze parti. Qualora in futuro vengano introdotti strumenti di analytics o marketing, la presente sezione sarà aggiornata e verrà richiesto il consenso preventivo dell'utente tramite apposito banner, ove previsto dalla normativa applicabile.</p>
   </section>
 
-  <section id="modifiche">
-    <h2>12. Modifiche alla presente informativa</h2>
-    <p>Il Titolare si riserva il diritto di modificare o aggiornare, in tutto o in parte, la presente informativa privacy, anche in ragione di modifiche normative. Le modifiche saranno pubblicate su questa pagina con indicazione della data di ultimo aggiornamento. Si invita l'utente a consultare periodicamente questa pagina.</p>
+  <section id="rights" class="reveal">
+    <h2><span class="n">8</span>Your rights</h2>
+    <p>You can exercise the rights provided by Articles 15–22 of the GDPR at any time, including the right to:</p>
+    <ul>
+      <li><strong>Access:</strong> confirm whether we process your personal information and get a copy of it.</li>
+      <li><strong>Correction:</strong> have inaccurate information corrected or incomplete information completed.</li>
+      <li><strong>Deletion ("right to be forgotten"):</strong> have your information deleted, where the law allows.</li>
+      <li><strong>Restriction:</strong> limit how we process your information in certain circumstances.</li>
+      <li><strong>Portability:</strong> receive the information you gave us in a structured, machine-readable format.</li>
+      <li><strong>Objection:</strong> object at any time to processing based on our legitimate interests.</li>
+      <li><strong>Withdrawal of consent:</strong> withdraw your consent at any time, without affecting processing that happened before.</li>
+      <li><strong>Complaint:</strong> file a complaint with the Italian Data Protection Authority (<a href="https://www.garanteprivacy.it" rel="noopener">www.garanteprivacy.it</a>) or with the supervisory authority where you live, if you believe we are breaking the law.</li>
+    </ul>
+    <p>To exercise any of these rights, just email us at the address in Section 14.</p>
   </section>
 
-  <section id="contatti">
-    <h2>13. Contatti</h2>
-    <p>Per qualsiasi richiesta relativa al trattamento dei dati personali o per esercitare i propri diritti, è possibile contattare il Titolare del trattamento all'indirizzo email: <span class="placeholder">luca.galluzzo.1999@gmail.com</span>.</p>
+  <section id="us-residents" class="reveal">
+    <h2><span class="n">9</span>Notice for U.S. residents</h2>
+    <p>If you live in the United States, depending on your state (for example California, Colorado, Connecticut, Virginia or others with consumer privacy laws), you may have the right to know what personal information we collect, to access it, to correct it and to have it deleted. We honor these requests for all users, wherever they live, using the contact details in Section 14.</p>
+    <ul>
+      <li><strong>No sale or sharing:</strong> we do not sell your personal information, and we do not share it for cross-context behavioral advertising.</li>
+      <li><strong>Face photos:</strong> we do not create or keep face geometry, facial templates or any other biometric identifier from the photos you upload.</li>
+      <li><strong>No discrimination:</strong> we will never treat you differently for exercising your privacy rights.</li>
+    </ul>
   </section>
 
+  <section id="security" class="reveal">
+    <h2><span class="n">10</span>Data security</h2>
+    <p>We use technical and organizational measures suited to the level of risk, including encrypted transmission (HTTPS/TLS), restricting access to authorized people only, and choosing providers with adequate security standards. Still, no method of transmitting or storing data is ever completely secure. Please let us know right away if you notice any misuse of the Site or of your data.</p>
+  </section>
+
+  <section id="children" class="reveal">
+    <h2><span class="n">11</span>Children</h2>
+    <p>The Site and its content are intended for adults. Purchases are reserved for people who are at least 18, or who can otherwise give valid consent under applicable law. The Site is not directed to children under 13, and we do not knowingly collect personal information from minors without the consent of a parent or guardian. If we learn that we have collected such information without proper authorization, we will delete it promptly.</p>
+  </section>
+
+  <section id="cookies" class="reveal">
+    <h2><span class="n">12</span>Cookies</h2>
+    <p>The Site uses only:</p>
+    <ul>
+      <li><strong>Essential technical cookies</strong>, needed for the Site to work properly. These don't require your consent.</li>
+      <li><strong>Google Fonts</strong>, loaded from external servers to display the Site's typography.</li>
+      <li><strong>Third-party cookies set by our payment provider</strong> (Gumroad) at checkout, needed to complete your purchase.</li>
+    </ul>
+    <p>In its current setup, the Site does not use profiling cookies or third-party analytics tools. If we add analytics or marketing tools in the future, we will update this section and, where required by law, ask for your consent first through a cookie banner.</p>
+  </section>
+
+  <section id="changes" class="reveal">
+    <h2><span class="n">13</span>Changes to this policy</h2>
+    <p>We may update this privacy policy in whole or in part, including to reflect changes in the law. Any changes will be posted on this page with a new "Last updated" date, so please check back from time to time.</p>
+  </section>
+
+  <section id="contact" class="reveal">
+    <h2><span class="n">14</span>Contact</h2>
+    <p>For any question about how we handle your personal information, or to exercise your rights, email us at <a href="mailto:luca.galluzzo.1999@gmail.com">luca.galluzzo.1999@gmail.com</a>.</p>
+  </section>
 </main>
 
-<footer class="doc-footer">
-  Skin System — Questo documento ha valore informativo generale e non sostituisce una consulenza legale personalizzata.
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Skin System</span>
+    <span><a href="index.html">Home</a> · <a href="termini.html">Terms of Use</a></span>
+  </div>
 </footer>
 
+<script>
+// Sections ease in as you read, and a thin bar tracks reading progress
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => reduce ? el.classList.add('visible') : io.observe(el));
+
+const bar = document.getElementById('progress');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+    ticking = false;
+  });
+}, { passive: true });
+</script>
 </body>
 </html>
