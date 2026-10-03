@@ -318,26 +318,6 @@ section > .wrap { padding: 0; }
   transition: transform 0.3s var(--ease);
 }
 .zone-dot:hover, .zone-dot.active { transform: translate(-50%, -50%) scale(1.3); }
-.zone-photo {
-  position: absolute; width: 74px; height: 74px; border-radius: 14px; overflow: hidden;
-  border: 3px solid var(--white); box-shadow: var(--shadow-lg); transform: translate(-50%, -50%) scale(0.6);
-  opacity: 0; transition: opacity 0.35s var(--ease), transform 0.35s var(--ease); pointer-events: none; z-index: 5;
-}
-.zone-photo.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-.zone-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.zone-photo .zp-before { animation: zpFadeA 3.2s ease-in-out infinite; }
-.zone-photo .zp-after { animation: zpFadeB 3.2s ease-in-out infinite; }
-.zone-photo .zp-tag {
-  position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
-  font-size: 8px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
-  background: rgba(18,28,32,0.72); color: #fff; padding: 1.5px 5px; border-radius: 999px;
-}
-@keyframes zpFadeA { 0%, 42% { opacity: 1; } 50%, 92% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes zpFadeB { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .zone-photo .zp-before, .zone-photo .zp-after { animation: none; }
-  .zone-photo .zp-after { opacity: 0; }
-}
 .zone-ring { width: 20%; border: 1.4px solid var(--clay); opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.4s var(--ease); transform: translate(-50%,-50%) scale(0.85); }
 .zone-ring.show { opacity: 0.55; transform: translate(-50%,-50%) scale(1); }
 @keyframes softPulse {
@@ -629,6 +609,37 @@ section > .wrap { padding: 0; }
 .guides-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px; }
 .guides-head .section-head { margin-bottom: 0; }
 .rail-nav { display: flex; gap: 10px; flex-shrink: 0; }
+
+/* ── Real before/after showcase, right under the guides intro ── */
+.guides-showcase { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 56px; }
+.showcase-card {
+  position: relative; aspect-ratio: 16 / 10; border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: var(--shadow-md); cursor: pointer;
+}
+.showcase-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.showcase-card .sc-before { animation: scFadeA 5s ease-in-out infinite; }
+.showcase-card .sc-after { animation: scFadeB 5s ease-in-out infinite; }
+.showcase-card:hover .sc-before, .showcase-card:hover .sc-after { animation-play-state: paused; }
+.showcase-card:hover .sc-before { opacity: 0; }
+.showcase-card:hover .sc-after { opacity: 1; }
+.showcase-label {
+  position: absolute; bottom: 14px; left: 14px; font-size: 13px; font-weight: 700; color: #fff;
+  background: rgba(18,28,32,0.72); backdrop-filter: blur(6px); padding: 6px 13px; border-radius: 999px;
+}
+.showcase-tag {
+  position: absolute; top: 14px; right: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
+  text-transform: uppercase; color: var(--ink); background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
+  padding: 5px 11px; border-radius: 999px;
+}
+@keyframes scFadeA { 0%, 45% { opacity: 1; } 55%, 95% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes scFadeB { 0%, 45% { opacity: 0; } 55%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .sc-before, .sc-after { animation: none; }
+  .sc-after { opacity: 0; }
+}
+@media (max-width: 720px) {
+  .guides-showcase { grid-template-columns: 1fr; }
+}
 .rail-btn {
   width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(18,28,32,0.07);
   color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -1095,16 +1106,6 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
                 <button class="zone-dot" data-zone="guance" style="left:40%; top:52%;"></button>
                 <div class="zone-ring" id="ring-mandibola" style="left:50%; top:79%; width:15%;"></div>
                 <button class="zone-dot" data-zone="mandibola" style="left:50%; top:79%;"></button>
-                <div class="zone-photo" id="zphoto-guance" style="left:16%; top:48%;">
-                  <img src="oily-before.jpg" alt="" class="zp-before">
-                  <img src="oily-after.jpg" alt="" class="zp-after">
-                  <span class="zp-tag">Before/after</span>
-                </div>
-                <div class="zone-photo" id="zphoto-mandibola" style="left:84%; top:76%;">
-                  <img src="shave-before.jpg" alt="" class="zp-before">
-                  <img src="shave-after.jpg" alt="" class="zp-after">
-                  <span class="zp-tag">Before/after</span>
-                </div>
                 <div id="zoneLabel"></div>
               </div>
               <a href="quiz.html" class="btn btn-primary btn-block" style="margin-top:14px;">Take the full quiz</a>
@@ -1368,6 +1369,20 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <div class="rail-nav">
         <button class="rail-btn" id="railPrev" aria-label="Previous guides"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
         <button class="rail-btn" id="railNext" aria-label="Next guides"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="guides-showcase">
+      <div class="showcase-card">
+        <img src="oily-before.jpg" alt="Oily skin before" class="sc-before">
+        <img src="oily-after.jpg" alt="Skin after the oily skin & acne routine" class="sc-after">
+        <span class="showcase-tag">Oily skin &amp; acne</span>
+        <span class="showcase-label">Before → after</span>
+      </div>
+      <div class="showcase-card">
+        <img src="shave-before.jpg" alt="Razor irritation before" class="sc-before">
+        <img src="shave-after.jpg" alt="Skin after the razor burn routine" class="sc-after">
+        <span class="showcase-tag">Razor burn &amp; irritation</span>
+        <span class="showcase-label">Before → after</span>
       </div>
     </div>
     <div class="guides-rail" id="guidesRail">
@@ -1764,18 +1779,14 @@ const zoneNames = {
 };
 const dots = document.querySelectorAll('.zone-dot');
 const label = document.getElementById('zoneLabel');
-const zonePhotos = document.querySelectorAll('.zone-photo');
 dots.forEach(dot => {
   const zone = dot.dataset.zone;
   const ring = document.getElementById('ring-' + zone);
-  const photo = document.getElementById('zphoto-' + zone);
   const show = () => {
     dots.forEach(d => d.classList.remove('active'));
     document.querySelectorAll('.zone-ring').forEach(r => r.classList.remove('show'));
-    zonePhotos.forEach(p => p.classList.remove('show'));
     dot.classList.add('active');
     ring?.classList.add('show');
-    photo?.classList.add('show');
     label.textContent = zoneNames[zone];
     label.classList.add('show');
   };
@@ -1784,12 +1795,7 @@ dots.forEach(dot => {
   dot.addEventListener('click', show);
   dot.setAttribute('aria-label', zoneNames[zone]);
 });
-document.querySelector('.facemap-svg-wrap')?.addEventListener('mouseleave', () => {
-  label.classList.remove('show');
-  zonePhotos.forEach(p => p.classList.remove('show'));
-  dots.forEach(d => d.classList.remove('active'));
-  document.querySelectorAll('.zone-ring').forEach(r => r.classList.remove('show'));
-});
+document.querySelector('.facemap-svg-wrap')?.addEventListener('mouseleave', () => label.classList.remove('show'));
 
 // ── Tab della scan card ──
 const scanTabsEl = document.querySelector('.scan-tabs');
