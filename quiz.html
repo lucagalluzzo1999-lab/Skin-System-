@@ -100,7 +100,11 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 .intro { text-align: center; padding-top: 12px; }
 .intro .disc { width: 150px; margin: 0 auto 30px; }
 .intro h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.03; margin-bottom: 18px; }
-.intro p { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--mid); max-width: 44ch; margin: 0 auto 34px; }
+.intro p { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--mid); max-width: 44ch; margin: 0 auto 22px; }
+.trust-line {
+  font-size: 13.5px; color: var(--muted); max-width: 42ch; margin: 0 auto 30px;
+  padding-top: 14px; border-top: 1px solid var(--line); display: inline-block;
+}
 .intro-meta { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 22px; font-size: 13.5px; color: var(--muted); }
 .intro-meta span { display: inline-flex; align-items: center; gap: 7px; }
 .intro-meta svg { width: 15px; height: 15px; stroke: var(--sand); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
@@ -169,7 +173,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 .scan .ring circle { fill: none; stroke-width: 3; }
 .scan .ring .track { stroke: rgba(18,28,32,0.07); }
 .scan .ring .bar { stroke: var(--clay); stroke-linecap: round; stroke-dasharray: 578; stroke-dashoffset: 578; }
-.analyzing.run .ring .bar { transition: stroke-dashoffset 2.6s cubic-bezier(0.45, 0, 0.2, 1); stroke-dashoffset: 0; }
+.analyzing.run .ring .bar { transition: stroke-dashoffset 3.4s cubic-bezier(0.45, 0, 0.2, 1); stroke-dashoffset: 0; }
 .scan-line {
   position: absolute; left: 15px; right: 15px; top: 15px; height: 160px; border-radius: 50%; overflow: hidden; pointer-events: none;
 }
@@ -180,7 +184,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 }
 @keyframes sweep { from { top: -36%; } to { top: 100%; } }
 .analyzing h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin: 0 auto 10px; }
-.analyzing-line { font-size: 15px; color: var(--muted); min-height: 24px; transition: opacity 0.25s; }
+.analyzing-line { font-size: 15px; color: var(--muted); min-height: 24px; transition: opacity 0.25s; font-variant-numeric: tabular-nums; }
 
 /* ── Result ── */
 .result { text-align: left; }
@@ -192,6 +196,21 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 .signals { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
 .signals span { font-size: 13.5px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--mid); }
 .signals .lead { background: transparent; border: none; padding-left: 0; color: var(--muted); }
+
+/* score breakdown — the "this was really analyzed" block */
+.score-card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 24px; margin-bottom: 14px; }
+.score-card h3 { font-size: 15px; font-weight: 700; color: var(--clay); margin-bottom: 2px; letter-spacing: -0.01em; }
+.score-sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+.score-rows { display: flex; flex-direction: column; gap: 16px; }
+.score-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+.score-row-top .lbl { font-size: 14.5px; font-weight: 600; color: var(--ink-2); }
+.score-row-top .val { font-size: 14.5px; font-weight: 700; color: var(--clay); font-variant-numeric: tabular-nums; }
+.score-track { height: 8px; border-radius: 999px; background: var(--bg-alt); overflow: hidden; }
+.score-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sand), var(--clay)); width: 0%; transition: width 1.2s var(--ease); }
+.score-reassure { display: flex; gap: 12px; align-items: flex-start; }
+.score-reassure svg { width: 20px; height: 20px; stroke: var(--sand); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.score-reassure p { font-size: 14.5px; color: var(--mid); }
+
 .blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 26px; }
 .block { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
 .block h3 { font-size: 15px; font-weight: 700; color: var(--clay); margin-bottom: 8px; letter-spacing: -0.01em; }
@@ -237,6 +256,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .option, .result .r, .result .disc { opacity: 1 !important; transform: none !important; filter: none !important; }
   .analyzing .ring .bar { stroke-dashoffset: 0; }
+  .score-fill { transition: none !important; }
 }
 </style>
 </head>
@@ -278,6 +298,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
     <clipPath id="m-right"><path d="M140 0 L140 140 L0 140 Z"/></clipPath>
     <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
     <symbol id="i-back" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><polyline points="9 12 11 14 15 10"/></symbol>
   </defs>
 </svg>
 
@@ -297,7 +318,8 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
   <section class="step active in intro" data-step="intro">
     <div class="disc" data-disc="guide:all"></div>
     <h1>Let's figure out your skin.</h1>
-    <p>Seven quick questions about how your skin looks and feels. At the end you get your skin type and the one issue worth fixing first.</p>
+    <p>Seven quick questions about how your skin looks and feels. At the end you get your skin type, a full breakdown, and the one issue worth fixing first.</p>
+    <span class="trust-line">Built around the same core markers used to assess skin: oil production, hydration, pore visibility, and breakout frequency.</span>
     <button class="btn btn-primary" id="startBtn">Start the quiz</button>
     <div class="intro-meta">
       <span><svg><use href="#i-check"/></svg>2 minutes</span>
@@ -332,6 +354,12 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
     </div>
 
     <div class="signals r" style="--d:4" id="resultSignals"></div>
+
+    <div class="score-card r" style="--d:4.5">
+      <h3>Your skin breakdown</h3>
+      <div class="score-sub">Based on your answers to all 7 questions</div>
+      <div class="score-rows" id="resultScoreRows"></div>
+    </div>
 
     <div class="blocks">
       <div class="block r" style="--d:5">
@@ -583,31 +611,6 @@ function faceSVG(key) {
     go(1, 'back');
   });
 
-  // ── Analyzing ──
-  function runAnalysis() {
-    const box = stepEl('analyzing');
-    const line = document.getElementById('analyzingLine');
-    const lines = ['Checking oil production…', 'Looking at pores and breakouts…', 'Measuring hydration…', 'Finding your main issue…'];
-    const discs = ['grassa', 'guide:naso', 'secca', 'guide:all'];
-    const disc = box.querySelector('.disc');
-    box.classList.remove('run');
-    void box.offsetWidth;
-    box.classList.add('run');
-    let i = 0;
-    line.textContent = lines[0];
-    disc.innerHTML = faceSVG(discs[0]);
-    const timer = setInterval(() => {
-      i = (i + 1) % lines.length;
-      line.style.opacity = 0;
-      setTimeout(() => { line.textContent = lines[i]; disc.innerHTML = faceSVG(discs[i]); line.style.opacity = 1; }, 200);
-    }, 650);
-    setTimeout(() => {
-      clearInterval(timer);
-      renderResult();
-      go('result');
-    }, reduceMotion ? 600 : 2700);
-  }
-
   // ── Scoring ──
   // The quiz never asks "what's your problem": each question reads one simple
   // signal (shine, pores, breakouts, dryness, shaving, fine lines, tone) and the
@@ -633,6 +636,24 @@ function faceSVG(key) {
     if (answers.q7 === 'b') dull += 1;
     if (answers.q7 === 'c') dull += 3;
     return { oily, dry, pores, breakouts, shave, aging, dull };
+  }
+
+  // Raw signal → 0-100 "concern level", so the result page can show a real,
+  // answer-driven breakdown instead of just a single label. This is what the
+  // analyzing step and the result's score card both read from.
+  const MAX = { oily: 6, dry: 5, pores: 3, breakouts: 3, shave: 3, aging: 3, dull: 3 };
+  function pct(key, s) { return Math.round(Math.min(s[key], MAX[key]) / MAX[key] * 100); }
+
+  function concernMap(s) {
+    return {
+      oily:      { label: 'Oil production',     pct: pct('oily', s) },
+      dry:       { label: 'Dryness',             pct: pct('dry', s) },
+      pores:     { label: 'Pore visibility',      pct: pct('pores', s) },
+      breakouts: { label: 'Breakout frequency',   pct: pct('breakouts', s) },
+      shave:     { label: 'Shave irritation',     pct: pct('shave', s) },
+      aging:     { label: 'Fine lines',           pct: pct('aging', s) },
+      dull:      { label: 'Uneven tone',          pct: pct('dull', s) },
+    };
   }
 
   function skinType(s) {
@@ -661,37 +682,43 @@ function faceSVG(key) {
       name: 'Oily skin & acne', disc: 'guide:guance',
       problem: "Excess oil and clogged pores lead to blackheads and breakouts that keep coming back, especially on the T-zone.",
       solution: "A routine that controls oil without drying your skin out, with niacinamide and salicylic acid applied in the right order. That's exactly what this guide walks you through.",
-      url: 'https://skinsystem.gumroad.com/l/OilySkinAcne'
+      url: 'https://skinsystem.gumroad.com/l/OilySkinAcne',
+      metrics: ['breakouts', 'oily', 'pores']
     },
     dullness: {
       name: 'Dull, tired-looking skin', disc: 'guide:fronte',
       problem: "An uneven, lifeless tone usually comes from dead cells building up on the surface and too little sun protection.",
       solution: "Vitamin C, gentle exfoliation and daily SPF to get back an even, healthy-looking tone in a few weeks.",
-      url: 'https://skinsystem.gumroad.com/l/DullTired-LookingSkin'
+      url: 'https://skinsystem.gumroad.com/l/DullTired-LookingSkin',
+      metrics: ['dull', 'dry', 'aging']
     },
     aging: {
       name: 'First signs of aging', disc: 'guide:occhi',
       problem: "First fine lines and loss of firmness come from slower cell turnover and years of unprotected sun exposure.",
       solution: "Retinol introduced gradually, vitamin C in the morning and SPF every day: the right sequence to slow down the signs of aging without irritating your skin.",
-      url: 'https://skinsystem.gumroad.com/l/FirstSignsofAging'
+      url: 'https://skinsystem.gumroad.com/l/FirstSignsofAging',
+      metrics: ['aging', 'dry', 'dull']
     },
     shaving: {
       name: 'Razor burn & irritation', disc: 'guide:mandibola',
       problem: "Redness, burning or ingrown hairs after shaving almost always come down to technique, blade and products, not to your skin itself.",
       solution: "The right pre- and post-shave routine plus a targeted fix for ingrown hairs, so shaving stops leaving a mark.",
-      url: 'https://skinsystem.gumroad.com/l/RazorBurnIrritation'
+      url: 'https://skinsystem.gumroad.com/l/RazorBurnIrritation',
+      metrics: ['shave', 'oily', 'dry']
     },
     pores: {
       name: 'Enlarged pores & texture', disc: 'guide:naso',
       problem: "More visible pores and uneven texture are usually tied to excess oil in specific areas and slow cell turnover.",
       solution: "A plan with retinol and BHA in the right order, designed to refine your skin's texture over time without irritation.",
-      url: 'https://skinsystem.gumroad.com/l/EnlargedPoresTexture'
+      url: 'https://skinsystem.gumroad.com/l/EnlargedPoresTexture',
+      metrics: ['pores', 'oily', 'breakouts']
     },
     maintenance: {
       name: 'Maintenance routine', disc: 'guide:all',
       problem: "Nothing stands out in your answers: your skin looks healthy and balanced, with no specific issue to fix.",
       solution: "A minimal but correct routine (cleanse, moisturize, SPF) to keep that balance over time and head off the most common problems before they start.",
-      url: 'https://skinsystem.gumroad.com/l/MaintenanceRoutine'
+      url: 'https://skinsystem.gumroad.com/l/MaintenanceRoutine',
+      metrics: []
     }
   };
 
@@ -707,8 +734,95 @@ function faceSVG(key) {
     return chips;
   }
 
-  function renderResult() {
-    const s = computeSignals();
+  // ── Analyzing: now reads real computed values, not generic filler ──
+  let pendingSignals = null;
+  function runAnalysis() {
+    pendingSignals = computeSignals();
+    const cm = concernMap(pendingSignals);
+    const box = stepEl('analyzing');
+    const line = document.getElementById('analyzingLine');
+    const disc = box.querySelector('.disc');
+
+    const steps = [
+      { text: `Oil production: ${cm.oily.pct}%`, key: 'oily', disc: 'grassa' },
+      { text: `Pore visibility: ${cm.pores.pct}%`, key: 'pores', disc: 'guide:naso' },
+      { text: `Hydration level: ${100 - cm.dry.pct}%`, key: 'dry', disc: 'secca' },
+      { text: `Breakout frequency: ${cm.breakouts.pct}%`, key: 'breakouts', disc: 'guide:guance' },
+      { text: 'Matching you to a guide…', key: null, disc: 'guide:all' },
+    ];
+
+    box.classList.remove('run');
+    void box.offsetWidth;
+    box.classList.add('run');
+    let i = 0;
+    line.textContent = steps[0].text;
+    disc.innerHTML = faceSVG(steps[0].disc);
+    const timer = setInterval(() => {
+      i++;
+      if (i >= steps.length) { clearInterval(timer); return; }
+      line.style.opacity = 0;
+      setTimeout(() => { line.textContent = steps[i].text; disc.innerHTML = faceSVG(steps[i].disc); line.style.opacity = 1; }, 200);
+    }, 680);
+    setTimeout(() => {
+      clearInterval(timer);
+      renderResult(pendingSignals);
+      go('result');
+    }, reduceMotion ? 600 : 3400);
+  }
+
+  function renderScoreRows(s, key) {
+    const cm = concernMap(s);
+    const guide = GUIDES[key];
+    let rows;
+
+    if (key === 'maintenance') {
+      // No standout concern: show reassurance instead of bars that would look empty.
+      return `
+        <div class="score-reassure">
+          <svg><use href="#i-shield"/></svg>
+          <p>All four markers — oil, hydration, pores and breakouts — came back within a normal range. That's a solid baseline worth maintaining.</p>
+        </div>`;
+    }
+
+    rows = guide.metrics.map(k => cm[k]).filter(Boolean);
+    // top up to 3 rows if a guide has fewer defined metrics
+    if (rows.length < 3) {
+      Object.values(cm).forEach(m => { if (rows.length < 3 && !rows.includes(m)) rows.push(m); });
+    }
+
+    return rows.slice(0, 3).map((m, idx) => `
+      <div class="score-row" style="--rd:${idx}">
+        <div class="score-row-top"><span class="lbl">${m.label}</span><span class="val" data-target="${m.pct}">0%</span></div>
+        <div class="score-track"><div class="score-fill" data-fill="${m.pct}"></div></div>
+      </div>`).join('');
+  }
+
+  function animateScoreRows() {
+    document.querySelectorAll('#resultScoreRows .score-fill').forEach((el, idx) => {
+      const target = Number(el.dataset.fill);
+      setTimeout(() => { el.style.width = target + '%'; }, 500 + idx * 140);
+    });
+    document.querySelectorAll('#resultScoreRows .val').forEach((el, idx) => {
+      const target = Number(el.dataset.target);
+      if (reduceMotion) { el.textContent = target + '%'; return; }
+      const start = performance.now();
+      const dur = 900;
+      const delay = 500 + idx * 140;
+      setTimeout(() => {
+        const tick = (now) => {
+          const p = Math.min(1, (now - start - delay + delay) / dur);
+          // simple ease-out count-up
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + '%';
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }, delay);
+    });
+  }
+
+  function renderResult(precomputed) {
+    const s = precomputed || computeSignals();
     const type = skinType(s);
     const key = scoreGuides(s);
     const guide = GUIDES[key];
@@ -725,6 +839,9 @@ function faceSVG(key) {
     document.getElementById('resultSignals').innerHTML = chips.length
       ? '<span class="lead">What we noticed:</span>' + chips.map(c => `<span>${c}</span>`).join('')
       : '';
+
+    document.getElementById('resultScoreRows').innerHTML = renderScoreRows(s, key);
+    requestAnimationFrame(animateScoreRows);
 
     const cta = document.getElementById('resultCta');
     cta.href = guide.url;
