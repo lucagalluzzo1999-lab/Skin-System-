@@ -409,6 +409,50 @@ section > .wrap { padding: 0; }
 .manifesto .w.on { color: var(--ink-2); }
 .manifesto .w.on.accent { color: var(--clay); }
 
+/* ── Quiz spotlight: a dedicated, very visual section for the quiz ── */
+.quiz-spot { background: var(--ink-2); color: var(--white); position: relative; overflow: hidden; }
+.quiz-spot-glow {
+  position: absolute; inset: -30% -10% auto auto; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
+  background: radial-gradient(closest-side, rgba(127,169,143,0.22), transparent); pointer-events: none;
+}
+.quiz-spot .wrap { position: relative; z-index: 1; }
+.quiz-spot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.quiz-spot .eyebrow { color: var(--sand-light); }
+.quiz-spot h2 { color: var(--white); margin-bottom: 20px; }
+.quiz-spot-sub { font-size: 1.1rem; color: rgba(255,255,255,0.68); line-height: 1.6; max-width: 46ch; margin-bottom: 32px; }
+.quiz-feature-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+.quiz-feature { display: flex; align-items: flex-start; gap: 14px; }
+.quiz-feature-icon {
+  width: 36px; height: 36px; border-radius: 10px; background: rgba(127,169,143,0.16);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.quiz-feature-icon svg { width: 18px; height: 18px; stroke: var(--sand-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.quiz-feature-text b { display: block; font-size: 15.5px; font-weight: 700; color: var(--white); margin-bottom: 2px; letter-spacing: -0.01em; }
+.quiz-feature-text span { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.quiz-spot-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.quiz-spot-badge {
+  font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 999px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.85);
+}
+.quiz-preview-card {
+  background: var(--white); border-radius: var(--r-lg); padding: 10px; box-shadow: var(--shadow-lg);
+}
+.quiz-preview-inner {
+  background: var(--bg); border-radius: calc(var(--r-lg) - 10px); padding: 32px 28px;
+}
+.quiz-preview-kicker { font-size: 13px; font-weight: 600; color: var(--clay); margin-bottom: 10px; }
+.quiz-preview-progress { height: 4px; background: var(--bg-alt); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+.quiz-preview-progress i { display: block; height: 100%; width: 42%; background: var(--clay); border-radius: 4px; }
+.quiz-preview-q { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--ink-2); margin-bottom: 20px; }
+.quiz-preview-opt {
+  padding: 13px 16px; border: 1.5px solid var(--line); border-radius: 14px;
+  font-size: 14.5px; font-weight: 500; color: var(--mid); margin-bottom: 9px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.quiz-preview-opt.sel { border-color: var(--clay); color: var(--ink); background: var(--clay-faint); }
+.quiz-preview-opt.sel::after { content: ''; width: 17px; height: 17px; border-radius: 50%; background: var(--clay) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 10px no-repeat; }
+.quiz-preview-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; font-size: 12.5px; color: var(--muted); }
+
 /* ── How it works: sticky storytelling ── */
 .how { background: var(--bg-alt); }
 .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -594,6 +638,30 @@ section > .wrap { padding: 0; }
 }
 .guide-cover .face-slot { transition: transform 0.8s var(--ease); }
 .guide-card:hover .guide-cover .face-slot { transform: scale(1.08); }
+.guide-photo {
+  width: 56%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; display: block;
+  filter: drop-shadow(0 10px 22px rgba(90, 60, 40, 0.16));
+  transition: transform 0.8s var(--ease);
+}
+.guide-card:hover .guide-cover .guide-photo { transform: scale(1.08); }
+.guide-ba {
+  position: relative; width: 56%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  filter: drop-shadow(0 10px 22px rgba(90, 60, 40, 0.16));
+  transition: transform 0.8s var(--ease);
+}
+.guide-card:hover .guide-cover .guide-ba { transform: scale(1.08); }
+.guide-ba img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+.guide-ba .ba-after { opacity: 0; }
+.guide-card:hover .guide-ba .ba-after { opacity: 1; }
+.guide-ba .ba-tag {
+  position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  background: rgba(18,28,32,0.8); color: #fff; padding: 3px 9px; border-radius: 999px;
+  white-space: nowrap;
+}
 .guide-body { padding: 24px 24px 22px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
 .guide-zone { font-size: 13px; font-weight: 600; color: var(--clay-light); }
 .guide-card h3 { font-size: 1.35rem; letter-spacing: -0.035em; line-height: 1.2; }
@@ -689,6 +757,8 @@ section > .wrap { padding: 0; }
 .price-feature svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; stroke: var(--sand); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .price-feature-text { color: var(--mid); line-height: 1.5; }
 .price-card.featured .price-feature-text { color: rgba(255,255,255,0.78); }
+.price-gift-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 24px; }
+.price-gift-note a { color: var(--clay); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── FAQ ── */
 .faq-list { max-width: 820px; margin: 0 auto; }
@@ -747,6 +817,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   .hero { padding: 56px 24px 80px; }
   .hero-grid { grid-template-columns: 1fr; gap: 56px; }
   .ai-scan-card { max-width: 440px; margin: 0 auto; }
+  .quiz-spot-grid { grid-template-columns: 1fr; gap: 48px; }
+  .quiz-preview-card { max-width: 440px; margin: 0 auto; }
   .how-grid { grid-template-columns: 1fr; gap: 0; }
   .how-stage { display: none; }
   .how-steps { padding: 0; }
@@ -887,6 +959,10 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
     <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
     <symbol id="i-infinity" viewBox="0 0 24 24"><path d="M18.2 8.5a4.5 4.5 0 1 1 0 7c-2.4-2-3.7-3.5-6.2-3.5s-3.8 1.5-6.2 3.5a4.5 4.5 0 1 1 0-7c2.4 2 3.7 3.5 6.2 3.5s3.8-1.5 6.2-3.5z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></symbol>
   </defs>
 </svg>
 
@@ -903,7 +979,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
               <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="nav-dropdown-menu">
-              <a href="#how-it-works">The skin quiz<span>2 minutes, free</span></a>
+              <a href="#quiz-spot">The skin quiz<span>2 minutes, free, easy to use</span></a>
               <a href="#scanCard" class="js-scan-cta">AI face scan<span>Powered by artificial intelligence</span></a>
               <a href="#skin-types">Skin types<span>Find your profile</span></a>
             </div>
@@ -927,7 +1003,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       </ul>
     </nav>
     <div class="header-actions">
-      <a href="quiz.html" class="btn btn-primary" id="header-cta">Take the quiz</a>
+      <a href="quiz.html" class="btn btn-primary" id="header-cta">Take the free quiz</a>
       <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" id="mobileToggleBtn">
         <span></span><span></span><span></span>
       </button>
@@ -936,7 +1012,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#how-it-works">How it works</a>
+  <a href="#quiz-spot">The skin quiz</a>
   <a href="#scanCard" class="js-scan-cta">AI face scan</a>
   <a href="#guides">Guides</a>
   <a href="#routine">Sample routine</a>
@@ -953,22 +1029,22 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   <div class="wrap">
     <div class="hero-grid">
       <div id="heroText">
-        <span class="eyebrow fade-in d4">Men's skincare, powered by AI</span>
+        <span class="eyebrow fade-in d4">A 2-minute quiz, built for men's skin</span>
         <h1 class="hero-title">
-          <span class="ln"><span>Skincare</span></span>
-          <span class="ln"><span>built for men.</span></span>
-          <span class="ln"><span class="soft">Simple.</span></span>
-          <span class="ln"><span class="soft">Starting today.</span></span>
+          <span class="ln"><span>Take the quiz.</span></span>
+          <span class="ln"><span>Know your skin.</span></span>
+          <span class="ln"><span class="soft">Fix the one thing</span></span>
+          <span class="ln"><span class="soft">that matters.</span></span>
         </h1>
-        <p class="hero-sub fade-in d1">Oily skin, breakouts, razor burn, first wrinkles. Our AI reads your face in 30 seconds and gives you a routine built for a man's skin: a few products, a few minutes, no fluff.</p>
+        <p class="hero-sub fade-in d1">Seven easy questions, no guesswork. In two minutes you get your skin type, what's really causing it, and the one routine built to fix it — instead of six random products you hope will work.</p>
         <div class="cta-row fade-in d2">
-          <a href="quiz.html" class="btn btn-primary btn-lg">Find your skin issue</a>
-          <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Try the AI scan</a>
+          <a href="quiz.html" class="btn btn-primary btn-lg">Take the free quiz →</a>
+          <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Or try the AI face scan</a>
         </div>
         <div class="trust-badges fade-in d3">
-          <span class="trust-badge"><svg><use href="#i-check"/></svg>Built for men's skin</span>
-          <span class="trust-badge"><svg><use href="#i-check"/></svg>30-second analysis</span>
-          <span class="trust-badge"><svg><use href="#i-check"/></svg>No subscription</span>
+          <span class="trust-badge"><svg><use href="#i-check"/></svg>Easy to use, 2 minutes</span>
+          <span class="trust-badge"><svg><use href="#i-check"/></svg>No email needed</span>
+          <span class="trust-badge"><svg><use href="#i-check"/></svg>Saves time and money on guesswork</span>
         </div>
       </div>
 
@@ -1036,8 +1112,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
 <!-- ══ STATS ══ -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item reveal"><div class="stat-num">2 min</div><div class="stat-label">to take the quiz</div></div>
-    <div class="stat-item reveal"><div class="stat-num">6</div><div class="stat-label">guides available</div></div>
+    <div class="stat-item reveal"><div class="stat-num">2 min</div><div class="stat-label">easy quiz, no email needed</div></div>
+    <div class="stat-item reveal"><div class="stat-num">6</div><div class="stat-label">guides, one per concern</div></div>
     <div class="stat-item reveal"><div class="stat-num">6 wks</div><div class="stat-label">step-by-step plan included</div></div>
     <div class="stat-item reveal"><div class="stat-num">1×</div><div class="stat-label">payment, no renewals</div></div>
   </div>
@@ -1048,13 +1124,61 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   <p id="manifestoText" data-accent="men's skin:">Most skincare is made for women, or for everyone. Skin System is built around men's skin: thicker, oilier, shaved almost every day. And around guys who want a five-minute routine, not a fifty-minute one.</p>
 </section>
 
+<!-- ══ QUIZ SPOTLIGHT ══ -->
+<section id="quiz-spot" class="quiz-spot">
+  <div class="quiz-spot-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="quiz-spot-grid">
+      <div>
+        <span class="eyebrow">Start here</span>
+        <h2>The quiz is the fastest way to know what's actually wrong.</h2>
+        <p class="quiz-spot-sub">No ten-step routine, no guessing which of six products you actually need. Answer seven easy questions and get a routine built around your real issue — not a generic one.</p>
+        <div class="quiz-feature-list">
+          <div class="quiz-feature">
+            <div class="quiz-feature-icon"><svg><use href="#i-zap"/></svg></div>
+            <div class="quiz-feature-text"><b>Easy to use, done in 2 minutes</b><span>Seven short questions, plain language, no sign-up and no email required to see your result.</span></div>
+          </div>
+          <div class="quiz-feature">
+            <div class="quiz-feature-icon"><svg><use href="#i-target"/></svg></div>
+            <div class="quiz-feature-text"><b>Explains the cause, not just a product</b><span>You'll see why your skin is doing what it's doing, not just another thing to buy and apply.</span></div>
+          </div>
+          <div class="quiz-feature">
+            <div class="quiz-feature-icon"><svg><use href="#i-layers"/></svg></div>
+            <div class="quiz-feature-text"><b>The right order, step by step</b><span>Morning and evening, in the correct sequence — so you stop layering products the wrong way.</span></div>
+          </div>
+          <div class="quiz-feature">
+            <div class="quiz-feature-icon"><svg><use href="#i-printer"/></svg></div>
+            <div class="quiz-feature-text"><b>A printable routine you'll actually keep</b><span>A one-page cheat sheet and a tracker built into every guide, made to stick on your mirror, not get lost in a folder.</span></div>
+          </div>
+        </div>
+        <div class="quiz-spot-badges">
+          <span class="quiz-spot-badge">Saves time and money</span>
+          <span class="quiz-spot-badge">No subscription</span>
+          <span class="quiz-spot-badge">Built for men's skin</span>
+        </div>
+      </div>
+      <div class="quiz-preview-card">
+        <div class="quiz-preview-inner">
+          <div class="quiz-preview-kicker">Question 3 of 7</div>
+          <div class="quiz-preview-progress"><i></i></div>
+          <div class="quiz-preview-q">How does your skin react after shaving?</div>
+          <div class="quiz-preview-opt">No real issues</div>
+          <div class="quiz-preview-opt sel">Some redness that fades quickly</div>
+          <div class="quiz-preview-opt">Burning, irritation or ingrown hairs</div>
+          <div class="quiz-preview-foot"><span>2 minutes total</span><span>Free, no email</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ HOW IT WORKS (sticky storytelling) ══ -->
 <section id="how-it-works" class="how">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="eyebrow">How it works</span>
       <h2>Three steps. No excuses.</h2>
-      <p class="section-desc">No need to become a cosmetic chemist or spend half an hour at the mirror. The AI takes you straight to the right routine.</p>
+      <p class="section-desc">No need to become a cosmetic chemist or spend half an hour at the mirror. The quiz is easy to use and takes you straight to the right routine.</p>
     </div>
     <div class="how-grid">
       <div class="how-stage" aria-hidden="true">
@@ -1089,18 +1213,18 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <div class="how-steps">
         <article class="how-step active" data-step="0">
           <span class="how-num">1</span>
-          <h3>Take the quiz.</h3>
-          <p>Six questions about your skin type and main concern. Two minutes, completely free. Add a photo for the AI scan if you want.</p>
+          <h3>Take the easy quiz.</h3>
+          <p>Seven questions about your skin type and main concern. Two minutes, completely free, no email required. Add a photo for the AI scan if you want.</p>
         </article>
         <article class="how-step" data-step="1">
           <span class="how-num">2</span>
           <h3>Get your skin profile.</h3>
-          <p>See your skin type right away, issues zone by zone, ingredients to look for and to avoid, and the guide recommended for you.</p>
+          <p>See your skin type right away, what's actually causing it zone by zone, ingredients to look for and to avoid, and the guide recommended for you.</p>
         </article>
         <article class="how-step" data-step="2">
           <span class="how-num">3</span>
           <h3>Unlock your guide.</h3>
-          <p>One purchase, instant access. A morning and evening routine, the right active ingredients and a 6-week plan written for your exact concern.</p>
+          <p>One purchase, instant access. A morning and evening routine in the right order, the right active ingredients, a printable cheat sheet, and a 6-week plan written for your exact concern.</p>
         </article>
       </div>
     </div>
@@ -1113,7 +1237,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
     <div class="section-head center reveal">
       <span class="eyebrow">Know your skin</span>
       <h2>What's your skin type?</h2>
-      <p class="section-desc">Men's skin makes more oil and takes a blade almost every day, but it isn't the same for every guy. Pick your type to see the active ingredients that suit it best.</p>
+      <p class="section-desc">Men's skin makes more oil and takes a blade almost every day, but it isn't the same for every guy. Pick your type to see the active ingredients that suit it best, or skip straight to the quiz for a result built around you.</p>
     </div>
     <div class="skin-type-grid">
       <button class="skin-type-card reveal" data-type="grassa" aria-controls="skinDetail" aria-pressed="false">
@@ -1209,7 +1333,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <div class="section-head reveal">
         <span class="eyebrow">The library</span>
         <h2>Six guides. Your issue already has a fix.</h2>
-        <p class="section-desc">Written for men, about men's skin problems. Each guide stands on its own: morning and evening routine, 6-week plan, budget and FAQ.</p>
+        <p class="section-desc">Written for men, about men's skin problems: razor bumps, the beard area, body acne, sunscreen that won't feel greasy. Each guide stands on its own: morning and evening routine, the right order, a printable cheat sheet, a 6-week tracker and FAQ.</p>
       </div>
       <div class="rail-nav">
         <button class="rail-btn" id="railPrev" aria-label="Previous guides"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -1222,7 +1346,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <div class="guide-body">
           <span class="guide-zone">Cheeks</span>
           <h3>Oily skin &amp; acne</h3>
-          <p>How a breakout forms, the right actives and a practical 6-week plan. Niacinamide, salicylic acid and BHA, clearly explained.</p>
+          <p>How a breakout actually forms, not just "wash more" — the right actives and a practical 6-week plan. Niacinamide, salicylic acid and BHA, clearly explained.</p>
           <div class="guide-foot">
             <span class="guide-price">$14.90</span>
             <a href="https://skinsystem.gumroad.com/l/OilySkinAcne" class="guide-link gumroad-button">See the guide</a>
@@ -1244,9 +1368,9 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <article class="guide-card reveal">
         <div class="guide-cover"><div class="face-slot" data-face="guide:mandibola" style="width:56%;"></div></div>
         <div class="guide-body">
-          <span class="guide-zone">Jawline</span>
+          <span class="guide-zone">Jawline &amp; beard area</span>
           <h3>Razor burn &amp; irritation</h3>
-          <p>How to shave without inflaming your skin, the right pre- and post-shave products, and a routine against ingrown hairs.</p>
+          <p>How to shave without inflaming your skin, the right pre- and post-shave products, and a routine against ingrown hairs and razor bumps.</p>
           <div class="guide-foot">
             <span class="guide-price">$14.90</span>
             <a href="https://skinsystem.gumroad.com/l/RazorBurnIrritation" class="guide-link gumroad-button">See the guide</a>
@@ -1258,7 +1382,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <div class="guide-body">
           <span class="guide-zone">Forehead</span>
           <h3>Dull, tired-looking skin</h3>
-          <p>Get back an even, healthy-looking tone with a minimal routine. Vitamin C, AHAs and glycolic acid in the right place.</p>
+          <p>Get back an even, healthy-looking tone with a minimal routine. Vitamin C, AHAs and glycolic acid in the right place, plus a sunscreen that won't feel greasy.</p>
           <div class="guide-foot">
             <span class="guide-price">$14.90</span>
             <a href="https://skinsystem.gumroad.com/l/DullTired-LookingSkin" class="guide-link gumroad-button">See the guide</a>
@@ -1354,7 +1478,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
     <div class="section-head center reveal">
       <span class="eyebrow">A real example</span>
       <h2>A routine for oily skin.</h2>
-      <p class="section-desc">Every guide includes a precise plan like this one, tailored to your issue and your budget.</p>
+      <p class="section-desc">Every guide includes a precise plan like this one, in the correct step order, tailored to your issue and your budget.</p>
     </div>
     <div class="routine-grid">
       <div class="routine-col reveal">
@@ -1363,7 +1487,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-name">Gentle cleanser</div><div class="routine-step-detail">Gel or foam, pH 4.5–5.5</div></div><span class="routine-badge rb-essential">Essential</span></div>
           <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-name">Niacinamide 10%</div><div class="routine-step-detail">Serum, let it absorb for 60 seconds</div></div><span class="routine-badge rb-essential">Essential</span></div>
           <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-name">Oil-free moisturizer</div><div class="routine-step-detail">Lightweight, non-comedogenic</div></div><span class="routine-badge rb-essential">Essential</span></div>
-          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-name">Mineral SPF 30+</div><div class="routine-step-detail">Always the last morning step</div></div><span class="routine-badge rb-essential">Essential</span></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-name">Mineral SPF 30+</div><div class="routine-step-detail">Always the last morning step, won't feel greasy</div></div><span class="routine-badge rb-essential">Essential</span></div>
         </div>
       </div>
       <div class="routine-col reveal">
@@ -1390,22 +1514,22 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <div class="why-card reveal">
         <div class="why-icon"><svg><use href="#i-razor"/></svg></div>
         <h3>Made for men's skin</h3>
-        <p>Thicker, oilier, shaved often. Every recommendation starts here, not from a routine designed for someone else and tweaked.</p>
+        <p>Thicker, oilier, shaved often. Every recommendation starts here, not from a routine designed for someone else and tweaked — razor bumps, beard area and body acne included.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-icon"><svg><use href="#i-target"/></svg></div>
-        <h3>One guide, one problem</h3>
-        <p>No filler chapters. Just the routine and ingredients for the issue you flagged in the quiz.</p>
+        <h3>We explain why, not just what</h3>
+        <p>Every guide breaks down the actual cause of your issue, not just "exfoliate more". Understand it once, fix it for good.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg><use href="#i-calendar"/></svg></div>
-        <h3>A 6-week plan</h3>
-        <p>Day-by-day guidance for six weeks: what to apply, in what order, and when to expect results.</p>
+        <div class="why-icon"><svg><use href="#i-printer"/></svg></div>
+        <h3>A printable routine and tracker</h3>
+        <p>A one-page cheat sheet you can print and stick on your mirror, plus a 6-week tracker to keep you consistent.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-icon"><svg><use href="#i-clock"/></svg></div>
         <h3>Five minutes a day</h3>
-        <p>Four steps in the morning, four at night. A routine you'll actually stick to, even on busy weeks.</p>
+        <p>Four steps in the morning, four at night, in the right order. A routine you'll actually stick to, even on busy weeks.</p>
       </div>
     </div>
   </div>
@@ -1417,7 +1541,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
     <div class="section-head center reveal">
       <span class="eyebrow">Pricing</span>
       <h2>Pay only for what you need.</h2>
-      <p class="section-desc">No subscription. Pay once, keep it forever.</p>
+      <p class="section-desc">No subscription. Pay once, keep it forever. Start with the free quiz, no card required.</p>
     </div>
     <div class="price-cards">
       <div class="price-card reveal">
@@ -1426,6 +1550,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <div class="price-card-sub">One-time payment, instant access</div>
         <div class="price-features">
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">The guide for your specific issue</span></div>
+          <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Printable cheat sheet &amp; 6-week tracker</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">PDF, instant download</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Future updates included</span></div>
         </div>
@@ -1438,6 +1563,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <div class="price-card-sub">Instead of $89.40, save 49%</div>
         <div class="price-features">
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">All 6 guides, current and future</span></div>
+          <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Printable cheat sheets &amp; trackers for each</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Instant PDF download</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Future updates always included</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Early access to new guides</span></div>
@@ -1445,6 +1571,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <a href="https://skinsystem.gumroad.com/l/lpumez" class="btn btn-sand btn-block gumroad-button">Unlock all guides</a>
       </div>
     </div>
+    <p class="price-gift-note"><svg style="width:15px;height:15px;display:inline-block;vertical-align:-2px;stroke:var(--clay);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:4px;"><use href="#i-gift"/></svg>Buying for someone else? Any guide works as a gift — just send the PDF their way.</p>
   </div>
 </section>
 
@@ -1456,10 +1583,10 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <h2>Before you start.</h2>
     </div>
     <div class="faq-list reveal">
-      <details class="faq-item"><summary>Is the quiz really free? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes. Answer the questions and get your skin profile right away, free forever. Only the recommended guide is paid.</p></div></div></details>
-      <details class="faq-item"><summary>Can I buy a guide without taking the quiz? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes, browse the library and pick the guide you want. The quiz just helps you avoid buying the wrong one.</p></div></div></details>
+      <details class="faq-item"><summary>Is the quiz really free and easy to use? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes. Seven short questions, no email, no sign-up. Answer them and get your skin profile right away, free forever. Only the recommended guide is paid.</p></div></div></details>
+      <details class="faq-item"><summary>Can I buy a guide without taking the quiz? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes, browse the library and pick the guide you want. The quiz just helps you avoid buying the wrong one and wasting money on the wrong products.</p></div></div></details>
       <details class="faq-item"><summary>Does the AI scan work with old photos? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>It works best with front-facing photos in natural light, without filters. Blurry or dark photos make the zone-by-zone analysis less accurate.</p></div></div></details>
-      <details class="faq-item"><summary>Do I need a lot of products? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The routines use a handful of products, morning and evening, and every guide includes a budget section so you know what to spend.</p></div></div></details>
+      <details class="faq-item"><summary>Do I need a lot of products? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The routines use a handful of products, morning and evening, in the right order, and every guide includes a budget section so you know what to spend.</p></div></div></details>
       <details class="faq-item"><summary>What if I need another guide later? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>You can buy more guides at any time at the same single price. Or get the full bundle and save 49% on all six.</p></div></div></details>
       <details class="faq-item"><summary>Does the AI analysis replace a dermatologist? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The AI scan is a starting point. For serious concerns like severe acne, rosacea or eczema, always see a dermatologist.</p></div></div></details>
     </div>
@@ -1470,7 +1597,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
 <section class="final-cta">
   <div class="wrap reveal">
     <h2>Two minutes to find out what your skin needs.</h2>
-    <p>The quiz is free. No subscriptions, no fifty-step routines.</p>
+    <p>The quiz is free and easy to use. No subscriptions, no fifty-step routines.</p>
     <a href="quiz.html" class="btn btn-primary btn-lg">Start the quiz</a>
   </div>
 </section>
@@ -1488,7 +1615,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <div>
         <div class="footer-col-title">Product</div>
         <ul class="footer-links-list">
-          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#quiz-spot">The quiz</a></li>
           <li><a href="#guides">Guides</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="quiz.html">Take the quiz</a></li>
