@@ -318,6 +318,26 @@ section > .wrap { padding: 0; }
   transition: transform 0.3s var(--ease);
 }
 .zone-dot:hover, .zone-dot.active { transform: translate(-50%, -50%) scale(1.3); }
+.zone-photo {
+  position: absolute; width: 74px; height: 74px; border-radius: 14px; overflow: hidden;
+  border: 3px solid var(--white); box-shadow: var(--shadow-lg); transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0; transition: opacity 0.35s var(--ease), transform 0.35s var(--ease); pointer-events: none; z-index: 5;
+}
+.zone-photo.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.zone-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.zone-photo .zp-before { animation: zpFadeA 3.2s ease-in-out infinite; }
+.zone-photo .zp-after { animation: zpFadeB 3.2s ease-in-out infinite; }
+.zone-photo .zp-tag {
+  position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+  font-size: 8px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  background: rgba(18,28,32,0.72); color: #fff; padding: 1.5px 5px; border-radius: 999px;
+}
+@keyframes zpFadeA { 0%, 42% { opacity: 1; } 50%, 92% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes zpFadeB { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .zone-photo .zp-before, .zone-photo .zp-after { animation: none; }
+  .zone-photo .zp-after { opacity: 0; }
+}
 .zone-ring { width: 20%; border: 1.4px solid var(--clay); opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.4s var(--ease); transform: translate(-50%,-50%) scale(0.85); }
 .zone-ring.show { opacity: 0.55; transform: translate(-50%,-50%) scale(1); }
 @keyframes softPulse {
@@ -1075,6 +1095,16 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
                 <button class="zone-dot" data-zone="guance" style="left:40%; top:52%;"></button>
                 <div class="zone-ring" id="ring-mandibola" style="left:50%; top:79%; width:15%;"></div>
                 <button class="zone-dot" data-zone="mandibola" style="left:50%; top:79%;"></button>
+                <div class="zone-photo" id="zphoto-guance" style="left:16%; top:48%;">
+                  <img src="oily-before.jpg" alt="" class="zp-before">
+                  <img src="oily-after.jpg" alt="" class="zp-after">
+                  <span class="zp-tag">Before/after</span>
+                </div>
+                <div class="zone-photo" id="zphoto-mandibola" style="left:84%; top:76%;">
+                  <img src="shave-before.jpg" alt="" class="zp-before">
+                  <img src="shave-after.jpg" alt="" class="zp-after">
+                  <span class="zp-tag">Before/after</span>
+                </div>
                 <div id="zoneLabel"></div>
               </div>
               <a href="quiz.html" class="btn btn-primary btn-block" style="margin-top:14px;">Take the full quiz</a>
@@ -1734,14 +1764,18 @@ const zoneNames = {
 };
 const dots = document.querySelectorAll('.zone-dot');
 const label = document.getElementById('zoneLabel');
+const zonePhotos = document.querySelectorAll('.zone-photo');
 dots.forEach(dot => {
   const zone = dot.dataset.zone;
   const ring = document.getElementById('ring-' + zone);
+  const photo = document.getElementById('zphoto-' + zone);
   const show = () => {
     dots.forEach(d => d.classList.remove('active'));
     document.querySelectorAll('.zone-ring').forEach(r => r.classList.remove('show'));
+    zonePhotos.forEach(p => p.classList.remove('show'));
     dot.classList.add('active');
     ring?.classList.add('show');
+    photo?.classList.add('show');
     label.textContent = zoneNames[zone];
     label.classList.add('show');
   };
@@ -1750,7 +1784,12 @@ dots.forEach(dot => {
   dot.addEventListener('click', show);
   dot.setAttribute('aria-label', zoneNames[zone]);
 });
-document.querySelector('.facemap-svg-wrap')?.addEventListener('mouseleave', () => label.classList.remove('show'));
+document.querySelector('.facemap-svg-wrap')?.addEventListener('mouseleave', () => {
+  label.classList.remove('show');
+  zonePhotos.forEach(p => p.classList.remove('show'));
+  dots.forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.zone-ring').forEach(r => r.classList.remove('show'));
+});
 
 // ── Tab della scan card ──
 const scanTabsEl = document.querySelector('.scan-tabs');
