@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<script>/* launch promo: Oct 31, 11:59pm ET */if(Date.now()>Date.UTC(2026,10,1,3,59,59))document.documentElement.classList.add('promo-ended');</script>
 <style>
 :root {
   --clay:       #2C4A52;
@@ -786,6 +787,42 @@ section > .wrap { padding: 0; }
 .price-gift-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 24px; }
 .price-gift-note a { color: var(--clay); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
+
+/* ── Launch promo (ends Oct 31, 11:59pm ET) ── */
+html.promo-ended .promo-only { display: none !important; }
+html:not(.promo-ended) .full-only { display: none !important; }
+.promo-bar { background: var(--ink); color: #fff; font-size: 13.5px; line-height: 1.4; transition: background 0.4s; }
+html.promo-final .promo-bar { background: #7A2E2A; }
+.promo-bar-inner { max-width: 1180px; margin: 0 auto; padding: 9px 20px; display: flex; justify-content: center; align-items: center; gap: 6px 14px; flex-wrap: wrap; text-align: center; }
+.promo-bar b { color: var(--sand-light); font-weight: 700; }
+html.promo-final .promo-bar b { color: #FFD2CC; }
+.promo-cd { font-variant-numeric: tabular-nums; font-weight: 700; background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.promo-bar a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.promo-final-msg { display: none; }
+@media (max-width: 600px) { .promo-code-note { display: none; } .promo-bar-inner { padding: 8px 14px; font-size: 12.5px; } }
+html.promo-final .promo-final-msg { display: inline; }
+html.promo-final .promo-std-msg { display: none; }
+.was { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--muted); font-weight: 500; font-size: 0.5em; letter-spacing: -0.01em; margin-right: 8px; vertical-align: 0.25em; }
+.off-pill { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.03em; background: #7A2E2A; color: #fff; padding: 3px 8px; border-radius: 999px; vertical-align: 0.3em; margin-left: 8px; }
+
+.hero-promo { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14.5px; font-weight: 600; color: var(--ink-2); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-md); padding: 8px 16px 8px 12px; border-radius: 999px; margin-bottom: 22px; }
+.hero-promo .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #C0392B; box-shadow: 0 0 0 0 rgba(192,57,43,0.5); animation: livePulse 1.8s infinite; }
+@keyframes livePulse { 70% { box-shadow: 0 0 0 9px rgba(192,57,43,0); } 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); } }
+.hero-promo .promo-cd { background: var(--clay-faint); color: var(--clay-dark); }
+.launch-cd { max-width: 900px; margin: 0 auto 32px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 26px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; }
+.launch-cd-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #7A2E2A; margin-bottom: 4px; }
+.launch-cd-note { font-size: 15px; color: var(--mid); max-width: 40ch; line-height: 1.5; }
+.cd-boxes { display: flex; gap: 10px; }
+.cd-boxes div { background: var(--ink-2); color: #fff; border-radius: 14px; min-width: 66px; padding: 10px 8px 8px; text-align: center; }
+.cd-boxes b { display: block; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.cd-boxes span { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; }
+.price-card.featured .was { color: rgba(255,255,255,0.45); }
+.price-card-sub b { color: var(--ink-2); }
+.price-card.featured .price-card-sub b { color: var(--sand-light); }
+.price-after-note { text-align: center; font-size: 14.5px; color: var(--mid); margin-top: 26px; }
+.final-cta .final-urgency { font-size: 1rem; font-weight: 600; color: #7A2E2A; margin: -18px 0 30px; }
+@media (max-width: 600px) { .cd-boxes div { min-width: 58px; } .launch-cd { padding: 22px 20px; } }
+
 /* ── FAQ ── */
 .faq-list { max-width: 820px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--line); }
@@ -995,6 +1032,13 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
 
 <!-- ══ HEADER ══ -->
 <header>
+  <div class="promo-bar promo-only" role="region" aria-label="Launch offer">
+    <div class="promo-bar-inner">
+      <span><span class="promo-std-msg"><b>Launch offer:</b> 20% off every guide &amp; the bundle<span class="promo-code-note"> with code <b>SKIN20</b>, applied automatically</span></span><span class="promo-final-msg"><b>Final days:</b> 20% off ends soon, then prices go up</span></span>
+      <span class="promo-cd" data-cd-text>Ends Oct 31</span>
+      <a href="#pricing">Lock in the launch price →</a>
+    </div>
+  </div>
   <div class="header-inner">
     <a href="#" class="logo" aria-label="Skin System for Men, back to top">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
     <nav class="header-nav" aria-label="Main">
@@ -1021,7 +1065,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
             <div class="nav-dropdown-menu">
               <a href="#guides">All guides<span>Six guides, one per concern</span></a>
               <a href="#routine">Sample routine<span>Morning and evening</span></a>
-              <a href="#pricing">Pricing<span>From $14.90, no subscription</span></a>
+              <a href="#pricing">Pricing<span class="promo-only">Launch price from $23.92 — ends Oct 31</span><span class="full-only">From $29.90, no subscription</span></a>
             </div>
           </div>
         </li>
@@ -1064,6 +1108,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <span class="ln"><span class="soft">that matters.</span></span>
         </h1>
         <p class="hero-sub fade-in d1">Seven easy questions, no guesswork. In two minutes you get your skin type, what's really causing it, and the one routine built to fix it — instead of six random products you hope will work.</p>
+        <a href="#pricing" class="hero-promo promo-only fade-in d2"><span class="live-dot"></span>Launch offer: 20% off until Oct 31<span class="promo-cd" data-cd-text>ends soon</span></a>
         <div class="cta-row fade-in d2">
           <a href="quiz.html" class="btn btn-primary btn-lg">Take the free quiz →</a>
           <a href="#scanCard" class="btn btn-ghost btn-lg js-scan-cta">Or try the AI face scan</a>
@@ -1267,7 +1312,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
             <div class="mock-kicker">PDF guide</div>
             <div class="mock-title" style="text-align:left;">Enlarged pores &amp; texture</div>
             <div class="mock-row">
-              <span class="mock-price">$14.90</span>
+              <span class="mock-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
               <span class="btn btn-primary" style="pointer-events:none;">Get the guide</span>
             </div>
           </div>
@@ -1411,8 +1456,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>Oily skin &amp; acne</h3>
           <p>How a breakout actually forms, not just "wash more" — the right actives and a practical 6-week plan. Niacinamide, salicylic acid and BHA, clearly explained.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842750951801:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842750951801:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1423,8 +1468,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>First signs of aging</h3>
           <p>Retinol, vitamin C and the routine that slows down fine lines, using anti-aging actives without irritation.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842765959545:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842765959545:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1435,8 +1480,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>Razor burn &amp; irritation</h3>
           <p>How to shave without inflaming your skin, the right pre- and post-shave products, and a routine against ingrown hairs and razor bumps.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842766975353:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842766975353:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1447,8 +1492,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>Dull, tired-looking skin</h3>
           <p>Get back an even, healthy-looking tone with a minimal routine. Vitamin C, AHAs and glycolic acid in the right place, plus a sunscreen that won't feel greasy.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842772316537:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842772316537:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1459,8 +1504,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>Enlarged pores &amp; texture</h3>
           <p>Why pores get bigger and how to improve texture over time. Retinol, BHA and the right order to apply your products.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773234041:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773234041:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1471,8 +1516,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <h3>Maintenance routine</h3>
           <p>Nothing to fix? Good. A minimal, correct routine to keep your skin balanced and head off problems before they start.</p>
           <div class="guide-foot">
-            <span class="guide-price">$14.90</span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773627257:1" class="guide-link gumroad-button">See the guide</a>
+            <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
+            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773627257:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
           </div>
         </div>
       </article>
@@ -1602,15 +1647,27 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
 <section id="pricing">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Pricing</span>
-      <h2>Pay only for what you need.</h2>
-      <p class="section-desc">No subscription. Pay once, keep it forever. Start with the free quiz, no card required.</p>
+      <span class="eyebrow"><span class="promo-only">Launch pricing · 20% off</span><span class="full-only">Pricing</span></span>
+      <h2><span class="promo-only">20% off. Only until October&nbsp;31.</span><span class="full-only">Pay only for what you need.</span></h2>
+      <p class="section-desc">No subscription. Pay once, keep it forever. <span class="promo-only">Buy during launch and the lower price is yours, updates included.</span><span class="full-only">Start with the free quiz, no card required.</span></p>
+    </div>
+    <div class="launch-cd promo-only reveal">
+      <div>
+        <div class="launch-cd-label">Launch price ends in</div>
+        <div class="launch-cd-note">On November 1 prices go back to $29.90 per guide and $119.90 for the full bundle.</div>
+      </div>
+      <div class="cd-boxes" aria-label="Time left on the launch offer">
+        <div><b data-cd="d">--</b><span>days</span></div>
+        <div><b data-cd="h">--</b><span>hrs</span></div>
+        <div><b data-cd="m">--</b><span>min</span></div>
+        <div><b data-cd="s">--</b><span>sec</span></div>
+      </div>
     </div>
     <div class="price-cards">
       <div class="price-card reveal">
-        <div class="price-card-tag">One guide</div>
-        <div class="price-card-amount">$14.90</div>
-        <div class="price-card-sub">One-time payment, instant access</div>
+        <div class="price-card-tag">One guide<span class="off-pill promo-only">−20%</span></div>
+        <div class="price-card-amount"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></div>
+        <div class="price-card-sub"><span class="promo-only">Launch price, <b>you save $5.98</b>. One-time payment.</span><span class="full-only">One-time payment, instant access</span></div>
         <div class="price-features">
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">The guide for your specific issue</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Printable cheat sheet &amp; 6-week tracker</span></div>
@@ -1621,9 +1678,9 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       </div>
       <div class="price-card featured reveal">
         <div class="price-card-badge">Best value</div>
-        <div class="price-card-tag">All guides</div>
-        <div class="price-card-amount">$44.90</div>
-        <div class="price-card-sub">Instead of $89.40, save 49%</div>
+        <div class="price-card-tag">All 6 guides<span class="off-pill promo-only">−20%</span></div>
+        <div class="price-card-amount"><span class="promo-only"><s class="was">$119.90</s>$95.92</span><span class="full-only">$119.90</span></div>
+        <div class="price-card-sub"><span class="promo-only">Worth $179.40 bought one by one, <b>you save $83.48 (46%)</b></span><span class="full-only">Instead of $179.40, save 33%</span></div>
         <div class="price-features">
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">All 6 guides, current and future</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Printable cheat sheets &amp; trackers for each</span></div>
@@ -1631,9 +1688,10 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Future updates always included</span></div>
           <div class="price-feature"><svg><use href="#i-check"/></svg><span class="price-feature-text">Early access to new guides</span></div>
         </div>
-        <a href="https://0qv1z1-ag.myshopify.com/cart/64842773922169:1" class="btn btn-sand btn-block gumroad-button">Unlock all guides</a>
+        <a href="https://0qv1z1-ag.myshopify.com/cart/64842773922169:1?discount=SKIN20" class="btn btn-sand btn-block gumroad-button"><span class="promo-only">Unlock all guides at launch price</span><span class="full-only">Unlock all guides</span></a>
       </div>
     </div>
+    <p class="price-after-note promo-only">Code <b>SKIN20</b> is applied automatically at checkout. Launch offer ends <b>October 31 at 11:59 pm ET</b>. After that: $29.90 per guide, $119.90 for the bundle.</p>
     <p class="price-gift-note"><svg style="width:15px;height:15px;display:inline-block;vertical-align:-2px;stroke:var(--clay);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:4px;"><use href="#i-gift"/></svg>Buying for someone else? Any guide works as a gift — just send the PDF their way.</p>
   </div>
 </section>
@@ -1650,7 +1708,8 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
       <details class="faq-item"><summary>Can I buy a guide without taking the quiz? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes, browse the library and pick the guide you want. The quiz just helps you avoid buying the wrong one and wasting money on the wrong products.</p></div></div></details>
       <details class="faq-item"><summary>Does the AI scan work with old photos? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>It works best with front-facing photos in natural light, without filters. Blurry or dark photos make the zone-by-zone analysis less accurate.</p></div></div></details>
       <details class="faq-item"><summary>Do I need a lot of products? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The routines use a handful of products, morning and evening, in the right order, and every guide includes a budget section so you know what to spend.</p></div></div></details>
-      <details class="faq-item"><summary>What if I need another guide later? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>You can buy more guides at any time at the same single price. Or get the full bundle and save 49% on all six.</p></div></div></details>
+      <details class="faq-item"><summary>What if I need another guide later? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>You can buy more guides at any time at the same single price. Or get the full bundle and save on all six: 33% at the regular price, 46% during the launch offer.</p></div></div></details>
+      <details class="faq-item"><summary>How long does the launch offer last? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Until October 31 at 11:59 pm ET. 20% off every guide ($23.92 instead of $29.90) and the full bundle ($95.92 instead of $119.90). After that prices go back to normal. Whatever you buy now is yours forever, future updates included.</p></div></div></details>
       <details class="faq-item"><summary>Does the AI analysis replace a dermatologist? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The AI scan is a starting point. For serious concerns like severe acne, rosacea or eczema, always see a dermatologist.</p></div></div></details>
     </div>
   </div>
@@ -1661,6 +1720,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   <div class="wrap reveal">
     <h2>Two minutes to find out what your skin needs.</h2>
     <p>The quiz is free and easy to use. No subscriptions, no fifty-step routines.</p>
+    <p class="final-urgency promo-only">Launch prices end in <span data-cd-text>a few days</span>.</p>
     <a href="quiz.html" class="btn btn-primary btn-lg">Start the quiz</a>
   </div>
 </section>
@@ -1857,12 +1917,12 @@ let imageBase64 = null;
 let imageMediaType = 'image/jpeg';
 
 const AI_GUIDES = {
-  acne:        { name: 'Oily skin & acne',          url: 'https://0qv1z1-ag.myshopify.com/cart/64842750951801:1' },
-  dullness:    { name: 'Dull, tired-looking skin',  url: 'https://0qv1z1-ag.myshopify.com/cart/64842772316537:1' },
-  aging:       { name: 'First signs of aging',      url: 'https://0qv1z1-ag.myshopify.com/cart/64842765959545:1' },
-  shaving:     { name: 'Razor burn & irritation',   url: 'https://0qv1z1-ag.myshopify.com/cart/64842766975353:1' },
-  pores:       { name: 'Enlarged pores & texture',  url: 'https://0qv1z1-ag.myshopify.com/cart/64842773234041:1' },
-  maintenance: { name: 'Maintenance routine',       url: 'https://0qv1z1-ag.myshopify.com/cart/64842773627257:1' },
+  acne:        { name: 'Oily skin & acne',          url: 'https://0qv1z1-ag.myshopify.com/cart/64842750951801:1?discount=SKIN20' },
+  dullness:    { name: 'Dull, tired-looking skin',  url: 'https://0qv1z1-ag.myshopify.com/cart/64842772316537:1?discount=SKIN20' },
+  aging:       { name: 'First signs of aging',      url: 'https://0qv1z1-ag.myshopify.com/cart/64842765959545:1?discount=SKIN20' },
+  shaving:     { name: 'Razor burn & irritation',   url: 'https://0qv1z1-ag.myshopify.com/cart/64842766975353:1?discount=SKIN20' },
+  pores:       { name: 'Enlarged pores & texture',  url: 'https://0qv1z1-ag.myshopify.com/cart/64842773234041:1?discount=SKIN20' },
+  maintenance: { name: 'Maintenance routine',       url: 'https://0qv1z1-ag.myshopify.com/cart/64842773627257:1?discount=SKIN20' },
 };
 
 function loadFile(file) {
@@ -2243,6 +2303,29 @@ const statObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 statObserver.observe(document.querySelector('.stats-bar'));
 
+</script>
+
+<script>
+/* ── Launch promo countdown: ends Oct 31, 2026, 11:59:59pm ET ── */
+(function () {
+  var END = Date.UTC(2026, 10, 1, 3, 59, 59);
+  var root = document.documentElement;
+  function stripCode() { document.querySelectorAll('a[href*="discount=SKIN20"]').forEach(function (a) { a.href = a.href.replace(/[?&]discount=SKIN20/, ''); }); }
+  window.skinPromoUrl = function (u) { return root.classList.contains('promo-ended') ? u.replace(/[?&]discount=SKIN20/, '') : u; };
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var ms = END - Date.now();
+    if (ms <= 0) { root.classList.add('promo-ended'); stripCode(); return false; }
+    var s = Math.floor(ms / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    root.classList.toggle('promo-final', ms < 72 * 3600 * 1000);
+    var vals = { d: pad(d), h: pad(h), m: pad(m), s: pad(sec) };
+    document.querySelectorAll('[data-cd]').forEach(function (el) { el.textContent = vals[el.getAttribute('data-cd')]; });
+    var txt = (d > 0 ? d + 'd ' : '') + pad(h) + 'h ' + pad(m) + 'm ' + pad(sec) + 's';
+    document.querySelectorAll('[data-cd-text]').forEach(function (el) { el.textContent = txt; });
+    return true;
+  }
+  if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
+})();
 </script>
 </body>
 </html>
