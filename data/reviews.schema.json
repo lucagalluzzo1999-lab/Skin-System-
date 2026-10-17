@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skin System Men — customer reviews (data/reviews.json)",
+  "description": "Only add REAL reviews you have permission to publish. The testimonials section stays hidden while the array is empty.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["name", "location", "guide", "rating", "text", "date", "incentivized"],
+    "additionalProperties": false,
+    "properties": {
+      "name":         { "type": "string", "description": "As the customer wants to be shown, e.g. 'Mike R.'" },
+      "location":     { "type": "string", "description": "e.g. 'Austin, TX'" },
+      "guide":        { "type": "string", "description": "Guide slug (oily-acne, early-aging, razor-irritation, dull-skin, pores-texture, maintenance, all-guides) or the guide name" },
+      "rating":       { "type": "integer", "minimum": 1, "maximum": 5 },
+      "text":         { "type": "string" },
+      "date":         { "type": "string", "format": "date", "description": "YYYY-MM-DD" },
+      "photo":        { "type": "string", "description": "Optional path to a photo the customer agreed to share, e.g. img/reviews/mike.jpg" },
+      "incentivized": { "type": "boolean", "description": "true if the customer got the guide for free in exchange for an honest review (shows a disclosure)" }
+    }
+  },
+  "examples": [[
+    { "name": "First L.", "location": "City, ST", "guide": "razor-irritation", "rating": 5, "text": "Real review text.", "date": "2026-11-02", "incentivized": false }
+  ]]
+}
