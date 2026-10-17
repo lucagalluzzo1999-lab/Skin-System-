@@ -937,6 +937,24 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   .ba-label.r { opacity: 1; }
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1086249570848477');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="meta-pixel.js" defer></script>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -1757,7 +1775,7 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
         <div class="footer-col-title">Info</div>
         <ul class="footer-links-list">
           <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="termini.html">Terms of Use</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
