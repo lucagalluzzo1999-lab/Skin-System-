@@ -3,8 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skin Quiz — Skin System for Men</title>
+<title>Skin Quiz — Skin System Men</title>
 <meta name="description" content="Seven quick questions to find your skin type and the one issue to fix first. Free, two minutes.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#2C4A52">
+<link rel="canonical" href="https://skin-system.vercel.app/quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skin System Men">
+<meta property="og:title" content="Skin Quiz — Skin System Men">
+<meta property="og:description" content="Seven quick questions to find your skin type and the one issue to fix first. Free, two minutes.">
+<meta property="og:url" content="https://skin-system.vercel.app/quiz.html">
+<meta property="og:image" content="https://skin-system.vercel.app/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Skin System Men: Take the quiz. Know your skin.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skin Quiz — Skin System Men">
+<meta name="twitter:description" content="Seven quick questions to find your skin type and the one issue to fix first. Free, two minutes.">
+<meta name="twitter:image" content="https://skin-system.vercel.app/img/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
@@ -285,24 +306,9 @@ html.promo-final .promo-std-msg { display: none; }
   .score-fill { transition: none !important; }
 }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1086249570848477');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script src="meta-pixel.js" defer></script>
+<link rel="stylesheet" href="css/extras.css">
+<script src="js/config.js"></script>
+<script src="js/analytics.js" defer></script>
 </head>
 <body>
 
@@ -357,7 +363,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
     </div>
   </div>
   <div class="top-inner">
-    <a href="index.html" class="logo" aria-label="Skin System for Men, back to the site">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
+    <a href="index.html" class="logo" aria-label="Skin System Men, back to the site">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
     <a href="index.html" class="back-link">Back to site</a>
   </div>
   <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
@@ -375,7 +381,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
     <div class="intro-meta">
       <span><svg><use href="#i-check"/></svg>2 minutes</span>
       <span><svg><use href="#i-check"/></svg>Free</span>
-      <span><svg><use href="#i-check"/></svg>No email needed</span>
+      <span><svg><use href="#i-check"/></svg>No email needed to see your result</span>
     </div>
   </section>
 
@@ -436,13 +442,15 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
       <div class="buy-urgency promo-only"><span><b>Launch price, 20% off</b> with code SKIN20 (auto-applied). Goes up to $29.90 after Oct 31.</span><span class="promo-cd" data-cd-text>ends soon</span></div>
       <ul class="buy-list">
         <li><svg><use href="#i-check"/></svg>Morning and evening routine</li>
-        <li><svg><use href="#i-check"/></svg>4-week plan</li>
+        <li><svg><use href="#i-check"/></svg>6-week plan</li>
         <li><svg><use href="#i-check"/></svg>PDF, instant download</li>
         <li><svg><use href="#i-check"/></svg>One-time payment</li>
       </ul>
       <a href="index.html#guides" class="btn btn-primary btn-block gumroad-button" id="resultCta" data-no-preview>Get my guide</a>
       <a href="https://0qv1z1-ag.myshopify.com/cart/64842773922169:1?discount=SKIN20" class="btn btn-ghost btn-block gumroad-button"><span class="promo-only">Get all 6 guides for $95.92 <s>$119.90</s></span><span class="full-only">Get all 6 guides for $119.90</span></a>
     </div>
+
+    <div class="email-slot r" style="--d:7.5" id="resultEmail" hidden></div>
 
     <p class="fine r" style="--d:8">For guidance only. For severe acne, rosacea or eczema, see a dermatologist.</p>
     <button class="restart r" style="--d:8" id="restartBtn">Retake the quiz</button>
@@ -888,7 +896,7 @@ function faceSVG(key) {
     document.getElementById('resultProblem').textContent = guide.problem;
     document.getElementById('resultSolution').textContent = guide.solution;
     document.getElementById('buyTitle').textContent = guide.name;
-    if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: guide.name, content_category: type.label });
+    if (window.ssmTrackCustom) window.ssmTrackCustom('QuizComplete', { recommended_guide: guide.name, skin_type: type.label, content_name: guide.name });
 
     const chips = signalChips(s);
     document.getElementById('resultSignals').innerHTML = chips.length
@@ -905,6 +913,8 @@ function faceSVG(key) {
     const preview = document.getElementById('resultPreview');
     preview.setAttribute('data-href', cta.href);
     if (window.SkinPreview) window.SkinPreview.mount(preview);
+
+    if (window.SSMEmailCard) window.SSMEmailCard.render(document.getElementById('resultEmail'), { skinType: type.label, guide: guide.name, source: 'quiz' });
   }
 
   setProgress('intro');
@@ -933,6 +943,10 @@ function faceSVG(key) {
   if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
 })();
 </script>
+<footer class="mini-footer"><span>© 2026 Skin System Men</span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="privacy.html#contact">Contact</a><a href="privacy.html#cookies" class="dns-link" data-consent-open>Do Not Sell or Share My Personal Information</a></footer>
+
+<script src="js/guides-data.js"></script>
+<script src="js/email-capture.js"></script>
 <script src="guide-preview.js" defer></script>
 </body>
 </html>

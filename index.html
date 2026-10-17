@@ -3,8 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skin System for Men — AI skin analysis &amp; skincare built for men</title>
+<title>Skin System Men — AI skin analysis &amp; skincare built for men</title>
 <meta name="description" content="Skincare for men: our AI reads your face in 30 seconds and sends you to the right guide for oily skin, acne, razor burn or first wrinkles. No subscription.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#2C4A52">
+<link rel="canonical" href="https://skin-system.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skin System Men">
+<meta property="og:title" content="Skin System Men — AI skin analysis &amp; skincare built for men">
+<meta property="og:description" content="A 2-minute skin quiz and AI face scan that point you to the one 6-week guide built for your issue: oily skin, acne, razor burn, first lines, dull skin or pores.">
+<meta property="og:url" content="https://skin-system.vercel.app/">
+<meta property="og:image" content="https://skin-system.vercel.app/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Skin System Men: Take the quiz. Know your skin.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skin System Men — AI skin analysis &amp; skincare built for men">
+<meta name="twitter:description" content="A 2-minute skin quiz and AI face scan that point you to the one 6-week guide built for your issue: oily skin, acne, razor burn, first lines, dull skin or pores.">
+<meta name="twitter:image" content="https://skin-system.vercel.app/img/og-image.jpg">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://skin-system.vercel.app/#organization",
+   "name": "Skin System Men",
+   "url": "https://skin-system.vercel.app/",
+   "logo": "https://skin-system.vercel.app/img/icon-512.png",
+   "founder": [
+    {
+     "@type": "Person",
+     "name": "Luca Galluzzo",
+     "jobTitle": "Founder"
+    },
+    {
+     "@type": "Person",
+     "name": "Lorenzo Montaruli",
+     "jobTitle": "Co-founder"
+    }
+   ]
+  },
+  {
+   "@type": "Product",
+   "name": "Oily skin & acne: 6-week skincare guide for men (PDF)",
+   "sku": "64842750951801",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-1-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-oily-acne",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-oily-acne",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "First signs of aging: 6-week skincare guide for men (PDF)",
+   "sku": "64842765959545",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-2-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-early-aging",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-early-aging",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Razor burn & irritation: 6-week skincare guide for men (PDF)",
+   "sku": "64842766975353",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-3-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-razor-irritation",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-razor-irritation",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Dull, tired-looking skin: 6-week skincare guide for men (PDF)",
+   "sku": "64842772316537",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-4-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-dull-skin",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-dull-skin",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Enlarged pores & texture: 6-week skincare guide for men (PDF)",
+   "sku": "64842773234041",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-5-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-pores-texture",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-pores-texture",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Maintenance routine: 6-week skincare guide for men (PDF)",
+   "sku": "64842773627257",
+   "category": "Digital guide (PDF)",
+   "image": "https://skin-system.vercel.app/preview-guide-6-p1.webp",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#guide-maintenance",
+   "offers": {
+    "@type": "Offer",
+    "price": "23.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#guide-maintenance",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "All 6 guides bundle (PDF)",
+   "sku": "64842773922169",
+   "category": "Digital guide bundle (PDF)",
+   "image": "https://skin-system.vercel.app/img/og-image.jpg",
+   "brand": {
+    "@type": "Brand",
+    "name": "Skin System Men"
+   },
+   "url": "https://skin-system.vercel.app/#pricing",
+   "offers": {
+    "@type": "Offer",
+    "price": "95.92",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-10-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://skin-system.vercel.app/#pricing",
+    "seller": {
+     "@id": "https://skin-system.vercel.app/#organization"
+    }
+   }
+  }
+ ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
@@ -346,6 +554,16 @@ section > .wrap { padding: 0; }
 }
 .upload-title { font-weight: 600; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
 .upload-sub { font-size: 13px; color: var(--muted); }
+.upload-error { margin: 10px 0 0; font-size: 13.5px; color: #A13D35; }
+.upload-error[hidden] { display: none; }
+.photo-notice { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--mid); }
+.photo-notice a { color: var(--clay); text-decoration: underline; text-underline-offset: 2px; }
+.photo-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 10px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); cursor: pointer; }
+.photo-consent input { flex: none; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--clay); cursor: pointer; }
+.photo-consent input:focus-visible { outline: 3px solid var(--sand); outline-offset: 2px; }
+.photo-consent-hint { margin: 8px 0 0; font-size: 12.5px; color: var(--mid); text-align: center; }
+#analyzeBtn:disabled { opacity: .55; cursor: not-allowed; }
+#analyzeBtn[style*="display:none"] + .photo-consent-hint, .photo-consent-hint.is-hidden { display: none; }
 .upload-preview { display: none; margin-top: 16px; position: relative; }
 .upload-preview img { width: 100%; border-radius: var(--r-md); max-height: 240px; object-fit: cover; }
 .upload-preview-overlay {
@@ -447,7 +665,7 @@ section > .wrap { padding: 0; }
 }
 .quiz-preview-kicker { font-size: 13px; font-weight: 600; color: var(--clay); margin-bottom: 10px; }
 .quiz-preview-progress { height: 4px; background: var(--bg-alt); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
-.quiz-preview-progress i { display: block; height: 100%; width: 42%; background: var(--clay); border-radius: 4px; }
+.quiz-preview-progress i { display: block; height: 100%; width: 71.4%; /* 5 of 7 */ background: var(--clay); border-radius: 4px; }
 .quiz-preview-q { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--ink-2); margin-bottom: 20px; }
 .quiz-preview-opt {
   padding: 13px 16px; border: 1.5px solid var(--line); border-radius: 14px;
@@ -480,7 +698,7 @@ section > .wrap { padding: 0; }
 .how-screen.active { opacity: 1; transform: none; filter: none; }
 .mock-kicker { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
 .mock-progress { height: 4px; background: var(--bg-alt); border-radius: 4px; overflow: hidden; margin-bottom: 26px; }
-.mock-progress i { display: block; height: 100%; width: 50%; background: var(--clay); border-radius: 4px; transform-origin: left; transform: scaleX(0.3); transition: transform 1.2s var(--ease) 0.2s; }
+.mock-progress i { display: block; height: 100%; width: 14.3%; /* 1 of 7 */ background: var(--clay); border-radius: 4px; transform-origin: left; transform: scaleX(0.3); transition: transform 1.2s var(--ease) 0.2s; }
 .how-screen.active .mock-progress i { transform: scaleX(1); }
 .mock-q { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; color: var(--ink-2); margin-bottom: 22px; }
 .mock-opt {
@@ -631,6 +849,13 @@ section > .wrap { padding: 0; }
 }
 .bx-sublabel.l { left: 10px; }
 .bx-sublabel.r { right: 10px; }
+.bx-illus {
+  position: absolute; top: 10px; z-index: 2; font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-2); background: rgba(255,255,255,0.86); backdrop-filter: blur(6px); padding: 3px 9px; border-radius: 999px;
+}
+.bx-illus.l { left: 10px; }
+.bx-illus.r { left: calc(50% + 10px); }
+.bx-disclaimer { margin: 0; padding: 8px 20px 0; font-size: 12.5px; color: var(--mid); }
 .bx-body { padding: 16px 20px 18px; }
 .bx-concern { font-size: 15px; font-weight: 700; color: var(--ink-2); letter-spacing: -0.015em; }
 @media (max-width: 720px) {
@@ -937,24 +1162,9 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   .ba-label.r { opacity: 1; }
 }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1086249570848477');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script src="meta-pixel.js" defer></script>
+<link rel="stylesheet" href="css/extras.css">
+<script src="js/config.js"></script>
+<script src="js/analytics.js" defer></script>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -1058,7 +1268,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
     </div>
   </div>
   <div class="header-inner">
-    <a href="#" class="logo" aria-label="Skin System for Men, back to top">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
+    <a href="#" class="logo" aria-label="Skin System Men, back to top">Skin<span class="logo-dot"></span>System<span class="logo-tag">Men</span></a>
     <nav class="header-nav" aria-label="Main">
       <ul class="nav-links">
         <li>
@@ -1133,7 +1343,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
         </div>
         <div class="trust-badges fade-in d3">
           <span class="trust-badge"><svg><use href="#i-check"/></svg>Easy to use, 2 minutes</span>
-          <span class="trust-badge"><svg><use href="#i-check"/></svg>No email needed</span>
+          <span class="trust-badge"><svg><use href="#i-check"/></svg>No email needed to see your result</span>
           <span class="trust-badge"><svg><use href="#i-check"/></svg>Saves time and money on guesswork</span>
         </div>
       </div>
@@ -1173,13 +1383,16 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <div class="scan-tab-panel" id="tab-upload">
             <div class="upload-panel">
               <div class="upload-zone" id="uploadZone">
-                <input type="file" accept="image/*" id="faceUpload" aria-label="Upload a photo of your face">
+                <input type="file" accept="image/jpeg,image/png,image/webp" id="faceUpload" aria-label="Upload a photo of your face" aria-describedby="photoNotice uploadError">
                 <div class="upload-icon">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-camera"/></svg>
                 </div>
                 <div class="upload-title">Upload a photo of your face</div>
-                <div class="upload-sub">JPG or PNG, front-facing, good light</div>
+                <div class="upload-sub">JPG, PNG or WebP, max 5 MB · front-facing, good light</div>
               </div>
+              <p class="upload-error" id="uploadError" role="alert" hidden></p>
+              <p class="photo-notice" id="photoNotice"><span data-photo-notice>Your photo is only used to generate your result. We don't store it.</span> <a href="privacy.html#ai-scan">How we handle photos</a></p>
+              <label class="photo-consent"><input type="checkbox" id="photoConsent"> <span>I agree to have my photo analyzed by AI</span></label>
               <div class="upload-preview" id="uploadPreview">
                 <img id="previewImg" src="" alt="Face preview">
                 <div class="upload-preview-overlay" id="previewOverlay" style="display:none;"><span>Analyzing…</span></div>
@@ -1189,8 +1402,10 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
                 <div class="scan-result-zones" id="scanZones"></div>
                 <div class="scan-recommendation" id="scanRecommendation" style="display:none;"></div>
                 <div class="ai-disclaimer">For guidance only. Not a substitute for a dermatologist.</div>
+                <div class="scan-email" id="scanEmail" hidden></div>
               </div>
-              <button class="btn btn-primary scan-cta-btn" id="analyzeBtn" style="display:none;">Analyze with AI</button>
+              <button class="btn btn-primary scan-cta-btn" id="analyzeBtn" style="display:none;" disabled aria-describedby="photoConsentHint">Analyze with AI</button>
+              <p class="photo-consent-hint" id="photoConsentHint">Tick the box above to enable the analysis.</p>
             </div>
           </div>
         </div>
@@ -1202,41 +1417,47 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
 <!-- ══ STATS ══ -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item reveal"><div class="stat-num">2 min</div><div class="stat-label">easy quiz, no email needed</div></div>
+    <div class="stat-item reveal"><div class="stat-num">2 min</div><div class="stat-label">easy quiz, no email needed to see your result</div></div>
     <div class="stat-item reveal"><div class="stat-num">6</div><div class="stat-label">guides, one per concern</div></div>
     <div class="stat-item reveal"><div class="stat-num">6 wks</div><div class="stat-label">step-by-step plan included</div></div>
     <div class="stat-item reveal"><div class="stat-num">1×</div><div class="stat-label">payment, no renewals</div></div>
   </div>
 </div>
 
-<!-- ══ REAL RESULTS ══ -->
+<!-- ══ WHAT TO EXPECT (illustrative before/after) ══ -->
 <section class="bx-section">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Real results</span>
+      <span class="eyebrow">What to expect</span>
       <h2>What changes when you follow the right routine.</h2>
     </div>
     <div class="bx-grid">
       <div class="bx-card reveal">
         <div class="bx-images">
-          <img src="oily-before.jpg" alt="Oily skin before">
-          <img src="oily-after.jpg" alt="Skin after the oily skin & acne routine">
+          <img src="oily-before.jpg" alt="Illustration: oily, acne-prone skin before the routine">
+          <img src="oily-after.jpg" alt="Illustration: the same skin after the oily skin &amp; acne routine">
           <div class="bx-divider"></div>
           <span class="bx-sublabel l">Before</span>
           <span class="bx-sublabel r">After</span>
+          <span class="bx-illus l" aria-hidden="true">Illustrative</span>
+          <span class="bx-illus r" aria-hidden="true">Illustrative</span>
         </div>
+        <p class="bx-disclaimer">Illustrations, not customer photos.</p>
         <div class="bx-body">
           <span class="bx-concern">Oily skin &amp; acne</span>
         </div>
       </div>
       <div class="bx-card reveal">
         <div class="bx-images">
-          <img src="shave-before.jpg" alt="Razor irritation before">
-          <img src="shave-after.jpg" alt="Skin after the razor burn routine">
+          <img src="shave-before.jpg" alt="Illustration: razor irritation before the routine">
+          <img src="shave-after.jpg" alt="Illustration: the same skin after the razor burn routine">
           <div class="bx-divider"></div>
           <span class="bx-sublabel l">Before</span>
           <span class="bx-sublabel r">After</span>
+          <span class="bx-illus l" aria-hidden="true">Illustrative</span>
+          <span class="bx-illus r" aria-hidden="true">Illustrative</span>
         </div>
+        <p class="bx-disclaimer">Illustrations, not customer photos.</p>
         <div class="bx-body">
           <span class="bx-concern">Razor burn &amp; irritation</span>
         </div>
@@ -1247,7 +1468,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
 
 <!-- ══ MANIFESTO ══ -->
 <section class="manifesto" aria-label="Our idea">
-  <p id="manifestoText" data-accent="men's skin:">Most skincare is made for women, or for everyone. Skin System is built around men's skin: thicker, oilier, shaved almost every day. And around guys who want a five-minute routine, not a fifty-minute one.</p>
+  <p id="manifestoText" data-accent="men's skin:">Most skincare is made for women, or for everyone. Skin System Men is built around men's skin: thicker, oilier, shaved almost every day. And around guys who want a five-minute routine, not a fifty-minute one.</p>
 </section>
 
 <!-- ══ QUIZ SPOTLIGHT ══ -->
@@ -1285,12 +1506,13 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
       </div>
       <div class="quiz-preview-card">
         <div class="quiz-preview-inner">
-          <div class="quiz-preview-kicker">Question 3 of 7</div>
+          <div class="quiz-preview-kicker">Question 5 of 7</div>
           <div class="quiz-preview-progress"><i></i></div>
           <div class="quiz-preview-q">How does your skin react after shaving?</div>
           <div class="quiz-preview-opt">No real issues</div>
           <div class="quiz-preview-opt sel">Some redness that fades quickly</div>
-          <div class="quiz-preview-opt">Burning, irritation or ingrown hairs</div>
+          <div class="quiz-preview-opt">Burning, irritation or frequent ingrown hairs</div>
+          <div class="quiz-preview-opt">I keep a beard and rarely shave</div>
           <div class="quiz-preview-foot"><span>2 minutes total</span><span>Free, no email</span></div>
         </div>
       </div>
@@ -1310,13 +1532,13 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
       <div class="how-stage" aria-hidden="true">
         <div class="how-device">
           <div class="how-screen active" data-screen="0">
-            <div class="mock-kicker">Question 3 of 6</div>
+            <div class="mock-kicker">Question 1 of 7</div>
             <div class="mock-progress"><i></i></div>
-            <div class="mock-q">How does your skin look by midday?</div>
-            <div class="mock-opt">Shiny all over</div>
-            <div class="mock-opt sel">Shiny only on forehead and nose</div>
-            <div class="mock-opt">Tight, burning after shaving</div>
-            <div class="mock-opt">Normal, no change</div>
+            <div class="mock-q">A couple of hours after washing your face, with nothing on it, how does it look?</div>
+            <div class="mock-opt">Shiny all over, almost greasy</div>
+            <div class="mock-opt sel">Shiny only on the forehead, nose and chin</div>
+            <div class="mock-opt">Neither shiny nor dry</div>
+            <div class="mock-opt">Matte, sometimes tight on its own</div>
           </div>
           <div class="how-screen" data-screen="1">
             <div class="mock-kicker" style="text-align:center;">Your profile</div>
@@ -1340,7 +1562,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
         <article class="how-step active" data-step="0">
           <span class="how-num">1</span>
           <h3>Take the easy quiz.</h3>
-          <p>Seven questions about your skin type and main concern. Two minutes, completely free, no email required. Add a photo for the AI scan if you want.</p>
+          <p>Seven questions about your skin type and main concern. Two minutes, completely free, no email required to see your result. Add a photo for the AI scan if you want.</p>
         </article>
         <article class="how-step" data-step="1">
           <span class="how-num">2</span>
@@ -1424,7 +1646,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
         <p>Ten-step routines designed for someone else's skin, or the usual "wash, moisturize, SPF" that ignores your actual problem. So nothing ever changes.</p>
       </div>
       <div class="compare-card new reveal">
-        <span class="compare-kicker">With Skin System</span>
+        <span class="compare-kicker">With Skin System Men</span>
         <h3>Your issue, pinpointed in 30 seconds.</h3>
         <p>The AI reads your face, beard and shaving included, finds your main concern and takes you to the guide built for it.</p>
       </div>
@@ -1475,7 +1697,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>How a breakout actually forms, not just "wash more" — the right actives and a practical 6-week plan. Niacinamide, salicylic acid and BHA, clearly explained.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842750951801:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-oily-acne" class="guide-link" data-guide="oily-acne" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1487,7 +1709,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>Retinol, vitamin C and the routine that slows down fine lines, using anti-aging actives without irritation.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842765959545:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-early-aging" class="guide-link" data-guide="early-aging" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1499,7 +1721,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>How to shave without inflaming your skin, the right pre- and post-shave products, and a routine against ingrown hairs and razor bumps.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842766975353:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-razor-irritation" class="guide-link" data-guide="razor-irritation" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1511,7 +1733,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>Get back an even, healthy-looking tone with a minimal routine. Vitamin C, AHAs and glycolic acid in the right place, plus a sunscreen that won't feel greasy.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842772316537:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-dull-skin" class="guide-link" data-guide="dull-skin" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1523,7 +1745,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>Why pores get bigger and how to improve texture over time. Retinol, BHA and the right order to apply your products.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773234041:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-pores-texture" class="guide-link" data-guide="pores-texture" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1535,7 +1757,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <p>Nothing to fix? Good. A minimal, correct routine to keep your skin balanced and head off problems before they start.</p>
           <div class="guide-foot">
             <span class="guide-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></span>
-            <a href="https://0qv1z1-ag.myshopify.com/cart/64842773627257:1?discount=SKIN20" class="guide-link gumroad-button">See the guide</a>
+            <a href="#guide-maintenance" class="guide-link" data-guide="maintenance" aria-haspopup="dialog">See the guide</a>
           </div>
         </div>
       </article>
@@ -1661,6 +1883,17 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ══ REVIEWS (rendered from data/reviews.json, hidden while empty) ══ -->
+<section id="reviews" class="reviews-section" aria-labelledby="reviewsTitle" hidden>
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Reviews</span>
+      <h2 id="reviewsTitle">What guys who followed a guide say.</h2>
+    </div>
+    <div class="rv-grid" data-reviews-grid></div>
+  </div>
+</section>
+
 <!-- ══ PRICING ══ -->
 <section id="pricing">
   <div class="wrap">
@@ -1714,6 +1947,31 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ══ ABOUT ══ -->
+<section id="about" class="about-section" aria-labelledby="aboutTitle">
+  <div class="wrap">
+    <div class="about-card reveal">
+      <div class="about-text">
+        <span class="eyebrow">About us</span>
+        <h2 id="aboutTitle">Who's behind Skin System</h2>
+        <p class="about-story" data-founders-story hidden></p>
+      </div>
+      <ul class="founders">
+        <li class="founder">
+          <span class="founder-photo" data-founder="luca" aria-hidden="true">LG</span>
+          <span class="founder-name">Luca Galluzzo</span>
+          <span class="founder-role">Founder</span>
+        </li>
+        <li class="founder">
+          <span class="founder-photo" data-founder="lorenzo" aria-hidden="true">LM</span>
+          <span class="founder-name">Lorenzo Montaruli</span>
+          <span class="founder-role">Co-founder</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FAQ ══ -->
 <section id="faq" class="why-section">
   <div class="wrap">
@@ -1722,7 +1980,7 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
       <h2>Before you start.</h2>
     </div>
     <div class="faq-list reveal">
-      <details class="faq-item"><summary>Is the quiz really free and easy to use? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes. Seven short questions, no email, no sign-up. Answer them and get your skin profile right away, free forever. Only the recommended guide is paid.</p></div></div></details>
+      <details class="faq-item"><summary>Is the quiz really free and easy to use? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes. Seven short questions, no email or sign-up needed to see your result. Answer them and get your skin profile right away, free forever. Only the recommended guide is paid.</p></div></div></details>
       <details class="faq-item"><summary>Can I buy a guide without taking the quiz? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>Yes, browse the library and pick the guide you want. The quiz just helps you avoid buying the wrong one and wasting money on the wrong products.</p></div></div></details>
       <details class="faq-item"><summary>Does the AI scan work with old photos? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>It works best with front-facing photos in natural light, without filters. Blurry or dark photos make the zone-by-zone analysis less accurate.</p></div></div></details>
       <details class="faq-item"><summary>Do I need a lot of products? <span class="faq-toggle"></span></summary><div class="faq-answer"><div><p>No. The routines use a handful of products, morning and evening, in the right order, and every guide includes a budget section so you know what to spend.</p></div></div></details>
@@ -1777,11 +2035,13 @@ src="https://www.facebook.com/tr?id=1086249570848477&ev=PageView&noscript=1"
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Use</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="privacy.html#contact">Contact</a></li>
+          <li><a href="privacy.html#cookies" class="dns-link" data-consent-open>Do Not Sell or Share My Personal Information</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Skin System</span>
+      <span>© 2026 Skin System Men</span>
       <div class="footer-badges">
         <span class="footer-badge"><svg><use href="#i-lock"/></svg>Secure checkout</span>
         <span class="footer-badge"><svg><use href="#i-pin"/></svg>Made in Italy</span>
@@ -1943,19 +2203,66 @@ const AI_GUIDES = {
   maintenance: { name: 'Maintenance routine',       url: 'https://0qv1z1-ag.myshopify.com/cart/64842773627257:1?discount=SKIN20' },
 };
 
+const MAX_PHOTO_BYTES = 5 * 1024 * 1024;
+const PHOTO_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+const uploadError = document.getElementById('uploadError');
+const photoConsent = document.getElementById('photoConsent');
+const photoConsentHint = document.getElementById('photoConsentHint');
+document.querySelectorAll('[data-photo-notice]').forEach(el => {
+  if (window.SSM_CONFIG && SSM_CONFIG.PHOTO_NOTICE) el.textContent = SSM_CONFIG.PHOTO_NOTICE;
+});
+function showUploadError(msg) {
+  uploadError.textContent = msg || '';
+  uploadError.hidden = !msg;
+}
+function syncAnalyzeBtn() {
+  analyzeBtn.disabled = !photoConsent.checked || !imageBase64;
+  photoConsentHint.classList.toggle('is-hidden', photoConsent.checked || analyzeBtn.style.display === 'none');
+}
+photoConsent.addEventListener('change', syncAnalyzeBtn);
+
+// Large photos are scaled down before upload (max 1600 px, JPEG) so the request
+// stays well under the serverless body limit. Small JPG/PNG/WebP files are sent as-is.
+function prepareImage(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("We couldn't read that photo. Please try another one."));
+    reader.onload = (ev) => {
+      const dataUrl = ev.target.result;
+      const img = new Image();
+      img.onerror = () => reject(new Error("We couldn't read that photo. Please try another one."));
+      img.onload = () => {
+        const MAX = 1600;
+        const big = Math.max(img.naturalWidth, img.naturalHeight) > MAX || file.size > 1.5 * 1024 * 1024;
+        if (!big) return resolve({ dataUrl, type: file.type });
+        const k = MAX / Math.max(img.naturalWidth, img.naturalHeight);
+        const scale = Math.min(1, k);
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.naturalWidth * scale);
+        c.height = Math.round(img.naturalHeight * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        resolve({ dataUrl: c.toDataURL('image/jpeg', 0.86), type: 'image/jpeg' });
+      };
+      img.src = dataUrl;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 function loadFile(file) {
-  if (!file || !file.type.startsWith('image/')) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    const dataUrl = ev.target.result;
-    imageMediaType = dataUrl.slice(5, dataUrl.indexOf(';')) || 'image/jpeg';
+  if (!file) return;
+  if (!PHOTO_TYPES.includes(file.type)) { showUploadError('Please upload a JPG, PNG or WebP photo.'); return; }
+  if (file.size > MAX_PHOTO_BYTES) { showUploadError('That photo is larger than 5 MB. Please use a smaller one.'); return; }
+  showUploadError('');
+  prepareImage(file).then(({ dataUrl, type }) => {
+    imageMediaType = type;
     imageBase64 = dataUrl.split(',')[1];
     previewImg.src = dataUrl;
     uploadPreview.style.display = 'block';
     analyzeBtn.style.display = 'block';
     scanResult.style.display = 'none';
-  };
-  reader.readAsDataURL(file);
+    syncAnalyzeBtn();
+  }).catch(err => showUploadError(err.message));
 }
 faceUpload.addEventListener('change', (e) => loadFile(e.target.files[0]));
 uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
@@ -1967,7 +2274,7 @@ uploadZone.addEventListener('drop', (e) => {
 });
 
 analyzeBtn.addEventListener('click', async () => {
-  if (!imageBase64) return;
+  if (!imageBase64 || !photoConsent.checked) return;
   analyzeBtn.disabled = true;
   analyzeBtn.textContent = 'Analyzing…';
   previewOverlay.style.display = 'flex';
@@ -2029,6 +2336,8 @@ Write every value in plain American English. Identify the main visible problem z
       scanZones.innerHTML = html;
 
       const guide = AI_GUIDES[parsed.guide_key] || AI_GUIDES.maintenance;
+      if (window.SSMEmailCard) window.SSMEmailCard.render(document.getElementById('scanEmail'), { skinType: parsed.skin_type || '', guide: guide.name, source: 'ai_scan' });
+      if (window.ssmTrackCustom) window.ssmTrackCustom('AIScanComplete', { recommended_guide: guide.name, skin_type: parsed.skin_type || '' });
       scanRecommendation.style.display = 'block';
       scanRecommendation.innerHTML = `
         <div class="scan-reco-label">Your main issue</div>
@@ -2043,8 +2352,8 @@ Write every value in plain American English. Identify the main visible problem z
     scanRecommendation.style.display = 'none';
   }
 
-  analyzeBtn.disabled = false;
   analyzeBtn.textContent = 'Analyze again';
+  syncAnalyzeBtn();
 });
 
 // ── Ingredient scanner ──
@@ -2345,6 +2654,11 @@ statObserver.observe(document.querySelector('.stats-bar'));
   if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
 })();
 </script>
+<script src="js/guides-data.js"></script>
+<script src="js/email-capture.js"></script>
+<script src="js/site.js" defer></script>
+<script src="js/reviews.js" defer></script>
 <script src="guide-preview.js" defer></script>
+<script src="js/guide-modal.js" defer></script>
 </body>
 </html>

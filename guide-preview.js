@@ -3,16 +3,12 @@
    The reader scrolls the cover and the first half of page 2; scrolling then
    stops smoothly and the buy button slides in (it links to the cart URL, so
    promo code handling is preserved). Only pre-rendered images of page 1 and
-   the top of page 2 are shipped (preview-guide-N-p1/p2.webp) — never the PDF. */
+   the top of page 2 are shipped (preview-guide-N-p1/p2.webp) — never the PDF.
+   Guide data: js/guides-data.js (must load first). Reused by the guide modal
+   (js/guide-modal.js) with data-gp-nobuy to hide the built-in buy bar. */
 (function () {
-  var GUIDES = {
-    '64842750951801': { n: 1, title: 'Oily & Acne-Prone Skin',     pages: 11 },
-    '64842765959545': { n: 2, title: 'Early Signs of Aging',       pages: 11 },
-    '64842766975353': { n: 3, title: 'Razor-Irritated Skin',       pages: 12 },
-    '64842772316537': { n: 4, title: 'Dull Skin & Uneven Tone',    pages: 11 },
-    '64842773234041': { n: 5, title: 'Enlarged Pores & Texture',   pages: 11 },
-    '64842773627257': { n: 6, title: 'Maintenance Routine',        pages: 11 }
-  };
+  /* guide data comes from js/guides-data.js (window.SSM_GUIDES) */
+
 
   /* page images: 1224 × 1584 (US Letter @144dpi); page 2 is cropped to 60% */
   var P_W = 1224, P1_H = 1584, P2_H = 950;
@@ -59,6 +55,8 @@
     /* inline variant */
     '.gp-modal.gp-inline{height:620px;max-height:none;max-width:none;border-radius:22px;transform:none;box-shadow:0 20px 50px rgba(18,28,32,.18)}' +
     '.gp-inline .gp-scroll{overscroll-behavior:auto}' +
+    '.gp-nobuy .gp-buybar,.gp-nobuy .gp-hint{display:none}' +
+    '.gp-nobuy .gp-spacer{height:8px}' +
     '@media (max-width:560px){.gp-modal{height:94vh;height:94dvh;max-height:none;border-radius:18px 18px 0 0}.gp-doc{padding:14px 12px 0}.gp-sheet{margin-bottom:12px}.gp-lock{margin-top:-96px}.gp-buybar{padding:12px 14px calc(12px + env(safe-area-inset-bottom))}.gp-price{font-size:18px}.gp-buy{font-size:14.5px;padding:12px 14px;gap:6px}}' +
     '@media (max-width:560px){.gp-modal.gp-inline{height:540px;border-radius:18px}}' +
     '@media (prefers-reduced-motion:reduce){.gp-doc,.gp-buybar,.gp-hint{transition:none}.gp-hint svg,.gp-unlocked .gp-buy{animation:none}}';
@@ -68,8 +66,8 @@
   document.head.appendChild(styleEl);
 
   function guideFor(href) {
-    var m = /\/cart\/(\d+):/.exec(href || '');
-    return m && GUIDES[m[1]] ? GUIDES[m[1]] : null;
+    var g = window.SSM_GUIDES && window.SSM_GUIDES.byCartUrl(href);
+    return g ? { n: g.n, title: g.pdfTitle, pages: g.pages } : null;
   }
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -171,7 +169,15 @@
     if (!g) { el.innerHTML = ''; el.hidden = true; return; }
     el.hidden = false;
     el.innerHTML = viewerHTML(g, href, true);
+    var nobuy = el.hasAttribute('data-gp-nobuy');
+    if (nobuy) el.firstChild.classList.add('gp-nobuy');
     el._gpStop = wire(el.firstChild, true);
+    if (nobuy) return;
+    var vm = /\/cart\/(\d+):/.exec(href || '');
+    if (vm && window.ssmTrack && window.ssmProductParams) {
+      var p = window.ssmProductParams(vm[1]); p.content_category = 'guide_preview';
+      window.ssmTrack('ViewContent', p);
+    }
   }
   window.SkinPreview = { mount: mount };
   document.querySelectorAll('[data-gp-inline][data-href]').forEach(mount);
