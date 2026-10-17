@@ -24,9 +24,7 @@
     '.gp-file{display:flex;align-items:center;gap:10px;min-width:0;flex:1}' +
     '.gp-file svg{flex:none;width:18px;height:18px;stroke:#C9D6D9;stroke-width:1.8;fill:none}' +
     '.gp-file-txt{min-width:0}' +
-    '.gp-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8FB0B8;line-height:1.2}' +
     '.gp-title{font-size:15px;font-weight:600;color:#fff;line-height:1.3;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
-    '.gp-pageno{flex:none;font-size:12.5px;font-variant-numeric:tabular-nums;color:#C9D6D9;background:rgba(255,255,255,.08);padding:5px 10px;border-radius:6px}' +
     /* scroll area */
     '.gp-scroll{position:relative;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scroll-behavior:auto}' +
     '.gp-doc{padding:22px 22px 0;transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}' +
@@ -61,7 +59,7 @@
     /* inline variant */
     '.gp-modal.gp-inline{height:620px;max-height:none;max-width:none;border-radius:22px;transform:none;box-shadow:0 20px 50px rgba(18,28,32,.18)}' +
     '.gp-inline .gp-scroll{overscroll-behavior:auto}' +
-    '@media (max-width:560px){.gp-modal{height:94vh;height:94dvh;max-height:none;border-radius:18px 18px 0 0}.gp-doc{padding:14px 12px 0}.gp-sheet{margin-bottom:12px}.gp-pageno{display:none}.gp-lock{margin-top:-96px}.gp-buybar{padding:12px 14px calc(12px + env(safe-area-inset-bottom))}.gp-price{font-size:18px}.gp-buy{font-size:14.5px;padding:12px 14px;gap:6px}}' +
+    '@media (max-width:560px){.gp-modal{height:94vh;height:94dvh;max-height:none;border-radius:18px 18px 0 0}.gp-doc{padding:14px 12px 0}.gp-sheet{margin-bottom:12px}.gp-lock{margin-top:-96px}.gp-buybar{padding:12px 14px calc(12px + env(safe-area-inset-bottom))}.gp-price{font-size:18px}.gp-buy{font-size:14.5px;padding:12px 14px;gap:6px}}' +
     '@media (max-width:560px){.gp-modal.gp-inline{height:540px;border-radius:18px}}' +
     '@media (prefers-reduced-motion:reduce){.gp-doc,.gp-buybar,.gp-hint{transition:none}.gp-hint svg,.gp-unlocked .gp-buy{animation:none}}';
 
@@ -85,8 +83,7 @@
     return '<div class="gp-modal' + (inline ? ' gp-inline' : '') + '">' +
         '<div class="gp-bar">' +
           '<div class="gp-file"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>' +
-            '<div class="gp-file-txt"><div class="gp-eyebrow">Free preview · look inside</div><h3 class="gp-title">' + esc(g.title) + '</h3></div></div>' +
-          '<span class="gp-pageno" aria-live="polite">Page <b class="gp-cur">1</b> / ' + g.pages + '</span>' +
+            '<div class="gp-file-txt"><h3 class="gp-title">' + esc(g.title) + '</h3></div></div>' +
         '</div>' +
         '<div class="gp-scroll" tabindex="0" aria-label="Guide preview, scrollable">' +
           '<div class="gp-doc">' +
@@ -108,17 +105,12 @@
   function wire(modal, inline) {
     var scroller = modal.querySelector('.gp-scroll');
     var doc = modal.querySelector('.gp-doc');
-    var cur = modal.querySelector('.gp-cur');
-    var sheets = modal.querySelectorAll('.gp-sheet');
 
     function unlock() { modal.classList.add('gp-unlocked'); }
 
-    /* page counter + reveal the buy bar once the reader reaches the middle of page 2 */
+    /* reveal the buy bar once the reader reaches the middle of page 2 */
     function onScroll() {
       var st = scroller.scrollTop, vh = scroller.clientHeight;
-      var mid = st + vh / 2, page = 1;
-      for (var i = 0; i < sheets.length; i++) if (sheets[i].offsetTop <= mid) page = +sheets[i].getAttribute('data-page');
-      cur.textContent = page;
       var max = scroller.scrollHeight - vh;
       if (max <= 4 || st >= max - 80) unlock();
     }
