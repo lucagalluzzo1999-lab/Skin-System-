@@ -229,6 +229,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 .buy .btn-ghost { border-color: rgba(255,255,255,0.25); color: #fff; margin-top: 10px; }
 .buy .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
 .fine { font-size: 13px; color: var(--muted); text-align: center; margin-top: 18px; }
+.preview-slot { margin: 0 0 26px; }
 .restart { display: block; margin: 18px auto 0; background: none; border: none; color: var(--mid); font-size: 14.5px; font-weight: 500; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .restart:hover { color: var(--ink); }
 
@@ -404,6 +405,8 @@ html.promo-final .promo-std-msg { display: none; }
       </div>
     </div>
 
+    <div class="preview-slot r" style="--d:6.5" id="resultPreview" data-gp-inline hidden></div>
+
     <div class="buy r" style="--d:7">
       <div class="buy-row">
         <div>
@@ -419,7 +422,7 @@ html.promo-final .promo-std-msg { display: none; }
         <li><svg><use href="#i-check"/></svg>PDF, instant download</li>
         <li><svg><use href="#i-check"/></svg>One-time payment</li>
       </ul>
-      <a href="index.html#guides" class="btn btn-primary btn-block gumroad-button" id="resultCta">Get my guide</a>
+      <a href="index.html#guides" class="btn btn-primary btn-block gumroad-button" id="resultCta" data-no-preview>Get my guide</a>
       <a href="https://0qv1z1-ag.myshopify.com/cart/64842773922169:1?discount=SKIN20" class="btn btn-ghost btn-block gumroad-button"><span class="promo-only">Get all 6 guides for $95.92 <s>$119.90</s></span><span class="full-only">Get all 6 guides for $119.90</span></a>
     </div>
 
@@ -879,6 +882,10 @@ function faceSVG(key) {
     const cta = document.getElementById('resultCta');
     cta.href = window.skinPromoUrl ? window.skinPromoUrl(guide.url) : guide.url;
     cta.textContent = document.documentElement.classList.contains('promo-ended') ? 'Get my guide' : 'Get my guide at 20% off';
+
+    const preview = document.getElementById('resultPreview');
+    preview.setAttribute('data-href', cta.href);
+    if (window.SkinPreview) window.SkinPreview.mount(preview);
   }
 
   setProgress('intro');
