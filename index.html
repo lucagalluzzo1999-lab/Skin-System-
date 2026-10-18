@@ -1402,7 +1402,6 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
                 <div class="scan-result-zones" id="scanZones"></div>
                 <div class="scan-recommendation" id="scanRecommendation" style="display:none;"></div>
                 <div class="ai-disclaimer">For guidance only. Not a substitute for a dermatologist.</div>
-                <div class="scan-email" id="scanEmail" hidden></div>
               </div>
               <button class="btn btn-primary scan-cta-btn" id="analyzeBtn" style="display:none;" disabled aria-describedby="photoConsentHint">Analyze with AI</button>
               <p class="photo-consent-hint" id="photoConsentHint">Tick the box above to enable the analysis.</p>
@@ -2336,7 +2335,6 @@ Write every value in plain American English. Identify the main visible problem z
       scanZones.innerHTML = html;
 
       const guide = AI_GUIDES[parsed.guide_key] || AI_GUIDES.maintenance;
-      if (window.SSMEmailCard) window.SSMEmailCard.render(document.getElementById('scanEmail'), { skinType: parsed.skin_type || '', guide: guide.name, source: 'ai_scan' });
       if (window.ssmTrackCustom) window.ssmTrackCustom('AIScanComplete', { recommended_guide: guide.name, skin_type: parsed.skin_type || '' });
       scanRecommendation.style.display = 'block';
       scanRecommendation.innerHTML = `
@@ -2655,7 +2653,6 @@ statObserver.observe(document.querySelector('.stats-bar'));
 })();
 </script>
 <script src="js/guides-data.js"></script>
-<script src="js/email-capture.js"></script>
 <script src="js/site.js" defer></script>
 <script src="js/reviews.js" defer></script>
 <script src="guide-preview.js" defer></script>
