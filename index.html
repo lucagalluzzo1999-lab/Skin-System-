@@ -1764,61 +1764,6 @@ footer { background: var(--bg-alt); padding: 56px 32px 40px; color: var(--muted)
   </div>
 </section>
 
-<!-- ══ RESULTS (panel expands on scroll) ══ -->
-<div class="expand-section">
-  <div class="expand-panel" id="expandPanel">
-    <div class="wrap">
-      <div class="section-head center reveal">
-        <span class="eyebrow">What changes</span>
-        <h2>Six weeks on the right routine.</h2>
-        <p class="section-desc">The difference between a generic routine and one built around your issue shows up in your skin's texture.</p>
-      </div>
-      <div class="before-after-grid">
-        <div class="ba-card reveal">
-          <div class="ba-visual">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#D6DDD9"/><rect width="400" height="300" fill="url(#tex-pores)"/></svg>
-            <div class="ba-after"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="url(#tex-smooth)"/></svg></div>
-            <div class="ba-divider"></div>
-            <span class="ba-label l">Before</span><span class="ba-label r">6 weeks</span>
-          </div>
-          <div class="ba-body">
-            <div class="ba-problem">Oily skin &amp; acne</div>
-            <div class="ba-title">Oil under control</div>
-            <div class="ba-result">Niacinamide 10% in the morning, salicylic acid 2% at night.</div>
-          </div>
-        </div>
-        <div class="ba-card reveal">
-          <div class="ba-visual">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#CFD3D1"/><rect width="400" height="300" fill="url(#tex-dull)"/></svg>
-            <div class="ba-after"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="url(#tex-smooth)"/><ellipse cx="140" cy="90" rx="120" ry="60" fill="#fff" fill-opacity=".35"/></svg></div>
-            <div class="ba-divider"></div>
-            <span class="ba-label l">Before</span><span class="ba-label r">6 weeks</span>
-          </div>
-          <div class="ba-body">
-            <div class="ba-problem">Dull skin</div>
-            <div class="ba-title">A healthier-looking tone</div>
-            <div class="ba-result">Vitamin C in the morning, glycolic acid 8% at night twice a week.</div>
-          </div>
-        </div>
-        <div class="ba-card reveal">
-          <div class="ba-visual">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#DDD6D4"/><rect width="400" height="300" fill="url(#tex-irr)"/></svg>
-            <div class="ba-after"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="url(#tex-smooth)"/></svg></div>
-            <div class="ba-divider"></div>
-            <span class="ba-label l">Before</span><span class="ba-label r">2 weeks</span>
-          </div>
-          <div class="ba-body">
-            <div class="ba-problem">Razor burn</div>
-            <div class="ba-title">Calm skin</div>
-            <div class="ba-result">Pre-shave oil, a single-blade razor, aloe vera after.</div>
-          </div>
-        </div>
-      </div>
-      <p class="ba-note">Illustrations of skin texture, not customer photos.</p>
-    </div>
-  </div>
-</div>
-
 <!-- ══ ROUTINE ══ -->
 <section id="routine">
   <div class="wrap">
@@ -2593,8 +2538,10 @@ function onScroll() {
     const lit = Math.round(p * manifestoWords.length);
     manifestoWords.forEach((w, i) => w.classList.toggle('on', i < lit));
 
-    const er = expandPanel.getBoundingClientRect();
-    expandPanel.style.setProperty('--p', clamp((vh - er.top) / (vh * 0.7)).toFixed(3));
+    if (expandPanel) {
+      const er = expandPanel.getBoundingClientRect();
+      expandPanel.style.setProperty('--p', clamp((vh - er.top) / (vh * 0.7)).toFixed(3));
+    }
   }
   ticking = false;
 }
