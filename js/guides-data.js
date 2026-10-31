@@ -67,7 +67,7 @@
   LIST.forEach(function (g) {
     g.cartUrl = SHOP + g.variantId + ':1?discount=SKIN20';
     g.price = 29.90;        // regular price (as shown on the page)
-    g.salePrice = 23.92;    // launch price, until Nov 10, 2026
+    g.salePrice = 23.92;    // launch price, until Nov 15, 2026
     g.cover = 'preview-guide-' + g.n + '-p1.webp';
     g.included = INCLUDED;
   });

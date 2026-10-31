@@ -132,9 +132,9 @@ footer a { color: var(--mid); }
 </footer>
 
 <script>
-/* Launch promo state (same end date as the homepage): Nov 10, 2026, 11:59:59pm ET */
+/* Launch promo state (same end date as the homepage): Nov 15, 2026, 11:59:59pm ET */
 (function () {
-  var END = Date.UTC(2026, 10, 11, 4, 59, 59);
+  var END = Date.UTC(2026, 10, 16, 4, 59, 59);
   if (Date.now() >= END) {
     document.documentElement.classList.add('promo-ended');
     document.querySelectorAll('a[href*="discount=SKIN20"]').forEach(function (a) { a.href = a.href.replace(/[?&]discount=SKIN20/, ''); });
