@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
-<script>/* launch promo: Oct 31, 11:59pm ET */if(Date.now()>Date.UTC(2026,10,1,3,59,59))document.documentElement.classList.add('promo-ended');</script>
+<script>/* launch promo: Nov 10, 11:59pm ET */if(Date.now()>Date.UTC(2026,10,11,4,59,59))document.documentElement.classList.add('promo-ended');</script>
 <style>
 :root {
   --clay:       #2C4A52;
@@ -255,7 +255,7 @@ h1, h2 { color: var(--ink-2); font-weight: 700; letter-spacing: -0.04em; }
 .restart:hover { color: var(--ink); }
 
 
-/* ── Launch promo (ends Oct 31, 11:59pm ET) ── */
+/* ── Launch promo (ends Nov 10, 11:59pm ET) ── */
 html.promo-ended .promo-only { display: none !important; }
 html:not(.promo-ended) .full-only { display: none !important; }
 .promo-bar { background: var(--ink); color: #fff; font-size: 13.5px; line-height: 1.4; transition: background 0.4s; }
@@ -358,7 +358,7 @@ html.promo-final .promo-std-msg { display: none; }
   <div class="promo-bar promo-only" role="region" aria-label="Launch offer">
     <div class="promo-bar-inner">
       <span><span class="promo-std-msg"><b>Launch offer:</b> 20% off every guide &amp; the bundle<span class="promo-code-note"> with code <b>SKIN20</b>, applied automatically</span></span><span class="promo-final-msg"><b>Final days:</b> 20% off ends soon, then prices go up</span></span>
-      <span class="promo-cd" data-cd-text>Ends Oct 31</span>
+      <span class="promo-cd" data-cd-text>Ends Nov 10</span>
       <a href="index.html#pricing">Lock in the launch price →</a>
     </div>
   </div>
@@ -439,7 +439,7 @@ html.promo-final .promo-std-msg { display: none; }
         </div>
         <div class="buy-price"><span class="promo-only"><s class="was">$29.90</s>$23.92</span><span class="full-only">$29.90</span></div>
       </div>
-      <div class="buy-urgency promo-only"><span><b>Launch price, 20% off</b> with code SKIN20 (auto-applied). Goes up to $29.90 after Oct 31.</span><span class="promo-cd" data-cd-text>ends soon</span></div>
+      <div class="buy-urgency promo-only"><span><b>Launch price, 20% off</b> with code SKIN20 (auto-applied). Goes up to $29.90 after Nov 10.</span><span class="promo-cd" data-cd-text>ends soon</span></div>
       <ul class="buy-list">
         <li><svg><use href="#i-check"/></svg>Morning and evening routine</li>
         <li><svg><use href="#i-check"/></svg>6-week plan</li>
@@ -920,9 +920,9 @@ function faceSVG(key) {
 </script>
 
 <script>
-/* ── Launch promo countdown: ends Oct 31, 2026, 11:59:59pm ET ── */
+/* ── Launch promo countdown: ends Nov 10, 2026, 11:59:59pm ET ── */
 (function () {
-  var END = Date.UTC(2026, 10, 1, 3, 59, 59);
+  var END = Date.UTC(2026, 10, 11, 4, 59, 59);
   var root = document.documentElement;
   function stripCode() { document.querySelectorAll('a[href*="discount=SKIN20"]').forEach(function (a) { a.href = a.href.replace(/[?&]discount=SKIN20/, ''); }); }
   window.skinPromoUrl = function (u) { return root.classList.contains('promo-ended') ? u.replace(/[?&]discount=SKIN20/, '') : u; };

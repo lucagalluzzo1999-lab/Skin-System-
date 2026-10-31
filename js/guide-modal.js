@@ -55,7 +55,7 @@
         '</div>' +
         '<div class="gm-buy">' +
           '<div class="gm-price">' +
-            '<span class="promo-only"><s class="gm-was">' + money(g.price) + '</s>' + money(g.salePrice) + '<small>Launch price · ends Oct 31</small></span>' +
+            '<span class="promo-only"><s class="gm-was">' + money(g.price) + '</s>' + money(g.salePrice) + '<small>Launch price · ends Nov 10</small></span>' +
             '<span class="full-only">' + money(g.price) + '<small>One-time payment</small></span>' +
           '</div>' +
           '<div class="gm-ctas">' +
